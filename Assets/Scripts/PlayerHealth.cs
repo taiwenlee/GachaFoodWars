@@ -13,9 +13,10 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealth();
     }
 
-    public void UpdateHealth() {
+    public void UpdateHealth() { // alive or dead hearts
         if(playerHealth <= 0) {
             //restart game code here
+            print("Player Dead");
         }
         for(int i = 0; i < numHearts.Length; i++) {
             if(i < playerHealth) {
