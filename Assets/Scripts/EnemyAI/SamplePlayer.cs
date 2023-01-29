@@ -7,6 +7,7 @@ public class SamplePlayer : MonoBehaviour
     [Header("Stats")]
     public float health = 100.0f;
     public float speed = 3.0f;
+    [SerializeField] private PlayerHealth healthControl;
 
 
 
@@ -28,7 +29,8 @@ public class SamplePlayer : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        health -= damage;
+        healthControl.playerHealth -= damage; // subtracts hearts
+        healthControl.UpdateHealth(); //updates it visually
         Debug.Log("Player took " + damage + " damage!");
     }
 }
