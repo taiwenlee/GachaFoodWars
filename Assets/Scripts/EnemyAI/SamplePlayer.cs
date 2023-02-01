@@ -5,7 +5,7 @@ using UnityEngine;
 public class SamplePlayer : MonoBehaviour
 {
     [Header("Stats")]
-    public float health = 100.0f;
+    public float health = 100;
     public float speed = 3.0f;
 
 
