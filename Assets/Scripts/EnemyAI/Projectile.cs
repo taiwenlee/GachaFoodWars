@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == owner)
+        if (collision.gameObject == owner || collision.gameObject.name == gameObject.name)
         {
             return;
         }
@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
+            Debug.Log(collision.gameObject.name);
             Destroy(gameObject);
         }
     }

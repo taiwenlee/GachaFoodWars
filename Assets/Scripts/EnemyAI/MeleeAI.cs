@@ -49,7 +49,7 @@ public class MeleeAI : MonoBehaviour
             {
                 // subject to change based on how we implement player health
                 Debug.Log("Player took " + damage + " damage!");
-                attackcooldown = attackRate;
+                attackcooldown = 1 / attackRate;
             }
         }
 

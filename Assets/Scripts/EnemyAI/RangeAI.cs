@@ -37,7 +37,7 @@ public class RangeAI : MonoBehaviour
         // check if player is in line of sight, move to 9 units away from player if true
         var rayDirection = player.transform.position - transform.position;
         bool inRange = rayDirection.magnitude > targetDistance - targetRange && rayDirection.magnitude < targetDistance + targetRange;
-        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange))
+        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange, ~LayerMask.GetMask("Ignore Raycast")))
         {
             if (hit.collider.gameObject == player)
             {
@@ -52,7 +52,7 @@ public class RangeAI : MonoBehaviour
                     projectileInstance.GetComponent<Projectile>().owner = gameObject;
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
 
-                    attackcooldown = attackRate;
+                    attackcooldown = 1 / attackRate;
                 }
 
             }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7733247242198862213}
   - component: {fileID: 7733247242198862214}
   - component: {fileID: 7733247242198862215}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,3 +130,5 @@ MonoBehaviour:
   speed: 10
   damage: 1
   lifeTime: 5
+  direction: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
