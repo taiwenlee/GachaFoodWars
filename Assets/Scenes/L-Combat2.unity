@@ -5513,6 +5513,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 6577861735784298125, guid: c62f93834a2f2374cab442638b0ed57b,
+        type: 3}
+      propertyPath: m_Name
+      value: GateR
+      objectReference: {fileID: 0}
     - target: {fileID: 7223667382213894673, guid: c62f93834a2f2374cab442638b0ed57b,
         type: 3}
       propertyPath: m_Name
