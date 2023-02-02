@@ -39,12 +39,11 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // subject to change based on how we implement player health
-            Debug.Log("Player took " + damage + " damage!");
+            collision.gameObject.GetComponent<Player>().takeDamage(damage);
             Destroy(gameObject);
         }
         else
         {
-            Debug.Log(collision.gameObject.name);
             Destroy(gameObject);
         }
     }
