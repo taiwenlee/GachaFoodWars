@@ -19,10 +19,11 @@ public class MeleeAI : MonoBehaviour
     // private variables
     private NavMeshAgent agent;
     private float attackcooldown = 0.0f;
-
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        print("test");
     }
 
     // Update is called once per frame
