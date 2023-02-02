@@ -17,9 +17,7 @@ public class LevelManager : MonoBehaviour
         if (string.Compare(exitLevelName, "") == 0)
         {
             Debug.LogError(
-                    "Unable to initiate next scene. Possible issues:\n" +
-                    "\t- Next scene's string name not defined in Level Manager inspector window...\n" +
-                    "\t- Next scene was not added to build settings (File -> Build Settings -> Scenes in Build)..."
+                    "Exit level name not defined in inspector"
             );
             return;
         }

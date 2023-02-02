@@ -6737,7 +6737,7 @@ PrefabInstance:
     - target: {fileID: 4190932775541267273, guid: cf787f1cfaabfc54490ba4ff6b74d836,
         type: 3}
       propertyPath: exitLevelName
-      value: L-Combat1
+      value: Game
       objectReference: {fileID: 0}
     - target: {fileID: 4190932775541267273, guid: cf787f1cfaabfc54490ba4ff6b74d836,
         type: 3}

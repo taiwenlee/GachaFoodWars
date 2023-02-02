@@ -18,5 +18,9 @@ public class Gate : MonoBehaviour
         {
             triggered = true;
         }
+        else
+        {
+            Debug.LogError("Check if object tag is 'Player'");
+        }
     }
 }
