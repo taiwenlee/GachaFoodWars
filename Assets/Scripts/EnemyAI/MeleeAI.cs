@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeChase : MonoBehaviour
+public class MeleeAI : MonoBehaviour
 {
     [Header("References")]
     public GameObject player;
@@ -49,8 +49,8 @@ public class MeleeChase : MonoBehaviour
             if (attackcooldown <= 0.0f)
             {
                 // subject to change based on how we implement player health
-                player.GetComponent<SamplePlayer>().takeDamage(damage);
-                attackcooldown = attackRate;
+                Debug.Log("Player took " + damage + " damage!");
+                attackcooldown = 1 / attackRate;
             }
         }
 
