@@ -15,11 +15,12 @@ public class MeleeAI : MonoBehaviour
     public float attackRate = 1.0f;
     public float attackRange = 1.0f;
     public float sightRange = 10.0f;
+    public float damageTimeout = 1f;
 
     // private variables
     private NavMeshAgent agent;
     private float attackcooldown = 0.0f;
-    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -49,7 +50,7 @@ public class MeleeAI : MonoBehaviour
             if (attackcooldown <= 0.0f)
             {
                 // subject to change based on how we implement player health
-                Debug.Log("Player took " + damage + " damage!");
+                player.GetComponent<Player>().takeDamage(damage);
                 attackcooldown = 1 / attackRate;
             }
         }
@@ -60,7 +61,6 @@ public class MeleeAI : MonoBehaviour
             attackcooldown -= Time.deltaTime;
         }
     }
-
     void OnDrawGizmosSelected()
     {
         // draw wireframe for attack range

@@ -51,7 +51,7 @@ public class RangeAI : MonoBehaviour
                     var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().owner = gameObject;
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
-
+                    projectileInstance.GetComponent<Projectile>().damage = damage;
                     attackcooldown = 1 / attackRate;
                 }
 
