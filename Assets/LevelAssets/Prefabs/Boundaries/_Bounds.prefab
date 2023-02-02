@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2141842467963480306}
   - component: {fileID: 51303738974595936}
   m_Layer: 0
-  m_Name: Bounds-Proto
+  m_Name: _Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
