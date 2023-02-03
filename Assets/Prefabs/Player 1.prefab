@@ -205,8 +205,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4998193235737454709}
-  m_LocalRotation: {x: 0.2938752, y: -0.6431387, z: 0.2938662, w: 0.6431584}
-  m_LocalPosition: {x: 4.71, y: 5.4399996, z: -0.00014400482}
+  m_LocalRotation: {x: 0.41559592, y: -0, z: -0, w: 0.90954936}
+  m_LocalPosition: {x: 0, y: 5.4399996, z: -4.7099996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -266,8 +266,8 @@ GameObject:
   - component: {fileID: 4998193236791631855}
   - component: {fileID: 4998193236791631852}
   - component: {fileID: 4998193236791631853}
-  - component: {fileID: 6114234561970087640}
   - component: {fileID: 4998193236791631856}
+  - component: {fileID: 6114234561970087640}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -425,20 +425,6 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6114234561970087640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998193236791631848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af44b719629c9842875146e3f8063d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 4
-  numHearts: []
 --- !u!114 &4998193236791631856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,8 +439,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   gravity: -9.81
-  playerAnimation: {fileID: 0}
+  smoothRotate: 2000
   isController: 0
+--- !u!114 &6114234561970087640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998193236791631848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af44b719629c9842875146e3f8063d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 4
+  numHearts: []
 --- !u!1 &4998193236899144895
 GameObject:
   m_ObjectHideFlags: 0
