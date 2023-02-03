@@ -11,6 +11,7 @@ public class CollisionDetection : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
             other.gameObject.GetComponent <MeleeAI>().TakeDamage(50);
+           // other.gameObject.GetComponent<RangeAI>().TakeDamage(50);
             Debug.Log(other.gameObject.GetComponent<MeleeAI>().health);
         }
     }

@@ -58,6 +58,10 @@ public class RangeAI : MonoBehaviour
             }
         }
 
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
         // decrement attack cooldown
         if (attackcooldown > 0.0f)
         {
@@ -75,4 +79,8 @@ public class RangeAI : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+/*    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }*/
 }
