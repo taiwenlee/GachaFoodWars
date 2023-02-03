@@ -79,8 +79,8 @@ public class RangeAI : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-/*    public void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
-    }*/
+    }
 }
