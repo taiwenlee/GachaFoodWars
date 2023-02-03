@@ -8,19 +8,20 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision between " + gameObject.name + " and " + other.gameObject.name + " with tag " + other.gameObject.tag);
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("sas");
-        }
-        if(wc.isAttacking)
-        {
-            Debug.Log("loda");
-        }
-        Debug.Log("check");
         if(other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
-            Debug.Log("hello");
+            Debug.Log(other.gameObject.name);
+            if(other.gameObject.name == "MeleeEnemy(Clone)")
+            {
+                Debug.Log("Doing dmg to melee");
+                other.gameObject.GetComponent<MeleeAI>().TakeDamage(50);
+            }
+            if (other.gameObject.name == "RangeEnemy(Clone)")
+            {
+                Debug.Log("Doing dmg to range");
+
+                other.gameObject.GetComponent<RangeAI>().TakeDamage(50);
+            }
         }
     }
 }
