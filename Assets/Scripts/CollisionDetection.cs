@@ -8,19 +8,10 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision between " + gameObject.name + " and " + other.gameObject.name + " with tag " + other.gameObject.tag);
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("sas");
-        }
-        if(wc.isAttacking)
-        {
-            Debug.Log("loda");
-        }
-        Debug.Log("check");
         if(other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
-            Debug.Log("hello");
+            other.gameObject.GetComponent <MeleeAI>().TakeDamage(50);
+            Debug.Log(other.gameObject.GetComponent<MeleeAI>().health);
         }
     }
 }
