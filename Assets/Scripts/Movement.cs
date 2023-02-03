@@ -8,13 +8,17 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float deadzone = 0.1f;
     [SerializeField] private float smoothRotate= 2000f;
+    //private int playerSpeed = 10;
+    //private int playerRotation = -5;
 
-    
-    
+    [Header("Animation")]
+    public Animator playerAnimation;
+
     [SerializeField] private bool isController;
 
     private CharacterController controller;
@@ -50,7 +54,7 @@ public class Movement : MonoBehaviour
 
     void HandleInput() {
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
-        //aim = playerControls.Controls.Aim.ReadValue<Vector2>();
+        aim = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
     void HandleMovement() {
         Vector3 move = new Vector3(movement.x,0,movement.y);
@@ -58,13 +62,26 @@ public class Movement : MonoBehaviour
 
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        //playerAnimation.SetFloat("moveSpeed",  playerVelocity.magnitude);
     }
     void HandleRotation() {
+        //For fixed rotation direction
+        // var movementX = Input.GetAxis("Horizontal") * Time.deltaTime * playerSpeed; 
+        // float rotationZ = Input.GetAxis("Horizontal") * playerRotation;
+        // transform.Translate(movementX, 0, 0, Space.World);
+        // transform.localRotation = Quaternion.Euler(0,0,rotationZ);
+
+
+        // Uncomment for WASD rotation
         Vector3 move = new Vector3(movement.x,0,movement.y);
          if(move != Vector3.zero) {
             Quaternion toRot = Quaternion.LookRotation(move,Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation,toRot,smoothRotate*Time.deltaTime);
          }
+
+
+        //Uncomment for full mouse rotation
         //using controller
         // if(isController) {
         //     if(Mathf.Abs(aim.x) > deadzone || Mathf.Abs(aim.y) > deadzone) {
