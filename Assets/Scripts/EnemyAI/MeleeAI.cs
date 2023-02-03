@@ -60,6 +60,11 @@ public class MeleeAI : MonoBehaviour
         {
             attackcooldown -= Time.deltaTime;
         }
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     void OnDrawGizmosSelected()
     {
@@ -69,5 +74,10 @@ public class MeleeAI : MonoBehaviour
         // draw wireframe for sight range
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
