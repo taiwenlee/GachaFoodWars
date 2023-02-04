@@ -34,7 +34,7 @@ public class MeleeAI : MonoBehaviour
 
         // check if player is in line of sight, chase if true
         var rayDirection = player.transform.position - transform.position;
-        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange))
+        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange) && rayDirection.magnitude > attackRange)
         {
             if (hit.collider.gameObject == player)
             {
@@ -45,6 +45,8 @@ public class MeleeAI : MonoBehaviour
         // check if player is in attack range, attack if true
         if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
         {
+            // stop moving
+            agent.SetDestination(transform.position);
             // attack player
             if (attackcooldown <= 0.0f)
             {
@@ -59,6 +61,14 @@ public class MeleeAI : MonoBehaviour
         {
             attackcooldown -= Time.deltaTime;
         }
+<<<<<<< Updated upstream
+=======
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+>>>>>>> Stashed changes
     }
 
     void OnDrawGizmosSelected()
