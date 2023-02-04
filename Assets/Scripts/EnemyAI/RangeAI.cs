@@ -51,13 +51,17 @@ public class RangeAI : MonoBehaviour
                     var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().owner = gameObject;
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
-
+                    projectileInstance.GetComponent<Projectile>().damage = damage;
                     attackcooldown = 1 / attackRate;
                 }
 
             }
         }
 
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
         // decrement attack cooldown
         if (attackcooldown > 0.0f)
         {
@@ -74,5 +78,9 @@ public class RangeAI : MonoBehaviour
         // draw wireframe for sight range
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

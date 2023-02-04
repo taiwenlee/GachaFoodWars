@@ -15,11 +15,12 @@ public class MeleeAI : MonoBehaviour
     public float attackRate = 1.0f;
     public float attackRange = 1.0f;
     public float sightRange = 10.0f;
+    public float damageTimeout = 1f;
 
     // private variables
     private NavMeshAgent agent;
     private float attackcooldown = 0.0f;
-    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -34,7 +35,7 @@ public class MeleeAI : MonoBehaviour
 
         // check if player is in line of sight, chase if true
         var rayDirection = player.transform.position - transform.position;
-        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange) && rayDirection.magnitude > attackRange)
+        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange))
         {
             if (hit.collider.gameObject == player)
             {
@@ -45,13 +46,11 @@ public class MeleeAI : MonoBehaviour
         // check if player is in attack range, attack if true
         if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
         {
-            // stop moving
-            agent.SetDestination(transform.position);
             // attack player
             if (attackcooldown <= 0.0f)
             {
                 // subject to change based on how we implement player health
-                Debug.Log("Player took " + damage + " damage!");
+                player.GetComponent<Player>().takeDamage(damage);
                 attackcooldown = 1 / attackRate;
             }
         }
@@ -61,16 +60,12 @@ public class MeleeAI : MonoBehaviour
         {
             attackcooldown -= Time.deltaTime;
         }
-<<<<<<< Updated upstream
-=======
 
-        if (health <= 0)
+        if(health <= 0)
         {
             Destroy(gameObject);
         }
->>>>>>> Stashed changes
     }
-
     void OnDrawGizmosSelected()
     {
         // draw wireframe for attack range
@@ -79,5 +74,10 @@ public class MeleeAI : MonoBehaviour
         // draw wireframe for sight range
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

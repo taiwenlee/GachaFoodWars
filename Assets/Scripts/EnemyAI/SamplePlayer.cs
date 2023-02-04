@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SamplePlayer : MonoBehaviour
 {
-    [Header("Stats")]
+/*    [Header("Stats")]
     //public float health = 100.0f;
     public float speed = 3.0f;
-    [SerializeField] private PlayerHealth healthControl;
+    //[SerializeField] private PlayerHealth healthControl;
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
 
@@ -44,5 +44,5 @@ public class SamplePlayer : MonoBehaviour
         delayDamage = false;
         yield return new WaitForSeconds(damageTimeout);
         delayDamage = true;
-    }
+    }*/
 }
