@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     [Header("Stats")]
     public int health = 4;
-
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
     public void takeDamage(int damage)
@@ -27,5 +26,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(damageTimeout);
         delayDamage = true;
     }
+    public void InTheZone()
+    {
 
+    }
 }

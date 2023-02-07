@@ -44,6 +44,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6f0a2b9-83c9-4b76-aab7-3047e026b8af"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61d08cfc-5531-48f6-8e10-12a7b4028d65"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -172,6 +192,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
         m_Controls_Aim = m_Controls.FindAction("Aim", throwIfNotFound: true);
+        m_Controls_Pickup = m_Controls.FindAction("Pickup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -233,12 +254,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private IControlsActions m_ControlsActionsCallbackInterface;
     private readonly InputAction m_Controls_Movement;
     private readonly InputAction m_Controls_Aim;
+    private readonly InputAction m_Controls_Pickup;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
         public ControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Controls_Movement;
         public InputAction @Aim => m_Wrapper.m_Controls_Aim;
+        public InputAction @Pickup => m_Wrapper.m_Controls_Pickup;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -254,6 +277,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAim;
+                @Pickup.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPickup;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -264,6 +290,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
             }
         }
     }
@@ -290,5 +319,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
 }
