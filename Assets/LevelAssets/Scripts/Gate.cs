@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
-    [ReadOnly]
     public bool triggered;
 
     private void Start()

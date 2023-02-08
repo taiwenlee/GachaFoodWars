@@ -205,8 +205,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4998193235737454709}
-  m_LocalRotation: {x: 0.41559592, y: -0, z: -0, w: 0.90954936}
-  m_LocalPosition: {x: 0, y: 5.4399996, z: -4.7099996}
+  m_LocalRotation: {x: 0.4155934, y: 0.0031748596, z: -0.001450673, w: 0.9095439}
+  m_LocalPosition: {x: -0.03288112, y: 5.44, z: -4.709885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -263,9 +263,9 @@ GameObject:
   - component: {fileID: 4998193236791631851}
   - component: {fileID: 4998193236791631857}
   - component: {fileID: 4998193236791631854}
+  - component: {fileID: 4998193236791631853}
   - component: {fileID: 4998193236791631855}
   - component: {fileID: 4998193236791631852}
-  - component: {fileID: 4998193236791631853}
   - component: {fileID: 4998193236791631856}
   - component: {fileID: 6114234561970087640}
   m_Layer: 0
@@ -342,38 +342,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4998193236791631855
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998193236791631848}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &4998193236791631852
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998193236791631848}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4998193236791631853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +393,38 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!136 &4998193236791631855
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998193236791631848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &4998193236791631852
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998193236791631848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4998193236791631856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +439,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   gravity: -9.81
+  deadzone: 0.1
   smoothRotate: 2000
+  rotate: 0
+  CollisionOnOff: 0
+  playerAnimation: {fileID: 0}
   isController: 0
 --- !u!114 &6114234561970087640
 MonoBehaviour:
@@ -453,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af44b719629c9842875146e3f8063d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 4
+  health: 4
   numHearts: []
 --- !u!1 &4998193236899144895
 GameObject:
