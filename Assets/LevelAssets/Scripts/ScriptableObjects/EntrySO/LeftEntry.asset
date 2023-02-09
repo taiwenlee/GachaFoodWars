@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4648f93bd98ca01458c7c1fa65a7ec97, type: 3}
   m_Name: LeftEntry
   m_EditorClassIdentifier: 
-  x: 0
+  x: -22.5
   y: 0
   z: 0

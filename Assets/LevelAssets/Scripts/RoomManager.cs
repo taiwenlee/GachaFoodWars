@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
 {
@@ -15,16 +15,18 @@ public class RoomManager : MonoBehaviour
 
     private int levelInd;
     private string exitSceneName;
-    private GameObject entryGate;
+    //private GameObject entryGate;
     private GameObject exitGate;
     private Gate gateScript;
     public PlayerLevelProgression plp;
     public LevelStructure levelStructure;
 
-    private void Awake()
+    void Awake()
     {
         levelInd = plp.GetLevelIndex();
         int roomInd = plp.GetRoomIndex(levelInd);
+
+        Debug.Log("Level " + (levelInd + 1) + " - Room " + (roomInd + 1));
 
         Instantiate(levelStructure.matrixRooms[levelInd][roomInd], roomOrigin.transform);
         //entryGate = GameObject.FindWithTag("Gate_Enter");
@@ -36,15 +38,9 @@ public class RoomManager : MonoBehaviour
             levelStructure.restAreaName;
         plp.IncrementRoomIndex(levelInd);
 
-    }
-
-    private void Start()
-    {
-        GameObject player = Instantiate(playerPrefab);
-        eSpawner.Player = player;
         Vector3 pos = gateScript.GetEntryWorldPosition();
-        pos.y += 1;
-        player.transform.position = pos;
+        GameObject player = Instantiate(playerPrefab, pos, Quaternion.identity);
+        eSpawner.Player = player;
     }
 
     // Update is called once per frame
