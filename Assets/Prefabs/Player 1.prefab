@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 6114234561970087640}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,8 +441,6 @@ MonoBehaviour:
   gravity: -9.81
   deadzone: 0.1
   smoothRotate: 2000
-  rotate: 0
-  CollisionOnOff: 0
   playerAnimation: {fileID: 0}
   isController: 0
 --- !u!114 &6114234561970087640

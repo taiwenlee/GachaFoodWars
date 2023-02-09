@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe62e3fedec3264383a3cd41dee32af, type: 3}
+  m_Name: LevelStructureObject
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  currentRoom: 9
+  numberOfRooms: 0
+  restAreaName: L-Rest
+  combatAreaName: Game
+  levelOneRooms:
+  - {fileID: 5874901144926929944, guid: a2802f15f3b0f2b41a0243c6c2c8ed30, type: 3}
+  - {fileID: 5874901144926929944, guid: a2802f15f3b0f2b41a0243c6c2c8ed30, type: 3}
+  levelTwoRooms:
+  - {fileID: 1659734411921076007, guid: 0fd6efd754b125c469ca3839b249e529, type: 3}
+  - {fileID: 1659734411921076007, guid: 0fd6efd754b125c469ca3839b249e529, type: 3}

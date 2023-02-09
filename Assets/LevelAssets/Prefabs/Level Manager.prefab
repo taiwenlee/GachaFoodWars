@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fed5640d593f04eaa533c8eb94a545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerExitGate: {fileID: 0}
+  Level1RoomPrefabs: []
+  roomOrigin: {fileID: 0}
+  playerPrefab: {fileID: 4998193236791631848, guid: 074a60abf2f60a240861fb29c992e970,
+    type: 3}
+  eSpawner: {fileID: 0}
+  plp: {fileID: 11400000, guid: 43e39a2b1109d7d478086e12a39ab16f, type: 2}
+  levelStructure: {fileID: 11400000, guid: aa7c0448f8d13614084dc221600dd4e8, type: 2}
