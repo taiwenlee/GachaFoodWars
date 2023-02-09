@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe62e3fedec3264383a3cd41dee32af, type: 3}
   m_Name: LevelStructureObject
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentRoom: 9
-  numberOfRooms: 0
   restAreaName: L-Rest
   combatAreaName: Game
   levelOneRooms:
