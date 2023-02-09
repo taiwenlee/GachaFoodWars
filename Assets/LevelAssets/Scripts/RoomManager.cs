@@ -27,7 +27,7 @@ public class RoomManager : MonoBehaviour
         int roomInd = plp.GetRoomIndex(levelInd);
 
         Instantiate(levelStructure.matrixRooms[levelInd][roomInd], roomOrigin.transform);
-        entryGate = GameObject.FindWithTag("Gate_Enter");
+        //entryGate = GameObject.FindWithTag("Gate_Enter");
         exitGate = GameObject.FindWithTag("Gate_Exit");
         gateScript = exitGate.GetComponent<Gate>();
 
@@ -36,14 +36,15 @@ public class RoomManager : MonoBehaviour
             levelStructure.restAreaName;
         plp.IncrementRoomIndex(levelInd);
 
-        
     }
 
     private void Start()
     {
+        GameObject player = Instantiate(playerPrefab);
+        eSpawner.Player = player;
         Vector3 pos = gateScript.GetEntryWorldPosition();
         pos.y += 1;
-        playerPrefab.transform.position = pos;
+        player.transform.position = pos;
     }
 
     // Update is called once per frame
