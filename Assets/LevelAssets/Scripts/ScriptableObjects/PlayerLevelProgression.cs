@@ -4,6 +4,14 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "PlayerLevelProgression")]
 
+/// Contains static data regarding the player's level progression
+/// After the player clears all rooms in a level's room pool (defined in LevelStructure),
+/// the corresponding boolean for that level is set to true.
+/// During next combat, the game will load the next level's rooms.
+/// 
+/// Room Index is used in RoomManager to track which room has been cleared already.
+/// Right now, the structure is linear
+
 public class PlayerLevelProgression : ScriptableObject
 {
     [Header("Base Metrics")]

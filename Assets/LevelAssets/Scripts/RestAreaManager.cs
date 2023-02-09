@@ -10,23 +10,13 @@ public class RestAreaManager : MonoBehaviour
 
     public LevelStructure levelStructure;
     public PlayerLevelProgression plp;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (exitGate.triggered)
         {
-            BeginGenerateLevels();
+            Initiate.Fade(levelStructure.combatAreaName, Color.black, 3.0f);
         }
-    }
-
-    private void BeginGenerateLevels()
-    {
-        Initiate.Fade(levelStructure.combatAreaName, Color.black, 3.0f);
     }
 }

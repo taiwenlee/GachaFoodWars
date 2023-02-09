@@ -6,9 +6,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// RoomManager handles instantiating prefabs which include the player
+/// object and all room gameObjects
+/// 
+/// RoomManager will pull from a list of room prefabs stored in LevelStructure
+/// 
+/// PlayerLevelProgression tracks the player's progression through all levels implemeneted
+/// 
+/// Gate is a simple script used to invoke collision callback to change scenes
+/// 
+/// Gate also contains an SO that contains the Player spawn coordinates
+/// 
+/// EnemySpawner's Player member will reference the player object instantiated in
+/// this script
+/// 
+/// </summary>
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> Level1RoomPrefabs;
     [SerializeField] GameObject roomOrigin;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] EnemySpawner eSpawner;
