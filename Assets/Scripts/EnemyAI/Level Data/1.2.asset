@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813c5dec294afdd45a1746f3aafe3df0, type: 3}
   m_Name: 1.2
   m_EditorClassIdentifier: 
-  prefabName: 
-  mobNames: []
+  LevelName: 2
+  mobNames:
+  - Range
+  - Range
+  - Range
+  - Range
+  - Range
+  spawnPoints: []

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813c5dec294afdd45a1746f3aafe3df0, type: 3}
   m_Name: 1.1
   m_EditorClassIdentifier: 
-  prefabName: 1.1
+  LevelName: 1
   mobNames:
   - Melee
   - Melee
@@ -22,3 +22,12 @@ MonoBehaviour:
   - Melee
   - Melee
   - Melee
+  spawnPoints:
+  - {x: 5, y: 0, z: 0}
+  - {x: 5, y: 0, z: 5}
+  - {x: 0, y: 0, z: 5}
+  - {x: -5, y: 0, z: 5}
+  - {x: -5, y: 0, z: 0}
+  - {x: -5, y: 0, z: -5}
+  - {x: 0, y: 0, z: -5}
+  - {x: 5, y: 0, z: -5}
