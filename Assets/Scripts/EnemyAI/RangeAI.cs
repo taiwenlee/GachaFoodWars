@@ -49,16 +49,16 @@ public class RangeAI : MonoBehaviour
                 {
                     // spawns a projectile that moves towards the player
                     var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
-                    projectileInstance.GetComponent<Projectile>().owner = gameObject;
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
                     projectileInstance.GetComponent<Projectile>().damage = damage;
+                    projectile.transform.parent = transform;
                     attackcooldown = 1 / attackRate;
                 }
 
             }
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }

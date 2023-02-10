@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     public Vector3 direction;
     private Rigidbody rb;
     private Collider col;
-    public GameObject owner;   // the object that fired this projectile
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,8 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == owner || collision.gameObject.name == gameObject.name)
+        // ignore collisions with parent and similar projectiles
+        if (collision.gameObject == transform.parent || collision.gameObject.name == gameObject.name)
         {
             return;
         }
