@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b963dc9de4f8c48b16c8ba7ba0c436, type: 3}
   m_Name: LS-Proto
   m_EditorClassIdentifier: 
-  restAreaName: 
-  combatAreaName: 
+  restAreaName: L-Rest
+  combatAreaName: Game
   levelOneRooms:
   - {x: 0, y: -1, z: 1, w: -1}
   levelTwoRooms: []

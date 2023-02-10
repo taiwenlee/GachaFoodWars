@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf5fbe0559d8b343952838b97db0ea1, type: 3}
   m_Name: RoomConstructor
   m_EditorClassIdentifier: 
-  player: {fileID: 4998193236791631848, guid: 074a60abf2f60a240861fb29c992e970, type: 3}
+  player: {fileID: 1879624361470341009, guid: 52f3cc82794448b41a369f7734c8ca18, type: 3}
   ground: {fileID: 4394539510535866661, guid: 5b37903ff2f27284a8accf47860dc1bb, type: 3}
   treeStackNorth: {fileID: 6885308678886346487, guid: 09517861c7df5994da3ba9412f41ab46,
     type: 3}

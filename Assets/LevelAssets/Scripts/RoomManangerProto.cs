@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomManangerProto : MonoBehaviour
 {
     [SerializeField] Transform roomOrigin;
-    [SerializeField] EnemySpawner eSpawner;
+    [SerializeField] EnemySpawner enemySpawner;
 
     private int levelInd;
     private int roomInd;
@@ -47,7 +47,7 @@ public class RoomManangerProto : MonoBehaviour
             lsp.restAreaName;
         plp.IncrementRoomIndex(levelInd);
 
-        eSpawner.Player = player;
+        enemySpawner.Player = player;
     }
 
     // Update is called once per frame
