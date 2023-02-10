@@ -23,6 +23,6 @@ public class Gate : MonoBehaviour
 
     public Vector3 GetEntryWorldPosition()
     {
-        return new Vector3(entryPoint.x, entryPoint.y, entryPoint.z);
+        return entryPoint.position;
     }
 }
