@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
+    public EntryGate entryPoint;
     public bool triggered;
 
     private void Start()
@@ -17,5 +19,10 @@ public class Gate : MonoBehaviour
         {
             triggered = true;
         }
+    }
+
+    public Vector3 GetEntryWorldPosition()
+    {
+        return entryPoint.position;
     }
 }

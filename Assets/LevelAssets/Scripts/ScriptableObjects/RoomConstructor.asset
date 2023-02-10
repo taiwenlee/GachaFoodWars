@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf5fbe0559d8b343952838b97db0ea1, type: 3}
+  m_Name: RoomConstructor
+  m_EditorClassIdentifier: 
+  player: {fileID: 1879624361470341009, guid: 52f3cc82794448b41a369f7734c8ca18, type: 3}
+  ground: {fileID: 4394539510535866661, guid: 5b37903ff2f27284a8accf47860dc1bb, type: 3}
+  treeStackNorth: {fileID: 6885308678886346487, guid: 09517861c7df5994da3ba9412f41ab46,
+    type: 3}
+  treeStackEast: {fileID: 8208067126249430374, guid: a096fc8f94ec57147b89574a83081e8c,
+    type: 3}
+  treeStackSouth: {fileID: 6885308678886346487, guid: a2637c90412169c46ad444f36cf9f791,
+    type: 3}
+  treeStackWest: {fileID: 8208067126249430374, guid: ec4b1a90d43807e418efab40ffda3c4e,
+    type: 3}
+  bushStackNorth: {fileID: 2993028871160097664, guid: 278ecb5a361ab5a42a914b3eda7bd52e,
+    type: 3}
+  bushStackEast: {fileID: 1709702831561999446, guid: c185b89084093cd4292fc6de03ffa3ae,
+    type: 3}
+  bushStackSouth: {fileID: 2993028871160097664, guid: 37c684c3d49aefd4f87ec4d27b42a320,
+    type: 3}
+  bushStackWest: {fileID: 1709702831561999446, guid: e536f6c9e0e55df42b09f9b0dfea93e4,
+    type: 3}
+  northEntryGate: {fileID: 1662493579759199210, guid: f4eb37b0a07919d4c9fa2876dde89d30,
+    type: 3}
+  eastEntryGate: {fileID: 6652862622651175017, guid: 19161e1dc889c18459c5a52fb07009f0,
+    type: 3}
+  southEntryGate: {fileID: 8700516260105946864, guid: 84a896a1b19c7d94aa868f905b5c07d6,
+    type: 3}
+  westEntryGate: {fileID: 202038770603817819, guid: b2f5a36720e35544f88820d831482ef5,
+    type: 3}
+  entryObjects:
+  - {fileID: 11400000, guid: 1b08c1e3dc14e6546a4ce800a6738da2, type: 2}
+  - {fileID: 11400000, guid: 05433ddf26614de40895791af4dab23a, type: 2}
+  - {fileID: 11400000, guid: 4f83606128ebc504c9d4fd4a37438daa, type: 2}
+  - {fileID: 11400000, guid: 483ab23df43b77d4dac9c6e1fb2ed579, type: 2}
+  northExitGate: {fileID: 1662493579759199210, guid: 7c6de33e1b086734097dd1377a31ab80,
+    type: 3}
+  eastExitGate: {fileID: 7223667382213894673, guid: c62f93834a2f2374cab442638b0ed57b,
+    type: 3}
+  southExitGate: {fileID: 6605570494032241134, guid: d37621fd1b113074c8570eb20a03005c,
+    type: 3}
+  westExitGate: {fileID: 1305533850186447836, guid: e630daa540fff3c43a9ad2d84a177de4,
+    type: 3}
+  boundaries:
+  - {fileID: 1768793200045224692, guid: 7582a3ad73147af409c1d2e69d3e995f, type: 3}
+  - {fileID: 8749744935095149431, guid: e428c90ab02deca448b9a30239d23cdb, type: 3}
+  - {fileID: 5753581432959328016, guid: 42ba1da29c4366d4eb098a4cde046f68, type: 3}
+  - {fileID: 7247146107227676307, guid: a85ec27de962eb74ea038e5bf97cb75f, type: 3}
