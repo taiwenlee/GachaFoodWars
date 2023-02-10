@@ -74,7 +74,8 @@ public class RoomConstructor : ScriptableObject
         BundleEntryExitGates(out Tuple<GameObject, GameObject>[] gates);
         InstantiateGates(out EntryGate entryObject, gates, coords);
         InstantiateBoundaries(cardinals);
-        thisPlayer = Instantiate(player, entryObject.position, Quaternion.identity);
+        thisPlayer = Instantiate(player);
+        thisPlayer.transform.position = entryObject.position;
         
     }
    
