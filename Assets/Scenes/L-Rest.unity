@@ -4477,8 +4477,8 @@ MonoBehaviour:
   exitGate: {fileID: 4065669062417104970}
   numberOfLevels: 1
   numberOfRooms: 1
-  levelStructure: {fileID: 11400000, guid: aa7c0448f8d13614084dc221600dd4e8, type: 2}
-  plp: {fileID: 11400000, guid: 43e39a2b1109d7d478086e12a39ab16f, type: 2}
+  levelStructure: {fileID: 11400000, guid: bf8ef04988f21a44893bfe69d28a02db, type: 2}
+  plp: {fileID: 11400000, guid: cb3d0a096d49ac84caf5b17fae085835, type: 2}
 --- !u!1001 &1479441280
 PrefabInstance:
   m_ObjectHideFlags: 0

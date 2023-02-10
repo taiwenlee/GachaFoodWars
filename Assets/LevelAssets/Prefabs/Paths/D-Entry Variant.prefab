@@ -391,7 +391,7 @@ PrefabInstance:
     - target: {fileID: 7081363678037295502, guid: cd1d8b984a5f2934ebfb133fd9724d2c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Gate_Enter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1d8b984a5f2934ebfb133fd9724d2c, type: 3}

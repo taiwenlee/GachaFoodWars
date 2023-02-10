@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: LS-Proto
   m_EditorClassIdentifier: 
   restAreaName: L-Rest
-  combatAreaName: LevelBuilder
+  combatAreaName: Game
   levelOneRooms:
   - {x: 0, y: 1, z: -1, w: 0}
   - {x: 1, y: 0, z: 0, w: -1}
-  levelTwoRooms: []
+  levelTwoRooms:
+  - {x: -1, y: 0, z: 0, w: 1}
+  - {x: 0, y: -1, z: 1, w: 0}

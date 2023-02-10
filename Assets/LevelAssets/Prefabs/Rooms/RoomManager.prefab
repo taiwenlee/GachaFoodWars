@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomOrigin: {fileID: 0}
-  eSpawner: {fileID: 0}
+  enemySpawner: {fileID: 0}
   player: {fileID: 0}
   rc: {fileID: 11400000, guid: 79ef929313cdcf44fb1c63ca26b4d165, type: 2}
   lsp: {fileID: 11400000, guid: bf8ef04988f21a44893bfe69d28a02db, type: 2}

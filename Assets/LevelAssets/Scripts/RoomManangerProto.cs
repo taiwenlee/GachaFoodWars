@@ -36,6 +36,7 @@ public class RoomManangerProto : MonoBehaviour
         }
 
         rc.BuildRoom(out player, roomOrigin, roomVector);
+        enemySpawner.Player = player;
         exitGate = GameObject.FindWithTag("Gate_Exit");
         gateScript = exitGate.GetComponent<Gate>();
     }
@@ -47,7 +48,7 @@ public class RoomManangerProto : MonoBehaviour
             lsp.restAreaName;
         plp.IncrementRoomIndex(levelInd);
 
-        enemySpawner.Player = player;
+        
     }
 
     // Update is called once per frame

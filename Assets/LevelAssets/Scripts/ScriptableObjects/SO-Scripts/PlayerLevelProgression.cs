@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class PlayerLevelProgression : ScriptableObject
 {
-    [Header("Base Metrics")]
+    [Header("Base Metrics (do not modify)")]
     [SerializeField] bool gameStartInit = false;
     [SerializeField] bool level1CompleteInit = false;
     [SerializeField] bool level2CompleteInit = false;

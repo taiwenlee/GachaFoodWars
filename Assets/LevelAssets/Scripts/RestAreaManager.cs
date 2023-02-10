@@ -8,7 +8,7 @@ public class RestAreaManager : MonoBehaviour
     [SerializeField] int numberOfLevels;
     [SerializeField] int numberOfRooms;
 
-    public LevelStructure levelStructure;
+    public LevelStructureProto levelStructure;
     public PlayerLevelProgression plp;
 
     // Update is called once per frame

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9102921683233486755}
   m_Layer: 0
   m_Name: U-Entry Variant
-  m_TagString: Gate_Exit
+  m_TagString: Gate_Enter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
