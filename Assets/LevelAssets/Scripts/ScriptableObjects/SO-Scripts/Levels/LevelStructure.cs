@@ -16,23 +16,5 @@ public class LevelStructure : ScriptableObject
     public string restAreaName;
     public string combatAreaName;
 
-    [Space(20)]
-    [Header("Set Of Rooms Per Level")]
-
-    [Space(10)]
-    public List<GameObject> levelOneRooms;
-
-    [Space(10)]
-    public List<GameObject> levelTwoRooms;
-
-    public List<List<GameObject>> matrixRooms;
-
-    private void OnEnable()
-    {
-        matrixRooms = new List<List<GameObject>>
-        {
-            levelOneRooms,
-            levelTwoRooms
-        };
-    }
+    
 }
