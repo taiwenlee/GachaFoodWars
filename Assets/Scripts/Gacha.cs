@@ -2,20 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class Gacha : MonoBehaviour
 {
+    public GameObject GachaUI;
+    public TMP_Text WeaponObtainedUI;
+
     [SerializeField]
-    public List<GameObject> weapons;       // list of all weapons
+    public List<GameObject> weapons;                // list of all weapons
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
+    public string[] tableName = {"sword", "axe", "bow", "gun"};     // weapon name of the according rarity above
 
     public int totalWeight;
     public int randomNumber;
 
     private void Start()
     {
+        GachaUI.SetActive(false);
         // calculate total weight of loot table
         foreach(var item in table)
         {
@@ -35,7 +42,9 @@ public class Gacha : MonoBehaviour
             if(randomNumber <= table[i])
             {
                 weapons[i].SetActive(true);
-                Debug.Log("Award: " + table[i]);
+                GachaUI.SetActive(true);
+                WeaponObtainedUI.text = tableName[i].ToString();
+                Debug.Log("Award: " + table[i] + tableName[i]);
                 return;
             }else
             {
