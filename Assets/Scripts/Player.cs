@@ -12,6 +12,12 @@ public class Player : MonoBehaviour
 
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
+
+    public void Start()
+    {
+        healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();    
+    }
+
     public void takeDamage(int damage)
     {
         if (delayDamage)
