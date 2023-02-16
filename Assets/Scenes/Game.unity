@@ -603,7 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6175f89f32a8f8946a2cd9c7bff7e456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomOrigin: {fileID: 218794249}
+  roomOrigin: {fileID: 218794248}
+  enemySpawner: {fileID: 1904227335}
   levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
   lc: {fileID: 11400000, guid: 5e606d2da2c94d74aa4f4deecc1eb4b3, type: 2}
   rc: {fileID: 11400000, guid: 79ef929313cdcf44fb1c63ca26b4d165, type: 2}
@@ -2143,7 +2144,7 @@ PrefabInstance:
     - target: {fileID: 5836828266130545419, guid: 4043f388ce4e8b94eb7f21ac74e50601,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5836828266130545428, guid: 4043f388ce4e8b94eb7f21ac74e50601,
         type: 3}
@@ -2236,7 +2237,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1855146051}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1904227335}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfbd0b3a822db124fb627dff39742c8e, type: 3}
@@ -2318,6 +2319,12 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1904227335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5836828266130545419, guid: 4043f388ce4e8b94eb7f21ac74e50601,
+    type: 3}
+  m_PrefabInstance: {fileID: 1855146051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138323218
 GameObject:
   m_ObjectHideFlags: 0

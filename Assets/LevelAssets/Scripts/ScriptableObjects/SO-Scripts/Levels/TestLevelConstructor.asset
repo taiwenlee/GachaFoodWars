@@ -15,7 +15,7 @@ MonoBehaviour:
   size: 3
   depth: 0
   maxPathways: 0
-  currentLocation: {x: -1, y: -1}
+  currentVertex: {x: 2, y: 2}
   startingLocation: {x: 2, y: 2}
   levelBoolMap:
     cols:

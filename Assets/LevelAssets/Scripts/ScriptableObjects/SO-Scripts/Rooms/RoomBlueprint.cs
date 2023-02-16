@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class RoomBlueprint
@@ -31,23 +32,22 @@ public class RoomBlueprint
     }
 
     // generate entry terminal without a known exit terminal
-    // this changes the room's layout permanently so it should only be used for
-    // the starting room of a level
-    public Vector4 GenerateRoomEntryPoint()
+    public Vector4 GenerateRandomEntryPoint()
     {
-        List<int> stack = new List<int>();
+        Vector4 layout = roomLayout;
+        List<int> stack = new();
 
         for (int i = 0; i < 4; i++)
         {
-            if (roomLayout[i] == 0)
+            if (layout[i] == 0)
             {
                 stack.Add(i);
             }
         }
 
         int index = stack[Random.Range(0, stack.Count)];
-        roomLayout[index] = 1;
-        return roomLayout;
+        layout[index] = 1;
+        return layout;
     }
     
     // generate entry terminal with a known exit terminal

@@ -12,9 +12,16 @@ public class RestAreaManager : MonoBehaviour
     public LevelConstructor lc;
     public PlayerLevelProgression plp;
 
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
+        exitGate.boxCollider.enabled = true;
+
         if (exitGate.triggered)
         {
             lc.BuildLevel();
@@ -22,7 +29,7 @@ public class RestAreaManager : MonoBehaviour
             int x = (int)levelMap.currentVertex.x;
             int y = (int)levelMap.currentVertex.y;
             levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
-            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRoomEntryPoint();
+            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRandomEntryPoint();
             Initiate.Fade("Game", Color.black, 3.0f);
         }
     }

@@ -76,7 +76,7 @@ public class RoomConstructor : ScriptableObject
             pathCoords.w == 0
         );
         BundleEntryExitGates(out Tuple<GameObject, GameObject>[] gates);
-        InstantiateGates(out EntryGate entryObject, gates, coords);
+        InstantiateGates(out EntryGate entryObject, gates, coords, origin);
         InstantiateBoundaries(cardinals);
         thisPlayer = Instantiate(player, entryObject.position, Quaternion.identity);
         
@@ -107,7 +107,8 @@ public class RoomConstructor : ScriptableObject
     private void InstantiateGates(
         out EntryGate entryObject,
         Tuple<GameObject, GameObject>[] gates,
-        int[] coords
+        int[] coords,
+        Transform origin
         )
     {
         List<GameObject> gateList = new();
@@ -117,10 +118,10 @@ public class RoomConstructor : ScriptableObject
             switch (coords[i])
             {
                 case -1:
-                    gateList.Add(Instantiate(gates[i].Item2));
+                    gateList.Add(Instantiate(gates[i].Item2, origin));
                     break;
                 case 1:
-                    Instantiate(gates[i].Item1);
+                    Instantiate(gates[i].Item2, origin);
                     entryGate = entryObjects[i];
                     break;
                 default:
