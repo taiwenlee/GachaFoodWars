@@ -12,20 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbadb3eccbce2a0458ebaacfb22a3516, type: 3}
   m_Name: TestLevelConstructor
   m_EditorClassIdentifier: 
+  size: 3
   depth: 0
   maxPathways: 0
-  startingRoom: {fileID: 0}
-  roomMatrix:
+  currentLocation: {x: -1, y: -1}
+  startingLocation: {x: 2, y: 2}
+  levelBoolMap:
     cols:
-    - rows:
-      - {x: 0, y: 0, z: 0, w: 0}
-      - {x: 0, y: 0, z: 0, w: 0}
-      - {x: 0, y: 0, z: 0, w: 0}
-    - rows:
-      - {x: 0, y: 0, z: 0, w: 0}
-      - {x: -1, y: 0, z: 1, w: 0}
-      - {x: -1, y: 1, z: 0, w: 0}
-    - rows:
-      - {x: 0, y: 0, z: 0, w: 0}
-      - {x: 0, y: 0, z: 0, w: 0}
-      - {x: -1, y: 1, z: 0, w: -1}
+    - rows: 000001
+    - rows: 000101
+    - rows: 000101
+  roomMatrix:
+    cols: []

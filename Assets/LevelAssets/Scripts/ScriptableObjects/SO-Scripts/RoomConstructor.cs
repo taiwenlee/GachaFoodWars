@@ -68,7 +68,13 @@ public class RoomConstructor : ScriptableObject
         Instantiate(ground, origin);
         InstantiateTreeStack(origin, out GameObject[] ts);
         InstantiateBushStack(origin, out GameObject[] bs);
-        OmitTreeAndBushSections(ts, bs, north, east, south, west);
+        OmitTreeAndBushSections(
+            ts, bs, 
+            pathCoords.x == 0, 
+            pathCoords.y == 0, 
+            pathCoords.z == 0, 
+            pathCoords.w == 0
+        );
         BundleEntryExitGates(out Tuple<GameObject, GameObject>[] gates);
         InstantiateGates(out EntryGate entryObject, gates, coords);
         InstantiateBoundaries(cardinals);

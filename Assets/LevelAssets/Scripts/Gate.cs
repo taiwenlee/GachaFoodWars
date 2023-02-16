@@ -6,6 +6,7 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     public EntryGate entryPoint;
+    public Vector4 terminal; // indicates which side this gate is on
     public bool triggered;
 
     private void Start()

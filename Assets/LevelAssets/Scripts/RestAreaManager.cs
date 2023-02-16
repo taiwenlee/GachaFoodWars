@@ -8,7 +8,8 @@ public class RestAreaManager : MonoBehaviour
     [SerializeField] int numberOfLevels;
     [SerializeField] int numberOfRooms;
 
-    public LevelStructureProto levelStructure;
+    public LevelMap levelMap;
+    public LevelConstructor lc;
     public PlayerLevelProgression plp;
 
     // Update is called once per frame
@@ -16,7 +17,13 @@ public class RestAreaManager : MonoBehaviour
     {
         if (exitGate.triggered)
         {
-            Initiate.Fade(levelStructure.combatAreaName, Color.black, 3.0f);
+            lc.BuildLevel();
+            levelMap.currentVertex = lc.currentVertex;
+            int x = (int)levelMap.currentVertex.x;
+            int y = (int)levelMap.currentVertex.y;
+            levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
+            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRoomEntryPoint();
+            Initiate.Fade("Game", Color.black, 3.0f);
         }
     }
 }
