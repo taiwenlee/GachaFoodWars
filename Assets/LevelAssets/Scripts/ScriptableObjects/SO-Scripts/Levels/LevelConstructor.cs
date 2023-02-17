@@ -31,8 +31,6 @@ public class Matrix<T>
 public class LevelConstructor : ScriptableObject
 {
     public int size;
-    public int depth;
-    public int maxPathways;
     public Vector2 currentVertex;
     public Vector2 startingLocation;
 
