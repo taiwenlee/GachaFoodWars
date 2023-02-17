@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
 
-    public int space = 2;
+    public int space = 30;
     public static Inventory instance;
 
     // singleton
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-
+        Debug.Log("Removing");
         items.Remove(item);
         if (onItemChangedCallBack != null)
         {

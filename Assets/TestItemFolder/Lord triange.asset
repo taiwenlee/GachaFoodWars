@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b31709bee7db840a7216e893df551a, type: 3}
-  m_Name: God Sphere
+  m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
+  m_Name: Lord triange
   m_EditorClassIdentifier: 
-  name: God Sphere
-  Icon: {fileID: 21300000, guid: 9a1ab8af8c446204e989a90f18305caf, type: 3}
+  name: Triangle
+  Icon: {fileID: 21300000, guid: 059fb5367594a3343814dc25ace454b3, type: 3}
   isDefaultItem: 0
+  equipSlot: 0
+  armorModifier: 0
+  damageModifier: 0
