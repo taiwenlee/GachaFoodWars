@@ -8,6 +8,7 @@ public class RangeAI : MonoBehaviour
     [Header("References")]
     public GameObject player;
     public GameObject projectile;
+    public GameObject drop;
 
     [Header("Stats")]
     public float health = 100.0f;
@@ -18,6 +19,7 @@ public class RangeAI : MonoBehaviour
 
     public float targetDistance = 9.0f; // distance from player to stop at
     public float targetRange = 1.0f; // the range in the target distance where AI wont move
+    public int dropValue = 1;
 
     // private variables
     private NavMeshAgent agent;
@@ -60,6 +62,13 @@ public class RangeAI : MonoBehaviour
 
         if (health <= 0)
         {
+            // drop loot
+            if (dropValue > 0)
+            {
+                var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
+                dropInstance.GetComponent<Drop>().value = dropValue;
+                dropInstance.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1f, 1f), 2, Random.Range(-1f, 1f));
+            }
             Destroy(gameObject);
         }
         // decrement attack cooldown
