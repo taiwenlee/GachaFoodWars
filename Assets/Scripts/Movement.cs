@@ -48,8 +48,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        HandleMovement();
         HandleRotation();
+        HandleMovement();
     }
 
     void HandleInput() {
@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //playerAnimation.SetFloat("moveSpeed",  playerVelocity.magnitude);
+        playerAnimation.SetFloat("Speed",  movement.magnitude);
     }
     void HandleRotation() {
         //For fixed rotation direction

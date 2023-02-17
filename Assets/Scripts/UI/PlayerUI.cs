@@ -36,5 +36,5 @@ public class PlayerUI : MonoBehaviour
     {
         health = currentHealth;
         UpdateHealth();
-    }
+    } 
 }
