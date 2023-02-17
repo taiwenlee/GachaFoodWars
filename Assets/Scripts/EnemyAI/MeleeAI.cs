@@ -10,7 +10,7 @@ public class MeleeAI : MonoBehaviour
 
     [Header("Stats")]
     public float health = 100.0f;
-    public float speed = 3.0f;
+    public float speed = 8.0f;
     public int damage = 1;
     public float attackRate = 1.0f;
     public float attackRange = 1.0f;

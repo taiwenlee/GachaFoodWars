@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 10f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float deadzone = 0.1f;
     [SerializeField] private float smoothRotate= 2000f;
