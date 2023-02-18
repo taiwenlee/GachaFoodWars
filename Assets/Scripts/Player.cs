@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     [Header("Stats")]
     public int health = 4;
-
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
 
@@ -34,4 +33,8 @@ public class Player : MonoBehaviour
         delayDamage = true;
     }
 
+    void WeaponEquip(Equipment item)
+    {
+
+    }
 }
