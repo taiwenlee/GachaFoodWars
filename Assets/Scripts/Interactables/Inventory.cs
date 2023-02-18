@@ -43,13 +43,12 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-        Debug.Log("Removing");
+       // Debug.Log("Removing");
+        //Debug.Log("Removing " + item.itemObject);
         items.Remove(item);
         if (onItemChangedCallBack != null)
         {
             onItemChangedCallBack.Invoke();
-
         }
     }
-
 }
