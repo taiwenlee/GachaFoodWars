@@ -820,44 +820,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498781535}
   m_CullTransparentMesh: 1
---- !u!1 &623890989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8118658447962809039, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
-    type: 3}
-  m_PrefabInstance: {fileID: 765159112}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &623890992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623890989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4836c663bf01f24b95b82419c21ebab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelDisplay: {fileID: 6165527168300446197}
-  levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
-  roomExitGates: []
---- !u!114 &623890993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623890989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6175f89f32a8f8946a2cd9c7bff7e456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomOrigin: {fileID: 218794248}
-  enemySpawner: {fileID: 1904227335}
-  levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
-  lc: {fileID: 11400000, guid: 5e606d2da2c94d74aa4f4deecc1eb4b3, type: 2}
-  rc: {fileID: 11400000, guid: 79ef929313cdcf44fb1c63ca26b4d165, type: 2}
 --- !u!1 &730980693
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +878,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 623890992, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
+      propertyPath: levelDisplay
+      value: 
+      objectReference: {fileID: 6165527168300446197}
+    - target: {fileID: 623890993, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
+      propertyPath: roomOrigin
+      value: 
+      objectReference: {fileID: 218794248}
+    - target: {fileID: 623890993, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 1904227335}
     - target: {fileID: 8118658447962809037, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
         type: 3}
       propertyPath: m_RootOrder
@@ -971,28 +945,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8118658447962809038, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8118658447962809038, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
-        type: 3}
-      propertyPath: roomOrigin
-      value: 
-      objectReference: {fileID: 218794249}
-    - target: {fileID: 8118658447962809038, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
-        type: 3}
-      propertyPath: enemySpawner
-      value: 
-      objectReference: {fileID: 1855146052}
     - target: {fileID: 8118658447962809039, guid: 86cbbfbeb1d2bb54695ae9be8d4849de,
         type: 3}
       propertyPath: m_Name
       value: RoomManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8118658447962809038, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
 --- !u!1 &772287369
 GameObject:
@@ -2850,18 +2808,6 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4043f388ce4e8b94eb7f21ac74e50601, type: 3}
---- !u!114 &1855146052 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5836828266130545429, guid: 4043f388ce4e8b94eb7f21ac74e50601,
-    type: 3}
-  m_PrefabInstance: {fileID: 1855146051}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904227335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfbd0b3a822db124fb627dff39742c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1869095231
 GameObject:
   m_ObjectHideFlags: 0

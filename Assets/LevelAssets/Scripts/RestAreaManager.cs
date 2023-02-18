@@ -8,14 +8,16 @@ public class RestAreaManager : MonoBehaviour
     [SerializeField] Gate exitGate;
     [SerializeField] int numberOfLevels;
     [SerializeField] int numberOfRooms;
+    [SerializeField] LevelConstructor[] levelBuildPool;
+
+    private LevelConstructor lc;
 
     public LevelMap levelMap;
-    public LevelConstructor lc;
     public PlayerLevelProgression plp;
 
     private void Start()
     {
-        
+        lc = levelBuildPool[Random.Range(0, levelBuildPool.Length)];
     }
 
     // Update is called once per frame
@@ -30,7 +32,13 @@ public class RestAreaManager : MonoBehaviour
             int x = (int)levelMap.currentVertex.x;
             int y = (int)levelMap.currentVertex.y;
             levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
-            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRandomEntryPoint();
+            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRandomTerminal(true);
+            x = (int)lc.endingLocation.x;
+            y = (int)lc.endingLocation.y;
+            levelMap.endVertex = lc.endingLocation;
+            levelMap.endRoom = lc.roomMatrix.cols[x].rows[y];
+            levelMap.endRoom.roomLayout = levelMap.endRoom.GenerateRandomTerminal(false);
+            lc.roomMatrix.cols[x].rows[y] = levelMap.endRoom;
             Initiate.Fade("Game", Color.black, 3.0f);
         }
     }

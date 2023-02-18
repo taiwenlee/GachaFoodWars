@@ -32,7 +32,7 @@ public class RoomBlueprint
     }
 
     // generate entry terminal without a known exit terminal
-    public Vector4 GenerateRandomEntryPoint()
+    public Vector4 GenerateRandomTerminal(bool isEntry)
     {
         Vector4 layout = roomLayout;
         List<int> stack = new();
@@ -46,7 +46,7 @@ public class RoomBlueprint
         }
 
         int index = stack[Random.Range(0, stack.Count)];
-        layout[index] = 1;
+        layout[index] = isEntry == true ? 1 : -1;
         return layout;
     }
     

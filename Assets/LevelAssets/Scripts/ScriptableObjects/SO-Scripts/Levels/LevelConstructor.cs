@@ -30,12 +30,38 @@ public class Matrix<T>
 
 public class LevelConstructor : ScriptableObject
 {
-    public int size;
     public Vector2 currentVertex;
     public Vector2 startingLocation;
+    public Vector2 endingLocation;
 
     public Matrix<bool> levelBoolMap;
     public Matrix<RoomBlueprint> roomMatrix;
+
+    public void OnEnable()
+    {
+        currentVertex = Vector2.zero;
+        int x = (int)startingLocation.x;
+        int y = (int)startingLocation.y;
+        if (levelBoolMap.cols[x].rows[y] == false ) 
+        {
+            Debug.LogError("INVALID START POINT GIVEN");
+            Debug.LogError($"Level Build: {name}");
+            Debug.Break();
+        }
+        x = (int)endingLocation.x;
+        y = (int)endingLocation.y;
+        if (levelBoolMap.cols[x].rows[y] == false)
+        {
+            Debug.LogError("INVALID END POINT GIVEN");
+            Debug.LogError($"Level Build: {name}");
+            Debug.Break();
+        }
+    }
+
+    public void OnDisable()
+    {
+        currentVertex = Vector2.zero;
+    }
 
     public void BuildLevel()
     {
