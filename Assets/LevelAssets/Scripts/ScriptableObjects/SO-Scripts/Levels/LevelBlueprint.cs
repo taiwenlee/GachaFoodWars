@@ -28,7 +28,7 @@ public class Matrix<T>
 
 [CreateAssetMenu(menuName = "Level Constructor")]
 
-public class LevelConstructor : ScriptableObject
+public class LevelBlueprint : ScriptableObject
 {
     public Vector2 currentVertex;
     public Vector2 startingLocation;

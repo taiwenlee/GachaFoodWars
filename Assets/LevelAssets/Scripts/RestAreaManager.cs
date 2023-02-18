@@ -8,9 +8,9 @@ public class RestAreaManager : MonoBehaviour
     [SerializeField] Gate exitGate;
     [SerializeField] int numberOfLevels;
     [SerializeField] int numberOfRooms;
-    [SerializeField] LevelConstructor[] levelBuildPool;
+    [SerializeField] LevelBlueprint[] levelBuildPool;
 
-    private LevelConstructor lc;
+    private LevelBlueprint lc;
 
     public LevelMap levelMap;
     public PlayerLevelProgression plp;
