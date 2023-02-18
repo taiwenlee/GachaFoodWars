@@ -194,6 +194,7 @@ MonoBehaviour:
   player: {fileID: 0}
   projectile: {fileID: 7733247242198862208, guid: fb4ba6f38020a5344b746a5b6813725e,
     type: 3}
+  drop: {fileID: 7250795859969632216, guid: c83127e396149094f95d7221aacc9346, type: 3}
   health: 100
   speed: 2
   damage: 1
@@ -201,6 +202,7 @@ MonoBehaviour:
   sightRange: 20
   targetDistance: 9
   targetRange: 1
+  dropValue: 1
 --- !u!54 &2336682337873197584
 Rigidbody:
   m_ObjectHideFlags: 0
