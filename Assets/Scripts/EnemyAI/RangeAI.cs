@@ -3,39 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RangeAI : MonoBehaviour
+public class RangeAI : Enemy
 {
     [Header("References")]
-    public GameObject player;
     public GameObject projectile;
-    public GameObject drop;
 
     [Header("Stats")]
-    public float health = 100.0f;
-    public float speed = 2.0f;
-    public int damage = 1;
     public float attackRate = 1.0f;
     public float sightRange = 20.0f;
 
     public float targetDistance = 9.0f; // distance from player to stop at
     public float targetRange = 1.0f; // the range in the target distance where AI wont move
-    public int dropValue = 1;
 
     // private variables
-    private NavMeshAgent agent;
     private float attackcooldown = 0.0f;
 
-    void Start()
+    // Start is called before the first frame update
+    protected override void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        // run parent script start function
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        // update agent speed
-        agent.speed = speed;
-
+        base.Update();
         // check if player is in line of sight, move to 9 units away from player if true
         var rayDirection = player.transform.position - transform.position;
         bool inRange = rayDirection.magnitude > targetDistance - targetRange && rayDirection.magnitude < targetDistance + targetRange;
@@ -43,7 +36,7 @@ public class RangeAI : MonoBehaviour
         {
             if (hit.collider.gameObject == player)
             {
-                if (!inRange)
+                if (!inRange && agent.isActiveAndEnabled)
                 {
                     agent.SetDestination(player.transform.position - rayDirection.normalized * targetDistance);
                 }
@@ -53,24 +46,13 @@ public class RangeAI : MonoBehaviour
                     var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
                     projectileInstance.GetComponent<Projectile>().damage = damage;
-                    projectile.transform.parent = transform;
+                    projectileInstance.transform.parent = transform;
                     attackcooldown = 1 / attackRate;
                 }
 
             }
         }
 
-        if (health <= 0)
-        {
-            // drop loot
-            if (dropValue > 0)
-            {
-                var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
-                dropInstance.GetComponent<Drop>().value = dropValue;
-                dropInstance.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1f, 1f), 2, Random.Range(-1f, 1f));
-            }
-            Destroy(gameObject);
-        }
         // decrement attack cooldown
         if (attackcooldown > 0.0f)
         {
@@ -87,9 +69,5 @@ public class RangeAI : MonoBehaviour
         // draw wireframe for sight range
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
     }
 }
