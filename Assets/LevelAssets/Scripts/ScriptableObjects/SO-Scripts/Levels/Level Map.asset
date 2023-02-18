@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b963dc9de4f8c48b16c8ba7ba0c436, type: 3}
-  m_Name: LS-Proto
+  m_Script: {fileID: 11500000, guid: fb46039e56296da408bf1a6f157d22bb, type: 3}
+  m_Name: Level Map
   m_EditorClassIdentifier: 
-  restAreaName: Rest
-  combatAreaName: Game
-  levelOneRooms:
-  - {x: 0, y: 1, z: -1, w: 0}
-  - {x: 1, y: 0, z: 0, w: -1}
-  levelTwoRooms:
-  - {x: -1, y: 0, z: 0, w: 1}
-  - {x: 0, y: -1, z: 1, w: 0}
+  startVertex: {x: 0, y: 0}
+  currentVertex: {x: 0, y: 0}

@@ -9,6 +9,7 @@ TagManager:
   - Gate_Enter
   - Gate_Exit
   - HealthController
+  - Ground
   layers:
   - Default
   - TransparentFX

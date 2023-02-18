@@ -434,4 +434,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryPoint: {fileID: 11400000, guid: 483ab23df43b77d4dac9c6e1fb2ed579, type: 2}
+  terminal: {x: 0, y: 0, z: 1, w: 0}
   triggered: 0
