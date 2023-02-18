@@ -8,7 +8,6 @@ public class Item : ScriptableObject
     new public string name = "New Item";
     public Sprite Icon = null;
     public bool isDefaultItem = false;
-    public GameObject itemObject;
 
     public virtual void Use()
     {
@@ -18,10 +17,5 @@ public class Item : ScriptableObject
     public void RemoveFromInventory()
     {
         Inventory.instance.Remove(this);
-    }
-
-    public void SpawnObject()
-    {
-        GameObject newObject = Instantiate(itemObject);
     }
 }

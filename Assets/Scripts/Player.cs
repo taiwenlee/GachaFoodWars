@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(damageTimeout);
         delayDamage = true;
     }
-    public void InTheZone()
+
+    void WeaponEquip(Equipment item)
     {
 
     }

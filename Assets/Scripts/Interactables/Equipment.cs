@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public int armorModifier;
-    public int damageModifier;
+    /*    public int armorModifier;
+        public int damageModifier;*/
 
+    public WeaponType GSlots;
     public override void Use()
     {
         base.Use();
@@ -15,3 +16,4 @@ public class Equipment : Item
         //RemoveFromInventory();
     }
 }
+public enum WeaponType { Sword, Spear, Range};
