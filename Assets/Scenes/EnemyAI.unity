@@ -3720,6 +3720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af44b719629c9842875146e3f8063d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartMenu: {fileID: 0}
   health: 4
   numHearts:
   - {fileID: 1625035366}
@@ -7297,7 +7298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthControl: {fileID: 730980694}
-  health: 4
+  health: 500
   damageTimeout: 1
 --- !u!1001 &1543637112
 PrefabInstance:

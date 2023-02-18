@@ -19,4 +19,9 @@ MonoBehaviour:
   - Tank
   - Tank
   - Tank
+  - Range
+  - Range
+  - Range
+  - Range
+  - Range
   spawnPoints: []
