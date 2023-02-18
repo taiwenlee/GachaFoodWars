@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af44b719629c9842875146e3f8063d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartMenu: {fileID: 0}
   health: 4
   numHearts:
   - {fileID: 1625035366}
@@ -2573,7 +2574,7 @@ PrefabInstance:
     - target: {fileID: 59954785280016306, guid: 658a43e1eb5d94144813b2bce56ace15,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 59954786307311669, guid: 658a43e1eb5d94144813b2bce56ace15,
         type: 3}
