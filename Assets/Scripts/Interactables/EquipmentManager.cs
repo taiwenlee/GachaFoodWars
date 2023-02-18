@@ -11,6 +11,7 @@ public class EquipmentManager : MonoBehaviour
     }
 
     Equipment[] currentEquipment;
+    public Equipment equipmentSelected;
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipment;
     private void Start()
@@ -18,6 +19,28 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment = new Equipment[2];
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            equipmentSelected = currentEquipment[0];
+            Debug.Log("1 selected: " + equipmentSelected);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2   ))
+        {
+            equipmentSelected = currentEquipment[1];
+            Debug.Log("2 selected: " + equipmentSelected);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3) && equipmentSelected != null)
+        {
+            Debug.Log("Current Equipement: " + equipmentSelected.name + ", " + equipmentSelected.GSlots);
+            if(equipmentSelected.GSlots == WeaponType.Sword)
+            {
+                Debug.Log("ja");
+            }
+        }
+    }
     public void Equip (Equipment newItem)
     {
         for (int i = 0; i < 2; i++)
