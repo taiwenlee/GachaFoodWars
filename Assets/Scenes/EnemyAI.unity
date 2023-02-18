@@ -1903,12 +1903,6 @@ Transform:
   m_Father: {fileID: 880617912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &287543841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6577861735784298125, guid: c62f93834a2f2374cab442638b0ed57b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1255938985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299772381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,12 +1948,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb52b5f0b8c7474091302186ca2470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GachaUI: {fileID: 0}
+  WeaponObtainedUI: {fileID: 0}
   weapons:
   - {fileID: 1392271454}
   - {fileID: 848049939}
   - {fileID: 1993846388}
   - {fileID: 1144159624}
   table: f40100002c010000a000000028000000
+  tableName:
+  - sword
+  - axe
+  - bow
+  - gun
   totalWeight: 0
   randomNumber: 0
 --- !u!23 &299772384
@@ -8473,7 +8474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerExitGate
       value: 
-      objectReference: {fileID: 287543841}
+      objectReference: {fileID: 0}
     - target: {fileID: 4190932775541267278, guid: cf787f1cfaabfc54490ba4ff6b74d836,
         type: 3}
       propertyPath: m_RootOrder
