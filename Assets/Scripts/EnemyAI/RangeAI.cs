@@ -21,6 +21,8 @@ public class RangeAI : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        // run parent script start function
+        base.Start();
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class RangeAI : Enemy
         {
             if (hit.collider.gameObject == player)
             {
-                if (!inRange)
+                if (!inRange && agent.isActiveAndEnabled)
                 {
                     agent.SetDestination(player.transform.position - rayDirection.normalized * targetDistance);
                 }
@@ -44,7 +46,7 @@ public class RangeAI : Enemy
                     var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
                     projectileInstance.GetComponent<Projectile>().damage = damage;
-                    projectile.transform.parent = transform;
+                    projectileInstance.transform.parent = transform;
                     attackcooldown = 1 / attackRate;
                 }
 

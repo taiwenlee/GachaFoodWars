@@ -17,6 +17,8 @@ public class MeleeAI : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        // run parent script start function
+        base.Start();
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class MeleeAI : Enemy
         var rayDirection = player.transform.position - transform.position;
         if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange))
         {
-            if (hit.collider.gameObject == player)
+            if (hit.collider.gameObject == player && agent.isActiveAndEnabled)
             {
                 agent.SetDestination(player.transform.position);
             }
