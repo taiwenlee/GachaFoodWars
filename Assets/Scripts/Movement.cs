@@ -66,11 +66,11 @@ public class Movement : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
         //flips sprite if moving either left or right
-        if(!spriteRenderer.flipX && move.x < 0) {
+        /*if(!spriteRenderer.flipX && move.x < 0) {
             spriteRenderer.flipX = true;
         }else if(spriteRenderer.flipX && move.x > 0){
             spriteRenderer.flipX = false;
-        }
+        }*/
         //determines if moving backwards or not and switches animations through a bool
         if(!movingBackwards && movement.y > 0){
             movingBackwards = true;
@@ -80,8 +80,8 @@ public class Movement : MonoBehaviour
              movingBackwards = true;
         }
         //plays animations
-        playerAnimation.SetFloat("Speed",  movement.magnitude);
-        playerAnimation.SetBool("moveBackwards", movingBackwards);
+        //playerAnimation.SetFloat("Speed",  movement.magnitude);
+        //playerAnimation.SetBool("moveBackwards", movingBackwards);
     }
     void HandleRotation() {
         //For fixed rotation direction

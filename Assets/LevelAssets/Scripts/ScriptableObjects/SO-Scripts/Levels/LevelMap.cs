@@ -16,6 +16,8 @@ public class LevelMap : ScriptableObject
     public RoomBlueprint currentRoom;
     public Vector4 currentRoomLayout;
 
+    public Matrix<RoomBlueprint> roomMatrix;
+
     public void OnEnable()
     {
         startVertex = Vector2.zero;

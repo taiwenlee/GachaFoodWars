@@ -28,6 +28,7 @@ public class RestAreaManager : MonoBehaviour
         if (exitGate.triggered)
         {
             lc.BuildLevel();
+            levelMap.roomMatrix = lc.roomMatrix;
             levelMap.currentVertex = lc.currentVertex;
             int x = (int)levelMap.currentVertex.x;
             int y = (int)levelMap.currentVertex.y;
