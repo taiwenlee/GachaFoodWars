@@ -6,12 +6,6 @@ using UnityEngine.AI;
 public class MeleeAI : Enemy
 {
     [Header("Stats")]
-<<<<<<< Updated upstream
-    public float health = 100.0f;
-    public float speed = 3.0f;
-    public int damage = 1;
-=======
->>>>>>> Stashed changes
     public float attackRate = 1.0f;
     public float attackRange = 1.0f;
     public float sightRange = 10.0f;
