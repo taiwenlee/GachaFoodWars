@@ -32,9 +32,13 @@ public class WeaponController : MonoBehaviour
         {
             case WeaponType.Sword:
                 Debug.Log("sword");
+                this.transform.Find("Sword").gameObject.SetActive(true);
+                DisableChild(this.transform.Find("Sword").gameObject);
                 break;
             case WeaponType.Spear:
                 Debug.Log("spear");
+                this.transform.Find("Spear").gameObject.SetActive(true);
+                DisableChild(this.transform.Find("Spear").gameObject);
                 break;
             case WeaponType.Range:
                 Debug.Log("range");
@@ -62,5 +66,15 @@ public class WeaponController : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         isAttacking = false;
 
+    }
+    private void DisableChild(GameObject child)
+    {
+        Debug.Log("Called disable child");
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            var children = this.transform.GetChild(i).gameObject;
+            if (children != null && children != child)
+                children.SetActive(false);
+        }
     }
 }
