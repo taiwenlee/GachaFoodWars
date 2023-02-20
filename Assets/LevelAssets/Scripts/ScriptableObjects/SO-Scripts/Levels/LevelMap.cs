@@ -24,8 +24,8 @@ public class LevelMap : ScriptableObject
         endVertex = Vector2.zero;
         currentVertex = Vector2.zero;
 
-        endRoom = null;
-        currentRoom = null;
+        endRoom = new();
+        currentRoom = new();
     }
 
     public void OnDisable()

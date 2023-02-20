@@ -15,6 +15,15 @@ public class RoomBlueprint
     public RoomBlueprint South { get; set; }
     public RoomBlueprint West { get; set; }
 
+    public RoomBlueprint()
+    {
+        IsActive = false;
+        HasVisited = false;
+        roomLocation = Vector2.zero;
+        roomLayout = Vector4.zero;
+        matrixPosition = Vector2.zero;
+    }
+
     public RoomBlueprint(Vector2 matrixPosition)
     {
         IsActive = false;
