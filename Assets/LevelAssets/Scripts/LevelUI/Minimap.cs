@@ -115,16 +115,9 @@ public class Minimap : MonoBehaviour
     // Instantiate path images if there are paths connected to the room
     private void InstantiatePaths(RoomBlueprint rb, ref GameObject newImg)
     {
-        RoomBlueprint[] paths = {
-            rb.North,
-            rb.East,
-            rb.South,
-            rb.West
-        };
-
-        for (int i = 0; i < paths.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
-            if (paths[i] != null)
+            if (rb.roomLayout[i] != 0)
             {
                 Instantiate(pathIcons[i], newImg.transform);
             }

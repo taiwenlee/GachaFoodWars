@@ -23,6 +23,7 @@ public class LevelMap : ScriptableObject
         startVertex = Vector2.zero;
         endVertex = Vector2.zero;
         currentVertex = Vector2.zero;
+        currentRoomLayout = new Vector4(-1, 0, 1, 0);
 
         endRoom = new();
         currentRoom = new();
@@ -33,6 +34,7 @@ public class LevelMap : ScriptableObject
         startVertex = Vector2.zero;
         endVertex = Vector2.zero;
         currentVertex = Vector2.zero;
+        currentRoomLayout = Vector4.zero;
 
         endRoom = null;
         currentRoom = null;
