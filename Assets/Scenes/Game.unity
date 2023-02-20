@@ -936,6 +936,11 @@ MonoBehaviour:
   levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
   model: {fileID: 467755904494031962, guid: 355bd3d026db0db419f45fcb513c347b, type: 3}
   modelBG: {fileID: 8453021841227145512, guid: 43dd0edd8804b4be7be4c308f99a685e, type: 3}
+  pathIcons:
+  - {fileID: 5511218837669361050, guid: e40aec003ff6a46c69a6b94f98334cec, type: 3}
+  - {fileID: 1459163241035210380, guid: b0ec891f2d6844de5954eb9c77ac1ed4, type: 3}
+  - {fileID: 608152765724274063, guid: e55b6e234d4b441258fe8ec2813a2e45, type: 3}
+  - {fileID: 4772061730831366609, guid: b5a8b3fe01d394fa08e69377eeadb484, type: 3}
 --- !u!1 &730980693
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class RoomBlueprint
 {
-    public const int CARDINALS = 4;
     public Vector2 matrixPosition;
     public Vector2 roomLocation;
     public Vector4 roomLayout;
     public bool IsActive { get; set; }
+    public bool HasVisited { get; set; }
     public RoomBlueprint North { get; set; }
     public RoomBlueprint East { get; set; }
     public RoomBlueprint South { get; set; }
@@ -18,6 +18,7 @@ public class RoomBlueprint
     public RoomBlueprint(Vector2 matrixPosition)
     {
         IsActive = false;
+        HasVisited = false;
         roomLocation = Vector2.zero;
         roomLayout = Vector4.zero;
         this.matrixPosition = matrixPosition;
@@ -26,6 +27,7 @@ public class RoomBlueprint
     public RoomBlueprint(Vector2 matrixPosition, Vector2 loc)
     {
         IsActive = true;
+        HasVisited = false;
         roomLocation = loc;
         roomLayout = Vector4.zero;
         this.matrixPosition = matrixPosition;

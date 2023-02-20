@@ -8,6 +8,7 @@ public class Minimap : MonoBehaviour
     [SerializeField] LevelMap levelMap;
     [SerializeField] GameObject model;
     [SerializeField] GameObject modelBG;
+    [SerializeField] GameObject[] pathIcons;
 
     private Matrix<RoomIcon> roomIconMatrix;
 
@@ -15,20 +16,14 @@ public class Minimap : MonoBehaviour
     {
         public RoomIcon(
             Vector2 location,
-            bool active,
             GameObject icon
         )
         {
             Location = location;
-            IsActive = active;
-            HasVisited = false;
             Icon = icon;
         }
 
         public Vector2 Location { get; set; }
-        public bool IsActive { get; set; }
-        public bool HasVisited { get; set; }
-
         public GameObject Icon { get; set; }
 
     }
@@ -65,50 +60,26 @@ public class Minimap : MonoBehaviour
                 // Get reference to room in question
                 RoomBlueprint rb = rooms.cols[i].rows[j];
 
+                // Check if the room icon resembles the current room;
+                bool currRoom = levelMap.currentRoom == rb;
+
                 // Multiply scalar based on matrix y position
                 position.y -= yscl * j;
 
-                // Instantiate room icon image
-                GameObject newImg = Instantiate(
-                    model,
-                    transform
-                );
-
-                // Set image color based on current room
-                newImg.GetComponent<Image>().color =
-                    levelMap.currentRoom == rb ?
-                    Color.white :
-                    Color.black;
-
-                // Adjust room icon position
-                newImg.GetComponent<RectTransform>()
-                    .anchoredPosition3D = position;
-
-                // Add background image
-                GameObject bg = Instantiate(
-                    modelBG,
-                    transform
-                );
-
-                // Adjust background position
-                bg.GetComponent<RectTransform>()
-                    .anchoredPosition3D = position;
+                // Instantiate minimap icon images
+                GameObject newImg = InstantiateRoomIcon(rb, currRoom, position);
 
                 // Get room blueprint vector location in room matrix
                 Vector2 loc = rb.roomLocation;
 
-                // Get active boolean from room blueprint
-                bool isActive = rb.IsActive;
-
-                // Set visibility on minimap based on active boolean
-                newImg.SetActive(isActive);
-
                 // Create new room icon object to add to room icon matrix
                 RoomIcon ri = new RoomIcon(
                     loc,
-                    isActive,
                     newImg
                 );
+
+                // Set visibility on minimap based on visited boolean
+                ri.Icon.SetActive(rb.HasVisited);
 
                 // Add new room icon
                 roomIconMatrix.cols[i].rows.Add(ri);
@@ -126,5 +97,68 @@ public class Minimap : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private GameObject InstantiateRoomIcon(
+        RoomBlueprint rb,
+        bool currRoom,
+        Vector2 position
+    )
+    {
+        // Add background image
+        GameObject bg = Instantiate(
+            modelBG,
+            transform
+        );
+
+        // Adjust background position
+        bg.GetComponent<RectTransform>()
+            .anchoredPosition3D = position;
+
+        // Instantiate room icon image
+        GameObject newImg = Instantiate(
+            model,
+            transform
+        );
+
+        // Get image component reference
+        Image imgc = newImg.GetComponent<Image>();
+
+        // Set image color based on current room
+        imgc.color =
+            currRoom == true ?
+            Color.white :
+            Color.black;
+
+        // Adjust alpha
+        Color currentColor = imgc.color;
+        currentColor.a = 0.5f;
+        imgc.color = currentColor;
+
+        // Adjust room icon position
+        newImg.GetComponent<RectTransform>()
+            .anchoredPosition3D = position;
+
+        InstantiatePaths(rb, ref newImg);
+
+        return newImg;
+    }
+
+    private void InstantiatePaths(RoomBlueprint rb, ref GameObject newImg)
+    {
+        RoomBlueprint[] paths = {
+            rb.North,
+            rb.East,
+            rb.South,
+            rb.West
+        };
+
+        for (int i = 0; i < paths.Length; i++)
+        {
+            if (paths[i] != null)
+            {
+                Instantiate(pathIcons[i], newImg.transform);
+            }
+        }
     }
 }

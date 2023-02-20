@@ -20,6 +20,7 @@ public class RoomManagerProto1 : MonoBehaviour
         groundActivated = false;
         gateScripts = new();
 
+        levelMap.currentRoom.HasVisited = true;
         Vector4 layout = levelMap.currentRoomLayout;
         rc.BuildRoom(out GameObject player, roomOrigin.transform, layout);
         GameObject[] gates = GameObject.FindGameObjectsWithTag("Gate_Exit");
