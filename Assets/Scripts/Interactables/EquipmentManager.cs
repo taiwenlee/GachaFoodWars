@@ -35,13 +35,7 @@ public class EquipmentManager : MonoBehaviour
             //Debug.Log("2 selected: " + equipmentSelected);
         }
         if (Input.GetKeyUp(KeyCode.Alpha3) && equipmentSelected != null)
-        {
-            Debug.Log("Current Equipement: " + equipmentSelected.name + ", " + equipmentSelected.GSlots);
-            if(equipmentSelected.GSlots == WeaponType.Sword)
-            {
-                Debug.Log("ja");
-            }
-        }
+            Debug.Log("Current Equipement: " + equipmentSelected.name + ", " + equipmentSelected.gSlots);
     }
     public void Equip (Equipment newItem)
     {

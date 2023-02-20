@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    private GameObject Weapon;
+    private GameObject weapon;
     public EquipmentManager em;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
         {
             if (CanAttack)
             {
-                Debug.Log(Weapon);
+                Debug.Log(weapon);
                 SwordAttack();
             }
         }
@@ -29,20 +29,26 @@ public class WeaponController : MonoBehaviour
 
     public void WeaponSelector()
     {
-        switch(em.equipmentSelected.GSlots)
+        if (isAttacking == false)
         {
-            case WeaponType.Sword:
-                SetWeapon("Sword");
-                DisableChild(this.transform.Find("Sword").gameObject);
-                break;
-            case WeaponType.Spear:
-                SetWeapon("Spear");
-                DisableChild(this.transform.Find("Spear").gameObject);
-                //isSelected = true;
-                break;
-            case WeaponType.Range:
-                Debug.Log("range");
-                break;
+            Debug.Log("In loop");
+            switch (em.equipmentSelected.gSlots)
+            {
+                case WeaponType.Sword:
+                    //Debug.Log("Sword");
+                    SetWeapon("Sword");
+                    DisableChild(this.transform.Find("Sword").gameObject);
+                    break;
+                case WeaponType.Spear:
+                    //Debug.Log("Spear");
+                    SetWeapon("Spear");
+                    DisableChild(this.transform.Find("Spear").gameObject);
+                    //isSelected = true;
+                    break;
+                case WeaponType.Range:
+                    Debug.Log("range");
+                    break;
+            }
         }
     }
     public void SwordAttack()
@@ -71,7 +77,6 @@ public class WeaponController : MonoBehaviour
     {
         if(child.activeInHierarchy)
         {
-            Debug.Log("Called disable child");
             for (int i = 0; i < this.transform.childCount; i++)
             {
                 var children = this.transform.GetChild(i).gameObject;
@@ -84,6 +89,6 @@ public class WeaponController : MonoBehaviour
     private void SetWeapon(string weaponSel)
     {
         this.transform.Find(weaponSel).gameObject.SetActive(true);
-        Weapon = this.transform.Find(weaponSel).gameObject;
+        weapon = this.transform.Find(weaponSel).gameObject;
     }
 }

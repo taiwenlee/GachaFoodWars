@@ -8,7 +8,8 @@ public class Equipment : Item
     /*    public int armorModifier;
         public int damageModifier;*/
     public int damageStat;
-    public WeaponType GSlots;
+    public WeaponType gSlots;
+    public Grade gradeType;
     public override void Use()
     {
         base.Use();

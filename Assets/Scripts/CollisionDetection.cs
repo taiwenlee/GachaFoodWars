@@ -20,13 +20,11 @@ public class CollisionDetection : MonoBehaviour
         Debug.Log("bye");
         if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true && isDamaged == false)
         {
-            Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
+            //Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
             isDamaged = true;
-            //other.gameObject.GetComponent<Enemy>().TakeDamage(50);
+            //other.gameObject.GetComponent<Enemy>().TakeDamage(wc.em.equipmentSelected.damageStat);
         }
         if (wc.isAttacking == false)
-        {
             isDamaged = false;
-        }
     }
 }
