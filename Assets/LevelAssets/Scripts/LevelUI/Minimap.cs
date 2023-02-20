@@ -10,24 +10,6 @@ public class Minimap : MonoBehaviour
     [SerializeField] GameObject modelBG;
     [SerializeField] GameObject[] pathIcons;
 
-    private Matrix<RoomIcon> roomIconMatrix;
-
-    private struct RoomIcon
-    {
-        public RoomIcon(
-            Vector2 location,
-            GameObject icon
-        )
-        {
-            Location = location;
-            Icon = icon;
-        }
-
-        public Vector2 Location { get; set; }
-        public GameObject Icon { get; set; }
-
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,15 +25,9 @@ public class Minimap : MonoBehaviour
         // Get the room blueprint from level map
         Matrix<RoomBlueprint> rooms = levelMap.roomMatrix;
 
-        // Create a new room icon matrix to position and display room icons
-        roomIconMatrix = new Matrix<RoomIcon>();
-
         // Allocate room icon matrix
         for (int i = 0; i < rooms.cols.Count; i++)
         {
-            // Create a new row vector for the matrix
-            roomIconMatrix.cols.Add(new Rows<RoomIcon>());
-
             // Multiply scalar based on matrix x position
             position.x += xscl * i;
 
@@ -69,20 +45,11 @@ public class Minimap : MonoBehaviour
                 // Instantiate minimap icon images
                 GameObject newImg = InstantiateRoomIcon(rb, currRoom, position);
 
-                // Get room blueprint vector location in room matrix
-                Vector2 loc = rb.roomLocation;
-
-                // Create new room icon object to add to room icon matrix
-                RoomIcon ri = new RoomIcon(
-                    loc,
-                    newImg
-                );
-
                 // Set visibility on minimap based on visited boolean
-                ri.Icon.SetActive(rb.HasVisited);
+                newImg.SetActive(rb.HasVisited);
 
                 // Add new room icon
-                roomIconMatrix.cols[i].rows.Add(ri);
+                //roomIconMatrix.cols[i].rows.Add(ri);
 
                 // Reset y position
                 position.y = stored.y;
@@ -94,10 +61,10 @@ public class Minimap : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 
     private GameObject InstantiateRoomIcon(
         RoomBlueprint rb,
@@ -139,11 +106,13 @@ public class Minimap : MonoBehaviour
         newImg.GetComponent<RectTransform>()
             .anchoredPosition3D = position;
 
+        // Instantiate paths
         InstantiatePaths(rb, ref newImg);
 
         return newImg;
     }
 
+    // Instantiate path images if there are paths connected to the room
     private void InstantiatePaths(RoomBlueprint rb, ref GameObject newImg)
     {
         RoomBlueprint[] paths = {
