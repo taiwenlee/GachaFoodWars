@@ -13,7 +13,7 @@ public class Equipment : Item
     {
         base.Use();
         EquipmentManager.instance.Equip(this);
-        //RemoveFromInventory();
     }
 }
 public enum WeaponType { Sword, Spear, Range};
+public enum Grade { Common, Uncommon, Rare, Epic, Legendary};
