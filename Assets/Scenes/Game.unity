@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -935,6 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
   model: {fileID: 467755904494031962, guid: 355bd3d026db0db419f45fcb513c347b, type: 3}
+  modelBG: {fileID: 8453021841227145512, guid: 43dd0edd8804b4be7be4c308f99a685e, type: 3}
 --- !u!1 &730980693
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +998,11 @@ PrefabInstance:
       propertyPath: levelDisplay
       value: 
       objectReference: {fileID: 6165527168300446197}
+    - target: {fileID: 623890993, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
+      propertyPath: levelMap
+      value: 
+      objectReference: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b,
+        type: 2}
     - target: {fileID: 623890993, guid: 86cbbfbeb1d2bb54695ae9be8d4849de, type: 3}
       propertyPath: roomOrigin
       value: 
