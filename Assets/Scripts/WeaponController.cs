@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject Weapon;
+    private GameObject Weapon;
     public EquipmentManager em;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool isAttacking = false;
+    public bool isSelected = false;
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(em);
         if (Input.GetMouseButtonDown(0))
         {
             if (CanAttack)
             {
+                Debug.Log(Weapon);
                 SwordAttack();
             }
         }
-        if (em.equipmentSelected != null)
+        if (em.equipmentSelected != null && isSelected == false)
         {
             WeaponSelector();
         }
@@ -31,14 +32,13 @@ public class WeaponController : MonoBehaviour
         switch(em.equipmentSelected.GSlots)
         {
             case WeaponType.Sword:
-                Debug.Log("sword");
-                this.transform.Find("Sword").gameObject.SetActive(true);
+                SetWeapon("Sword");
                 DisableChild(this.transform.Find("Sword").gameObject);
                 break;
             case WeaponType.Spear:
-                Debug.Log("spear");
-                this.transform.Find("Spear").gameObject.SetActive(true);
+                SetWeapon("Spear");
                 DisableChild(this.transform.Find("Spear").gameObject);
+                //isSelected = true;
                 break;
             case WeaponType.Range:
                 Debug.Log("range");
@@ -49,8 +49,8 @@ public class WeaponController : MonoBehaviour
     {
         isAttacking = true;
         CanAttack = false;
-        Animator anim = Weapon.GetComponent<Animator>();
-        anim.SetTrigger("Attack");
+/*        Animator anim = Weapon.GetComponent<Animator>();
+        anim.SetTrigger("Attack");*/
         StartCoroutine(ResetAttackCooldown());
     }
 
@@ -69,12 +69,21 @@ public class WeaponController : MonoBehaviour
     }
     private void DisableChild(GameObject child)
     {
-        Debug.Log("Called disable child");
-        for (int i = 0; i < this.transform.childCount; i++)
+        if(child.activeInHierarchy)
         {
-            var children = this.transform.GetChild(i).gameObject;
-            if (children != null && children != child)
-                children.SetActive(false);
+            Debug.Log("Called disable child");
+            for (int i = 0; i < this.transform.childCount; i++)
+            {
+                var children = this.transform.GetChild(i).gameObject;
+                if (children != null && children != child)
+                    children.SetActive(false);
+            }
         }
+        isSelected = true;
+    }
+    private void SetWeapon(string weaponSel)
+    {
+        this.transform.Find(weaponSel).gameObject.SetActive(true);
+        Weapon = this.transform.Find(weaponSel).gameObject;
     }
 }

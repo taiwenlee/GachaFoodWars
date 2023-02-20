@@ -7,7 +7,7 @@ public class Equipment : Item
 {
     /*    public int armorModifier;
         public int damageModifier;*/
-
+    public int damageStat;
     public WeaponType GSlots;
     public override void Use()
     {

@@ -6,12 +6,22 @@ public class CollisionDetection : MonoBehaviour
 {
     public WeaponController wc;
 
-    private void OnTriggerEnter(Collider other)
+/*    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hello");
         if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
             Debug.Log(other.gameObject.name);
-            other.gameObject.GetComponent<Enemy>().TakeDamage(50);
+            //other.gameObject.GetComponent<Enemy>().TakeDamage(50);
+        }
+    }*/
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("bye");
+        if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
+        {
+            Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
+            //other.gameObject.GetComponent<Enemy>().TakeDamage(50);
         }
     }
 }
