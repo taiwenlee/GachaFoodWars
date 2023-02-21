@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
 
     [Header("Animation")]
     public Animator playerAnimation;
+    public SpriteRenderer spriteRenderer;
+    private bool movingBackwards;
 
     [SerializeField] private bool isController;
 
@@ -48,8 +50,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        HandleMovement();
         HandleRotation();
+        HandleMovement();
     }
 
     void HandleInput() {
@@ -59,11 +61,27 @@ public class Movement : MonoBehaviour
     void HandleMovement() {
         Vector3 move = new Vector3(movement.x,0,movement.y);
         controller.Move(move * Time.deltaTime * speed);
-
+        
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //playerAnimation.SetFloat("moveSpeed",  playerVelocity.magnitude);
+        //flips sprite if moving either left or right
+        /*if(!spriteRenderer.flipX && move.x < 0) {
+            spriteRenderer.flipX = true;
+        }else if(spriteRenderer.flipX && move.x > 0){
+            spriteRenderer.flipX = false;
+        }*/
+        //determines if moving backwards or not and switches animations through a bool
+        if(!movingBackwards && movement.y > 0){
+            movingBackwards = true;
+        }else if(movingBackwards && movement.y < 0) {
+            movingBackwards = false;
+        }else if(movingBackwards && movement.y == 0)   {
+             movingBackwards = true;
+        }
+        //plays animations
+        //playerAnimation.SetFloat("Speed",  movement.magnitude);
+        //playerAnimation.SetBool("moveBackwards", movingBackwards);
     }
     void HandleRotation() {
         //For fixed rotation direction

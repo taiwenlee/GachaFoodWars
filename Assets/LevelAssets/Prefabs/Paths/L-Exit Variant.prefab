@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryPoint: {fileID: 11400000, guid: 05433ddf26614de40895791af4dab23a, type: 2}
+  terminal: {x: 0, y: 0, z: 0, w: 1}
   triggered: 0
 --- !u!4 &6023089195376314775 stripped
 Transform:

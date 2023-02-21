@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8118658447962809037}
-  - component: {fileID: 8118658447962809038}
+  - component: {fileID: 623890992}
+  - component: {fileID: 623890993}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8118658447962809038
+--- !u!114 &623890992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +42,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8118658447962809039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820c5f45627df7f4db1c268da8d934af, type: 3}
+  m_Script: {fileID: 11500000, guid: b4836c663bf01f24b95b82419c21ebab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDisplay: {fileID: 0}
+  levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
+  roomExitGates: []
+--- !u!114 &623890993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118658447962809039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6175f89f32a8f8946a2cd9c7bff7e456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomOrigin: {fileID: 0}
   enemySpawner: {fileID: 0}
-  player: {fileID: 0}
+  levelMap: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b, type: 2}
+  lc: {fileID: 11400000, guid: 5e606d2da2c94d74aa4f4deecc1eb4b3, type: 2}
   rc: {fileID: 11400000, guid: 79ef929313cdcf44fb1c63ca26b4d165, type: 2}
-  lsp: {fileID: 11400000, guid: bf8ef04988f21a44893bfe69d28a02db, type: 2}
-  plp: {fileID: 11400000, guid: cb3d0a096d49ac84caf5b17fae085835, type: 2}

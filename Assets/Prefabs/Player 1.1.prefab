@@ -211,6 +211,7 @@ MonoBehaviour:
   deadzone: 0.1
   smoothRotate: 2000
   playerAnimation: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   isController: 0
 --- !u!114 &6865986266226519717
 MonoBehaviour:

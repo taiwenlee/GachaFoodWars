@@ -44,9 +44,11 @@ GameObject:
   - component: {fileID: 4394539510706100549}
   - component: {fileID: 4394539510706100602}
   - component: {fileID: 4394539510706100603}
+  - component: {fileID: 8377460500397912587}
+  - component: {fileID: 9109722962257529680}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -130,3 +132,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &8377460500397912587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394539510706100601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.75, y: 0.7929417, z: 9.7}
+  m_Center: {x: 0, y: 0.06909381, z: 0}
+--- !u!114 &9109722962257529680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394539510706100601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c1ccf036020b84dbf3e3a6763aa82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bcoll: {fileID: 0}
+  groundTriggered: 0

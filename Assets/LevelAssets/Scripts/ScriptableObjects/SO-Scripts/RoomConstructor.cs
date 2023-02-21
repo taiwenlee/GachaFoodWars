@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
-using static UnityEngine.UI.Image;
 
 [CreateAssetMenu(menuName = "Room Constructor")]
 
@@ -70,9 +68,15 @@ public class RoomConstructor : ScriptableObject
         Instantiate(ground, origin);
         InstantiateTreeStack(origin, out GameObject[] ts);
         InstantiateBushStack(origin, out GameObject[] bs);
-        OmitTreeAndBushSections(ts, bs, north, east, south, west);
+        OmitTreeAndBushSections(
+            ts, bs, 
+            pathCoords.x == 0, 
+            pathCoords.y == 0, 
+            pathCoords.z == 0, 
+            pathCoords.w == 0
+        );
         BundleEntryExitGates(out Tuple<GameObject, GameObject>[] gates);
-        InstantiateGates(out EntryGate entryObject, gates, coords);
+        InstantiateGates(out EntryGate entryObject, gates, coords, origin);
         InstantiateBoundaries(cardinals);
         thisPlayer = Instantiate(player, entryObject.position, Quaternion.identity);
         
@@ -103,7 +107,8 @@ public class RoomConstructor : ScriptableObject
     private void InstantiateGates(
         out EntryGate entryObject,
         Tuple<GameObject, GameObject>[] gates,
-        int[] coords
+        int[] coords,
+        Transform origin
         )
     {
         List<GameObject> gateList = new();
@@ -113,10 +118,10 @@ public class RoomConstructor : ScriptableObject
             switch (coords[i])
             {
                 case -1:
-                    gateList.Add(Instantiate(gates[i].Item2));
+                    gateList.Add(Instantiate(gates[i].Item2, origin));
                     break;
                 case 1:
-                    Instantiate(gates[i].Item1);
+                    Instantiate(gates[i].Item2, origin);
                     entryGate = entryObjects[i];
                     break;
                 default:

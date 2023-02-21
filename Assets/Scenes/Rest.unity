@@ -8246,6 +8246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
+      propertyPath: lc
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
       propertyPath: gacha
       value: 
       objectReference: {fileID: 6362783396080532346}
@@ -8261,9 +8266,50 @@ PrefabInstance:
       objectReference: {fileID: 4065669062417104970}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
+      propertyPath: levelMap
+      value: 
+      objectReference: {fileID: 11400000, guid: 9118470e2a2d4014c9920a10964dcb7b,
+        type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
       propertyPath: weaponObtainedUI
       value: 
       objectReference: {fileID: 1263084538}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 351892465554a1245aa24f5d626bf176,
+        type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 586eacc080877a846b33b08c9d19b0fb,
+        type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e606d2da2c94d74aa4f4deecc1eb4b3,
+        type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 211731f9619171e469179aba6d637b8d,
+        type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: levelBuildPool.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27d608fe58a94314885d3c792c1d8422,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6314c822494337948930bb98403747de, type: 3}
 --- !u!1001 &6362783396080532343

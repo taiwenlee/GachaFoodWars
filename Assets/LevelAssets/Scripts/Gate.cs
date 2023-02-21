@@ -6,11 +6,16 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     public EntryGate entryPoint;
+    public Vector4 terminal; // indicates which side this gate is on
     public bool triggered;
+
+    public BoxCollider boxCollider;
 
     private void Start()
     {
         triggered = false;
+        boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
