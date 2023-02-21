@@ -7,13 +7,14 @@ public class Equipment : Item
 {
     /*    public int armorModifier;
         public int damageModifier;*/
-
-    public WeaponType GSlots;
+    public int damageStat;
+    public WeaponType gSlots;
+    public Grade gradeType;
     public override void Use()
     {
         base.Use();
         EquipmentManager.instance.Equip(this);
-        //RemoveFromInventory();
     }
 }
 public enum WeaponType { Sword, Spear, Range};
+public enum Grade { Common, Uncommon, Rare, Epic, Legendary};

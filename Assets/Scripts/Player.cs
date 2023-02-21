@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();    
+        //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();    
     }
 
     public void takeDamage(int damage)
