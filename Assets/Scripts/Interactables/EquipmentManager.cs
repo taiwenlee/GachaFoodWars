@@ -10,11 +10,12 @@ public class EquipmentManager : MonoBehaviour
         instance = this;
     }
 
-    Equipment[] currentEquipment;
+    public Equipment[] currentEquipment;
     public Equipment equipmentSelected;
     public WeaponController wc;
-    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
-    public OnEquipmentChanged onEquipment;
+
+    public delegate void OnEquipmentChanged();
+    public OnEquipmentChanged onEquipmentChangedCallBack;
     private void Start()
     {
         currentEquipment = new Equipment[2];
@@ -57,6 +58,15 @@ public class EquipmentManager : MonoBehaviour
     }
     public void Unequip (int slotIndex)
     {
-        //if(current)
+        if(currentEquipment[slotIndex] != null)
+        {
+            currentEquipment[slotIndex] = null;
+        }
+
+        if (onEquipmentChangedCallBack != null)
+        {
+            onEquipmentChangedCallBack.Invoke();
+
+        }
     }
 }

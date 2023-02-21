@@ -6,6 +6,7 @@ public class GearSlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
+    public int gearIndex;
     Item item;
 
     public void AddItem(Item newItem)
@@ -28,6 +29,7 @@ public class GearSlot : MonoBehaviour
 
     public void OnRemoveButton()
     {
-        Inventory.instance.Remove(item);
+        EquipmentManager.instance.Unequip(gearIndex);
+        //Inventory.instance.Remove(item);
     }
 }

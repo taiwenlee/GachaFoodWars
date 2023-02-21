@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
 
     InventorySlot[] slots;
     GearSlot[] gSlots;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class InventoryUI : MonoBehaviour
 
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        gSlots = gearsParent.GetComponentsInChildren<GearSlot>();
     }
 
     // Update is called once per frame
@@ -41,12 +43,12 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count)
             {
-                //Debug.Log("Adding");
+                Debug.Log("Adding");
                 slots[i].AddItem(inventory.items[i]);
             }
             else
             {
-               // Debug.Log("clearing");
+                Debug.Log("clearing");
                 slots[i].ClearSlot();
             }
         }
@@ -54,15 +56,16 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateGearUI() {
         // Checks our array for items to add in the UI
-        for (int i = 0; i < gSlots.Length; i++)
+        for (int i = 0; i < equipments.currentEquipment.Length; i++)
         {
-            if (equipments == null)
-            {
-                gSlots[i].AddItem(inventory.items[i]);
-            }
-            else
+            if (equipments.currentEquipment[i] == null && gSlots[i] != null)
             {
                 gSlots[i].ClearSlot();
+            }
+            else if (gSlots[i] == null)
+            {
+                gSlots[i].AddItem(equipments.currentEquipment[i]);
+                //break;
             }
         }
     }
