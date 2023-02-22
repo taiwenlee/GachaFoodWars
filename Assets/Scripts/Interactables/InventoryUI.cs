@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
 
     InventorySlot[] slots;
     GearSlot[] gSlots;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,10 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallBack += UpdateInventoryUI;
 
         equipments = EquipmentManager.instance;
-
+        equipments.onEquipmentChangedCallBack += UpdateGearUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        gSlots = gearsParent.GetComponentsInChildren<GearSlot>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class InventoryUI : MonoBehaviour
             }
             else
             {
-               // Debug.Log("clearing");
+                //Debug.Log("clearing");
                 slots[i].ClearSlot();
             }
         }
@@ -54,15 +56,21 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateGearUI() {
         // Checks our array for items to add in the UI
-        for (int i = 0; i < gSlots.Length; i++)
+        //Debug.Log("We are in UpdateGearUI");
+        for (int i = 0; i < equipments.currentEquipment.Length; i++)
         {
-            if (equipments == null)
+            Debug.Log("Loop: " + i);
+            Debug.Log("(equipments.currentEquipment[" + i + "]: " + (equipments.currentEquipment[i]));
+            if (equipments.currentEquipment[i] == null && gSlots[i] != null)
             {
-                gSlots[i].AddItem(inventory.items[i]);
+                Debug.Log("Hello");
+                gSlots[i].ClearSlot();
             }
             else
             {
-                gSlots[i].ClearSlot();
+                Debug.Log("Adding to GearUI");
+                gSlots[i].AddItem(equipments.currentEquipment[i]);
+                //break;
             }
         }
     }

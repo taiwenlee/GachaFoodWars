@@ -10,13 +10,15 @@ public class EquipmentManager : MonoBehaviour
         instance = this;
     }
 
-    Equipment[] currentEquipment;
+    public Equipment[] currentEquipment;
     public Equipment equipmentSelected;
     public WeaponController wc;
-    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
-    public OnEquipmentChanged onEquipment;
+    Inventory inventory;
+    public delegate void OnEquipmentChanged();
+    public OnEquipmentChanged onEquipmentChangedCallBack;
     private void Start()
     {
+        inventory = Inventory.instance;
         currentEquipment = new Equipment[2];
     }
 
@@ -54,9 +56,27 @@ public class EquipmentManager : MonoBehaviour
                 Debug.Log("Gearslot is full");
             }
         }
+        if (onEquipmentChangedCallBack != null)
+        {
+            //Debug.Log("Invoking in equip");
+            onEquipmentChangedCallBack.Invoke();
+
+        }
     }
     public void Unequip (int slotIndex)
     {
-        //if(current)
+        if(currentEquipment[slotIndex] != null)
+        {
+            Equipment oldItem = currentEquipment[slotIndex];
+            inventory.Add(oldItem);
+            currentEquipment[slotIndex] = null;
+        }
+
+        if (onEquipmentChangedCallBack != null)
+        {
+            Debug.Log("Invoking in unequip");
+            onEquipmentChangedCallBack.Invoke();
+
+        }
     }
 }
