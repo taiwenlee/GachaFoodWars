@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public int dropValue = 1;
 
     protected NavMeshAgent agent;
+    protected Rigidbody rb;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -26,6 +27,10 @@ public class Enemy : MonoBehaviour
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
         }
     }
 
