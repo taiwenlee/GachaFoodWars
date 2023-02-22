@@ -9,8 +9,9 @@ public class RangeAI : Enemy
     public GameObject projectile;
 
     [Header("Stats")]
-    public float attackRate = 1.0f;
+    public float attackRate = 1.0f; // how often the AI shoots per second
     public float sightRange = 20.0f;
+    public float projectileSpeed = 10.0f;
 
     public float targetDistance = 9.0f; // distance from player to stop at
     public float targetRange = 1.0f; // the range in the target distance where AI wont move
@@ -43,10 +44,11 @@ public class RangeAI : Enemy
                 else if (attackcooldown <= 0.0f)
                 {
                     // spawns a projectile that moves towards the player
-                    var projectileInstance = Instantiate(projectile, transform.position + rayDirection.normalized * 0.5f, Quaternion.identity);
+                    var projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
                     projectileInstance.GetComponent<Projectile>().damage = damage;
-                    projectileInstance.transform.parent = transform;
+                    projectileInstance.GetComponent<Projectile>().speed = projectileSpeed;
+                    projectileInstance.GetComponent<Projectile>().ignoreTags = new string[] { "Enemy", "Projectile" };
                     attackcooldown = 1 / attackRate;
                 }
 

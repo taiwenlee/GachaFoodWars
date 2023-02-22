@@ -7,9 +7,11 @@ public class Projectile : MonoBehaviour
     public float speed = 10.0f;
     public int damage = 1;
     public float lifeTime = 5.0f;
+    public string[] ignoreTags = { };
     public Vector3 direction;
     private Rigidbody rb;
     private Collider col;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,21 +33,24 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // ignore collisions with parent and similar projectiles
-        if (collision.gameObject == transform.parent || collision.gameObject.name == gameObject.name)
+        // ignore collisions if tag is in ignore list
+        foreach (string tag in ignoreTags)
         {
-            return;
+            if (collision.gameObject.tag == tag)
+            {
+                return;
+            }
         }
 
+        // if not part of ignore list
         if (collision.gameObject.tag == "Player")
         {
-            // subject to change based on how we implement player health
             collision.gameObject.GetComponent<Player>().takeDamage(damage);
-            Destroy(gameObject);
         }
-        else
+        else if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
+        Destroy(gameObject);
     }
 }
