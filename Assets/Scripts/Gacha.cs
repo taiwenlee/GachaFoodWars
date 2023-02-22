@@ -15,7 +15,7 @@ public class Gacha : MonoBehaviour
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
-    public string[] tableName = {"sword", "axe", "bow", "gun"};     // weapon name of the according rarity above
+    public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
 
     public int totalWeight;
     public int randomNumber;
@@ -43,7 +43,26 @@ public class Gacha : MonoBehaviour
             {
                 weapons[i].SetActive(true);
                 GachaUI.SetActive(true);
-                WeaponObtainedUI.text = tableName[i].ToString();
+                if (table[i] == 500)
+                {
+                    WeaponObtainedUI.text = "Common " + tableName[i].ToUpper();
+                    WeaponObtainedUI.color = Color.white;
+                }
+                if (table[i] == 300)
+                {
+                    WeaponObtainedUI.text = "Rare " + tableName[i].ToUpper();
+                    WeaponObtainedUI.color = Color.blue;
+                }
+                if (table[i] == 160)
+                {
+                    WeaponObtainedUI.text = "Epic " + tableName[i].ToUpper();
+                    WeaponObtainedUI.color = Color.magenta;
+                }
+                if (table[i] == 40)
+                {
+                    WeaponObtainedUI.text = "Legendary " + tableName[i].ToUpper();
+                    WeaponObtainedUI.color = Color.red;
+                }
                 Debug.Log("Award: " + table[i] + tableName[i]);
                 return;
             }else
