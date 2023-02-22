@@ -20,7 +20,7 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallBack += UpdateInventoryUI;
 
         equipments = EquipmentManager.instance;
-
+        equipments.onEquipmentChangedCallBack += UpdateGearUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         gSlots = gearsParent.GetComponentsInChildren<GearSlot>();
@@ -43,12 +43,12 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count)
             {
-                Debug.Log("Adding");
+                //Debug.Log("Adding");
                 slots[i].AddItem(inventory.items[i]);
             }
             else
             {
-                Debug.Log("clearing");
+                //Debug.Log("clearing");
                 slots[i].ClearSlot();
             }
         }
@@ -56,14 +56,19 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateGearUI() {
         // Checks our array for items to add in the UI
+        //Debug.Log("We are in UpdateGearUI");
         for (int i = 0; i < equipments.currentEquipment.Length; i++)
         {
+            Debug.Log("Loop: " + i);
+            Debug.Log("(equipments.currentEquipment[" + i + "]: " + (equipments.currentEquipment[i]));
             if (equipments.currentEquipment[i] == null && gSlots[i] != null)
             {
+                Debug.Log("Hello");
                 gSlots[i].ClearSlot();
             }
-            else if (gSlots[i] == null)
+            else
             {
+                Debug.Log("Adding to GearUI");
                 gSlots[i].AddItem(equipments.currentEquipment[i]);
                 //break;
             }
