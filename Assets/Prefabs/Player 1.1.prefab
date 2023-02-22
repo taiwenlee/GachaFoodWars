@@ -157,6 +157,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 29bbe908-5fa1-4a69-8919-dc9a9cc19d93
     m_ActionName: Controls/Aim[/XInputControllerWindows/rightStick,/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6f0a2b9-83c9-4b76-aab7-3047e026b8af
+    m_ActionName: Controls/Pickup[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controls
@@ -211,8 +215,8 @@ MonoBehaviour:
   deadzone: 0.1
   smoothRotate: 2000
   playerAnimation: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   isController: 0
+  movement: {x: 0, y: 0}
 --- !u!114 &6865986266226519717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +324,8 @@ GameObject:
   - component: {fileID: 6865986266726425938}
   - component: {fileID: 6865986266726425939}
   - component: {fileID: 1767213217812147880}
+  - component: {fileID: 1612695585}
+  - component: {fileID: 1612695584}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -336,7 +342,7 @@ Transform:
   m_GameObject: {fileID: 6865986266726425941}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1879624361470341010}
@@ -425,6 +431,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea527ea5b7d6c7b48b623803c194ff7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1612695585
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865986266726425941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b9416d9939ba884f98b696aab590829, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1612695584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865986266726425941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c11f97827a6474da7368a4d6759954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObj: {fileID: 1879624361470341009}
+  animation: {fileID: 1612695585}
+  spriteRenderer: {fileID: 6865986266726425939}
 --- !u!1 &7210104611209684610
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,10 +595,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e8856310d92d34486308d080a0b1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 7776092972860204376}
+  em: {fileID: 0}
   CanAttack: 1
   AttackCooldown: 1
   isAttacking: 0
+  isSelected: 0
 --- !u!1 &7776092972860204376
 GameObject:
   m_ObjectHideFlags: 0

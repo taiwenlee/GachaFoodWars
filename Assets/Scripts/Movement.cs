@@ -17,15 +17,16 @@ public class Movement : MonoBehaviour
     //private int playerRotation = -5;
 
     [Header("Animation")]
-    public Animator playerAnimation;
-    public SpriteRenderer spriteRenderer;
+    public Animations playerAnimation;
     private bool movingBackwards;
 
     [SerializeField] private bool isController;
 
     private CharacterController controller;
 
-    private Vector2 movement;
+    [Header("Player Position")]
+    public Vector2 movement;
+    public Vector3 move;
     private Vector2 aim;
 
     private Vector3 playerVelocity;
@@ -59,29 +60,29 @@ public class Movement : MonoBehaviour
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
     void HandleMovement() {
-        Vector3 move = new Vector3(movement.x,0,movement.y);
+        move = new Vector3(movement.x,0,movement.y);
         controller.Move(move * Time.deltaTime * speed);
         
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
         //flips sprite if moving either left or right
-        /*if(!spriteRenderer.flipX && move.x < 0) {
-            spriteRenderer.flipX = true;
-        }else if(spriteRenderer.flipX && move.x > 0){
-            spriteRenderer.flipX = false;
-        }*/
+        // if(!playerAnimation.spriteRenderer.flipX && move.x < 0) {
+        //      playerAnimation.spriteRenderer.flipX = true;
+        // }else if(playerAnimation.spriteRenderer.flipX && move.x > 0){
+        //     playerAnimation.spriteRenderer.flipX = false;
+        // }
         //determines if moving backwards or not and switches animations through a bool
-        if(!movingBackwards && movement.y > 0){
-            movingBackwards = true;
-        }else if(movingBackwards && movement.y < 0) {
-            movingBackwards = false;
-        }else if(movingBackwards && movement.y == 0)   {
-             movingBackwards = true;
-        }
+        // if(!movingBackwards && movement.y > 0){
+        //     movingBackwards = true;
+        // }else if(movingBackwards && movement.y < 0) {
+        //     movingBackwards = false;
+        // }else if(movingBackwards && movement.y == 0)   {
+        //      movingBackwards = true;
+        // }
         //plays animations
-        //playerAnimation.SetFloat("Speed",  movement.magnitude);
-        //playerAnimation.SetBool("moveBackwards", movingBackwards);
+        //playerAnimation.animation.SetFloat("WalkSpeed",  1);
+        //playerAnimation.animation.SetBool("moveBackwards", movingBackwards);
     }
     void HandleRotation() {
         //For fixed rotation direction
