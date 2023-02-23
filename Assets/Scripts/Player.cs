@@ -22,7 +22,10 @@ public class Player : MonoBehaviour
         if (delayDamage)
         {
             health -= damage;
-            healthControl.GetComponent<PlayerUI>().SetHealth(health);
+            if (healthControl != null)
+            {
+                healthControl.GetComponent<PlayerUI>().SetHealth(health);
+            }
             StartCoroutine(damageTimer());
         }
     }
