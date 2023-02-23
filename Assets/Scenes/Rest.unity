@@ -14283,5 +14283,10 @@ MonoBehaviour:
   - axe
   - bow
   - gun
+  Items:
+  - {fileID: 11400000, guid: 42cec247cb2582e43b84de02f8c234ef, type: 2}
+  - {fileID: 11400000, guid: e1145ca13959d40488f0c9b39f58f1dd, type: 2}
+  - {fileID: 11400000, guid: 7cf7d5f8c105d3a49a61f8374e294189, type: 2}
+  - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
   totalWeight: 0
   randomNumber: 0
