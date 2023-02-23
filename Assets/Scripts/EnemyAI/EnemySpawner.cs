@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Player;
     public GameObject meleeEnemy;
     public GameObject rangedEnemy;
+    public GameObject miniBossEnemy;
     public SpawnerData[] datas;
 
     // Start is called before the first frame update
@@ -92,6 +93,12 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<RangeAI>().player = Player;
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
+        }
+        else if (name.ToLower() == "miniboss")
+        {
+            var enemy = Instantiate(miniBossEnemy, hit.position, Quaternion.identity);
+            enemy.GetComponent<MiniBossAI>().player = Player;
+            enemy.transform.parent = transform;
         }
         else
         {
