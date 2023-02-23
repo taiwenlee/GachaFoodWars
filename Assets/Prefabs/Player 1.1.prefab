@@ -100,7 +100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879624361470341009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.417137, y: 0.97, z: 0.25558728}
+  m_LocalPosition: {x: 0, y: 1, z: -17.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -217,6 +217,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 0}
   isController: 0
   movement: {x: 0, y: 0}
+  move: {x: 0, y: 0, z: 0}
 --- !u!114 &6865986266226519717
 MonoBehaviour:
   m_ObjectHideFlags: 0
