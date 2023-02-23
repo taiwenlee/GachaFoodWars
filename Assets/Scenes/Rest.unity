@@ -16548,3 +16548,16 @@ MonoBehaviour:
   - gun
   totalWeight: 0
   randomNumber: 0
+--- !u!135 &6362783396080532347
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6362783396080532345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.7027214
+  m_Center: {x: 0, y: -1.12, z: 0.05}
