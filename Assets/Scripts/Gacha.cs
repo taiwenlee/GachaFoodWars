@@ -12,7 +12,7 @@ public class Gacha : MonoBehaviour
 
     [SerializeField]
     //public List<GameObject> weapons;                // list of all weapons
-    public List<Item> Items;
+    public List<Equipment> Items;
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
@@ -47,22 +47,22 @@ public class Gacha : MonoBehaviour
                 GachaUI.SetActive(true);
                 if (table[i] == 500)
                 {
-                    WeaponObtainedUI.text = "Common " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Common" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.white;
                 }
                 if (table[i] == 300)
                 {
-                    WeaponObtainedUI.text = "Rare " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Rare" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.blue;
                 }
                 if (table[i] == 160)
                 {
-                    WeaponObtainedUI.text = "Epic " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Epic" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.magenta;
                 }
                 if (table[i] == 40)
                 {
-                    WeaponObtainedUI.text = "Legendary " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Legendary" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.red;
                 }
                 Debug.Log("Award: " + table[i] + tableName[i]);
