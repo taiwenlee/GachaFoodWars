@@ -22,7 +22,7 @@ public class CollisionDetection : MonoBehaviour
         {
             Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
             isDamaged = true;
-            //other.gameObject.GetComponent<Enemy>().TakeDamage(wc.em.equipmentSelected.damageStat);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(wc.em.equipmentSelected.damageStat);
         }
         if (wc.isAttacking == false)
             isDamaged = false;
