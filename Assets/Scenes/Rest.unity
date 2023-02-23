@@ -1707,18 +1707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277211683}
   m_CullTransparentMesh: 1
---- !u!114 &293004658 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 72098325289446647, guid: 52f3cc82794448b41a369f7734c8ca18,
-    type: 3}
-  m_PrefabInstance: {fileID: 888618847}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ef53d9b99d5cf418db8d15c18b9cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &307488817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5598,11 +5586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7800503833669666998, guid: 52f3cc82794448b41a369f7734c8ca18,
-        type: 3}
-      propertyPath: em
-      value: 
-      objectReference: {fileID: 293004658}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f3cc82794448b41a369f7734c8ca18, type: 3}
 --- !u!1 &892587935
@@ -10359,6 +10342,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 42, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1563688375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563688376}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563688376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563688375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1825899, y: 10.185082, z: -10.150029}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1593530600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14283,5 +14297,6 @@ MonoBehaviour:
   - axe
   - bow
   - gun
+  Items: []
   totalWeight: 0
   randomNumber: 0
