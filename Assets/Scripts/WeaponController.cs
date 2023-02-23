@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
         {
             if (CanAttack)
             {
-                Debug.Log(weapon);
+                //Debug.Log(weapon);
                 SwordAttack();
             }
         }
@@ -46,7 +46,7 @@ public class WeaponController : MonoBehaviour
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
-                    Debug.Log("range");
+                    //Debug.Log("range");
                     break;
             }
         }

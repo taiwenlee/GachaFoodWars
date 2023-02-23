@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TransferGameObject : MonoBehaviour
 {
-    public string destinationSceneName;
+    public string[] destinationSceneNames;
 
     void Awake()
     {
@@ -20,10 +18,13 @@ public class TransferGameObject : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == destinationSceneName)
+        foreach (var destinationSceneName in destinationSceneNames)
         {
-            transform.parent = null;
-            SceneManager.MoveGameObjectToScene(gameObject, scene);
+            if (scene.name == destinationSceneName)
+            {
+                transform.parent = null;
+                SceneManager.MoveGameObjectToScene(gameObject, scene);
+            }
         }
     }
 }
