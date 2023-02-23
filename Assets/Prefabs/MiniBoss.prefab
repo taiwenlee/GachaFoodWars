@@ -155,6 +155,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drop: {fileID: 7250795859969632216, guid: c83127e396149094f95d7221aacc9346, type: 3}
   player: {fileID: 0}
+  deathSounds:
+  - {fileID: 8300000, guid: 96560355be6b8c947b83716eee815664, type: 3}
+  - {fileID: 8300000, guid: ceb6da2e6cceefe43a7dedf1662acb66, type: 3}
+  - {fileID: 8300000, guid: de07d5085f0c6704e9030a55a0b8a98c, type: 3}
+  - {fileID: 8300000, guid: 45b0f50851947fe40b951776771de0bc, type: 3}
+  - {fileID: 8300000, guid: 931a3b36503d7574582c616d5fe45b20, type: 3}
   health: 100
   speed: 5
   damage: 10
@@ -163,6 +169,7 @@ MonoBehaviour:
   attackRange: 10
   sightRange: 20
   chargeForce: 1500
+  knockbackForce: 10
   damageTimeout: 1
 --- !u!1 &2453059522775473930
 GameObject:

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public GameObject drop;
     public GameObject player;
+    public AudioClip[] deathSounds;
     [Header("Stats")]
     public float health = 100.0f;
     public float speed = 8.0f;
@@ -47,6 +48,13 @@ public class Enemy : MonoBehaviour
                 var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
                 dropInstance.GetComponent<Drop>().value = dropValue;
                 dropInstance.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1f, 1f), 2, Random.Range(-1f, 1f));
+            }
+            // play random death sound
+            if (deathSounds.Length > 0)
+            {
+                Debug.Log("Playing death sound");
+                var deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
             // destroy enemy
             Destroy(gameObject);

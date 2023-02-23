@@ -191,18 +191,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b215d7bb81a7b014fa0859ec755c70eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  projectile: {fileID: 7733247242198862208, guid: fb4ba6f38020a5344b746a5b6813725e,
-    type: 3}
   drop: {fileID: 7250795859969632216, guid: c83127e396149094f95d7221aacc9346, type: 3}
+  player: {fileID: 0}
+  deathSounds:
+  - {fileID: 8300000, guid: 96560355be6b8c947b83716eee815664, type: 3}
+  - {fileID: 8300000, guid: ceb6da2e6cceefe43a7dedf1662acb66, type: 3}
+  - {fileID: 8300000, guid: de07d5085f0c6704e9030a55a0b8a98c, type: 3}
+  - {fileID: 8300000, guid: 45b0f50851947fe40b951776771de0bc, type: 3}
+  - {fileID: 8300000, guid: 931a3b36503d7574582c616d5fe45b20, type: 3}
   health: 100
   speed: 2
   damage: 1
+  dropValue: 1
+  projectile: {fileID: 7733247242198862208, guid: fb4ba6f38020a5344b746a5b6813725e,
+    type: 3}
   attackRate: 1
   sightRange: 20
+  projectileSpeed: 10
   targetDistance: 9
   targetRange: 1
-  dropValue: 1
 --- !u!54 &2336682337873197584
 Rigidbody:
   m_ObjectHideFlags: 0

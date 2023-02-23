@@ -80,7 +80,6 @@ public class Movement : MonoBehaviour
         // add knockback
         if (knockback.x != 0 || knockback.y != 0)
         {
-            Debug.Log("Knockback: " + knockback);
             playerVelocity.x = knockback.x;
             playerVelocity.z = knockback.y;
         }
