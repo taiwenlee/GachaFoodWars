@@ -86,7 +86,7 @@ public class RoomConstructor : ScriptableObject
     {
         stack = new GameObject[]
         {
-            //Instantiate(treeStackNorth, origin), // N
+            Instantiate(treeStackNorth, origin), // N
             Instantiate(treeStackEast, origin),  // E
             Instantiate(treeStackSouth, origin), // S
             Instantiate(treeStackWest, origin),  // W
