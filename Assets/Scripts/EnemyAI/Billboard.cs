@@ -16,6 +16,10 @@ public class Billboard : MonoBehaviour
     void LateUpdate()
     {
         // point the sprite at the camera
+        if(mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
         transform.LookAt(mainCamera.transform);
     }
 }

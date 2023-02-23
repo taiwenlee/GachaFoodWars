@@ -21,6 +21,8 @@ public class RoomManagerProto1 : MonoBehaviour
         groundActivated = false;
         gateScripts = new();
 
+        player = GameObject.FindWithTag("Player");
+        player.GetComponent<Inventory>().AddOnAwake();
         levelMap.currentRoom.HasVisited = true;
         Vector4 layout = levelMap.currentRoomLayout;
         rc.BuildRoom(ref player, roomOrigin.transform, layout);
@@ -31,7 +33,7 @@ public class RoomManagerProto1 : MonoBehaviour
         }
 
         groundScript = GameObject.FindWithTag("Ground").GetComponent<Ground>();
-
+        
         enemySpawner.GetComponent<EnemySpawner>().Player = player;
     }
 
