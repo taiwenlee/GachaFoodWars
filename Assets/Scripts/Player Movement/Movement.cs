@@ -37,6 +37,10 @@ public class Movement : MonoBehaviour
     private PlayerControls playerControls;
     private PlayerInput playerInput;
 
+    [Header("Sounds")]
+    public AudioSource GrassFootSteps;
+    public float audioPitch = 1;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -68,6 +72,7 @@ public class Movement : MonoBehaviour
     }
     void HandleMovement()
     {
+        //wasd movement
         move = new Vector3(movement.x, 0, movement.y);
         //make movement inversely relate to knockback
         if (knockback.magnitude > 0)
@@ -76,6 +81,7 @@ public class Movement : MonoBehaviour
         }
         controller.Move(move * Time.deltaTime * speed);
 
+        //sets gravity
         playerVelocity.y += gravity * Time.deltaTime;
         // add knockback
         if (knockback.x != 0 || knockback.y != 0)
@@ -90,7 +96,13 @@ public class Movement : MonoBehaviour
         {
             knockback = Vector2.Lerp(knockback, Vector2.zero, knockbackDecay);
         }
-
+        
+        //determines if player is moving and plays walking sound
+        if(movement.magnitude > 0) {
+            GrassFootSteps.pitch = 1.6f;
+            GrassFootSteps.enabled = true;
+        }else 
+            GrassFootSteps.enabled = false;
         //flips sprite if moving either left or right
         // if(!playerAnimation.spriteRenderer.flipX && move.x < 0) {
         //      playerAnimation.spriteRenderer.flipX = true;

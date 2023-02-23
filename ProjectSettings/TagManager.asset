@@ -10,6 +10,7 @@ TagManager:
   - Gate_Exit
   - HealthController
   - Ground
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

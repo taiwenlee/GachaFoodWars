@@ -23,9 +23,10 @@ public class PlayerUI : MonoBehaviour
     private void UpdateHealth() { // alive or dead hearts
         if(health <= 0) {
             //restart game code here
+            GameObject.FindWithTag("BackgroundMusic").GetComponent<AudioSource>().enabled = false;
             restartMenu.SetActive(true);
             Time.timeScale = 0f;
-            print("Player Dead");
+            //print("Player Dead");
         }
         for(int i = 0; i < numHearts.Length; i++) {
             if(i < health) {
