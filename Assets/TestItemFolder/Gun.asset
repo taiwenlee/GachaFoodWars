@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
-  m_Name: LordSphere
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  name: God Spehrerereree
-  Icon: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  name: Lord sword
+  Icon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
   isDefaultItem: 0
-  damageStat: 5
-  gSlots: 1
-  gradeType: 0
+  equipSlot: 0
+  armorModifier: 0
+  damageModifier: 0
