@@ -11,12 +11,12 @@ public class Gacha : MonoBehaviour
     public TMP_Text WeaponObtainedUI;
 
     [SerializeField]
-    public List<GameObject> weapons;                // list of all weapons
+    //public List<GameObject> weapons;                // list of all weapons
+    public List<Equipment> Items;
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
     public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
-    public List<Item> Items;
 
     public int totalWeight;
     public int randomNumber;
@@ -43,28 +43,28 @@ public class Gacha : MonoBehaviour
             if(randomNumber <= table[i])
             {
                 //weapons[i].SetActive(true);
+                Inventory.instance.Add(Items[i]);
                 GachaUI.SetActive(true);
                 if (table[i] == 500)
                 {
-                    WeaponObtainedUI.text = "Common " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Common" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.white;
                 }
                 if (table[i] == 300)
                 {
-                    WeaponObtainedUI.text = "Rare " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Rare" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.blue;
                 }
                 if (table[i] == 160)
                 {
-                    WeaponObtainedUI.text = "Epic " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Epic" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.magenta;
                 }
                 if (table[i] == 40)
                 {
-                    WeaponObtainedUI.text = "Legendary " + tableName[i].ToUpper();
+                    WeaponObtainedUI.text = "Legendary" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.red;
                 }
-                Inventory.instance.Add(Items[i]);
                 Debug.Log("Award: " + table[i] + tableName[i]);
                 return;
             }else
