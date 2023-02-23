@@ -15,13 +15,13 @@ public class WeaponController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (CanAttack)
+            if (CanAttack && em.equipmentSelected)
             {
                 //Debug.Log(weapon);
                 SwordAttack();
             }
         }
-        if (em.equipmentSelected != null && isSelected == false)
+        if (em.equipmentSelected != null)
         {
             WeaponSelector();
         }
@@ -31,13 +31,13 @@ public class WeaponController : MonoBehaviour
     {
         if (isAttacking == false)
         {
-            Debug.Log("In loop");
             switch (em.equipmentSelected.gSlots)
             {
                 case WeaponType.Sword:
                     //Debug.Log("Sword");
                     SetWeapon("Sword");
                     DisableChild(this.transform.Find("Sword").gameObject);
+                    //isSelected = true;
                     break;
                 case WeaponType.Spear:
                     //Debug.Log("Spear");

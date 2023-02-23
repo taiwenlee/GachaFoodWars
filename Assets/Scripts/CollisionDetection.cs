@@ -17,7 +17,6 @@ public class CollisionDetection : MonoBehaviour
         }*/
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("bye");
         if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true && isDamaged == false)
         {
             Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
