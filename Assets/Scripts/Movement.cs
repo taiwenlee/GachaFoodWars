@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float deadzone = 0.1f;
-    [SerializeField] private float smoothRotate= 2000f;
+    [SerializeField] private float smoothRotate = 2000f;
     //private int playerSpeed = 10;
     //private int playerRotation = -5;
 
@@ -27,6 +27,9 @@ public class Movement : MonoBehaviour
     [Header("Player Position")]
     public Vector2 movement;
     public Vector3 move;
+    public Vector2 knockback;
+    private float knockbackInitM;
+    public float knockbackDecay = 0.1f;
     private Vector2 aim;
 
     private Vector3 playerVelocity;
@@ -34,19 +37,22 @@ public class Movement : MonoBehaviour
     private PlayerControls playerControls;
     private PlayerInput playerInput;
 
-    private void Awake() {
+    private void Awake()
+    {
         controller = GetComponent<CharacterController>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         playerControls.Enable();
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         playerControls.Disable();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -55,16 +61,36 @@ public class Movement : MonoBehaviour
         HandleMovement();
     }
 
-    void HandleInput() {
+    void HandleInput()
+    {
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
-    void HandleMovement() {
-        move = new Vector3(movement.x,0,movement.y);
+    void HandleMovement()
+    {
+        move = new Vector3(movement.x, 0, movement.y);
+        //make movement inversely relate to knockback
+        if (knockback.magnitude > 0)
+        {
+            move = move * (1 - knockback.magnitude / knockbackInitM);
+        }
         controller.Move(move * Time.deltaTime * speed);
-        
+
         playerVelocity.y += gravity * Time.deltaTime;
+        // add knockback
+        if (knockback.x != 0 || knockback.y != 0)
+        {
+            Debug.Log("Knockback: " + knockback);
+            playerVelocity.x = knockback.x;
+            playerVelocity.z = knockback.y;
+        }
         controller.Move(playerVelocity * Time.deltaTime);
+
+        //decay knockback
+        if (knockback.magnitude > 0)
+        {
+            knockback = Vector2.Lerp(knockback, Vector2.zero, knockbackDecay);
+        }
 
         //flips sprite if moving either left or right
         // if(!playerAnimation.spriteRenderer.flipX && move.x < 0) {
@@ -84,7 +110,8 @@ public class Movement : MonoBehaviour
         //playerAnimation.animation.SetFloat("WalkSpeed",  1);
         //playerAnimation.animation.SetBool("moveBackwards", movingBackwards);
     }
-    void HandleRotation() {
+    void HandleRotation()
+    {
         //For fixed rotation direction
         // var movementX = Input.GetAxis("Horizontal") * Time.deltaTime * playerSpeed; 
         // float rotationZ = Input.GetAxis("Horizontal") * playerRotation;
@@ -102,33 +129,48 @@ public class Movement : MonoBehaviour
 
         //Uncomment for full mouse rotation
         //using controller
-        if(isController) {
-            if(Mathf.Abs(aim.x) > deadzone || Mathf.Abs(aim.y) > deadzone) {
+        if (isController)
+        {
+            if (Mathf.Abs(aim.x) > deadzone || Mathf.Abs(aim.y) > deadzone)
+            {
                 Vector3 playerDirection = Vector3.right * aim.x + Vector3.forward * aim.y;
-                if(playerDirection.sqrMagnitude > 0.0f) {
+                if (playerDirection.sqrMagnitude > 0.0f)
+                {
                     Quaternion rot = Quaternion.LookRotation(playerDirection, Vector3.up);
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, smoothRotate * Time.deltaTime);
                 }
             }
-        //keyboard
-        }else {
+            //keyboard
+        }
+        else
+        {
             Ray ray = Camera.main.ScreenPointToRay(aim);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayDistance;
-            
-            if(groundPlane.Raycast(ray,out rayDistance)) {
+
+            if (groundPlane.Raycast(ray, out rayDistance))
+            {
                 Vector3 point = ray.GetPoint(rayDistance);
                 LookAt(point);
             }
         }
     }
 
-    private void LookAt(Vector3 lookPoint) {
+    private void LookAt(Vector3 lookPoint)
+    {
         Vector3 heightCorrectPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
         transform.LookAt(heightCorrectPoint);
     }
 
-    public void OnDeviceChange(PlayerInput pi) {
+    public void OnDeviceChange(PlayerInput pi)
+    {
         isController = pi.currentControlScheme.Equals("Controller") ? true : false;
+    }
+
+    // apply knockback to player using a vector3 direction and a float force
+    public void Knockback(Vector2 direction, float force)
+    {
+        knockback = direction * force;
+        knockbackInitM = knockback.magnitude;
     }
 }

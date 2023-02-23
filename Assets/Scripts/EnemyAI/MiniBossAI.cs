@@ -9,6 +9,7 @@ public class MiniBossAI : Enemy
     public float attackRange = 10.0f; // distance from player to attack
     public float sightRange = 20.0f; // distance from player to spot player
     public float chargeForce = 100.0f; // force to charge at player
+    public float knockbackForce = 10.0f; // force to knockback player
     public float damageTimeout = 1f; // time between damage ticks
     private float attackcooldown = 0.0f;
     private float damageCooldown = 0.0f;
@@ -79,6 +80,16 @@ public class MiniBossAI : Enemy
                 Debug.Log("Player hit by boss");
                 collision.gameObject.GetComponent<Player>().takeDamage(damage);
                 damageCooldown = damageTimeout;
+                // knockback the player in the direction of the collision
+                var knockbackDirection = new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.z - transform.position.z);
+                knockbackDirection.Normalize();
+                collision.gameObject.GetComponent<Movement>().Knockback(knockbackDirection, knockbackForce);
+
+                // knockback the boss in the opposite direction of the collision
+                var bossKnockbackDirection = new Vector3(-knockbackDirection.x, 0, -knockbackDirection.y);
+                bossKnockbackDirection.Normalize();
+                rb.AddForce(bossKnockbackDirection * knockbackForce, ForceMode.Impulse);
+
             }
         }
     }
