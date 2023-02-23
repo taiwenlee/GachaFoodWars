@@ -51,4 +51,11 @@ public class Inventory : MonoBehaviour
             onItemChangedCallBack.Invoke();
         }
     }
+    public void AddOnAwake()
+    {
+        if (onItemChangedCallBack != null)
+        {
+            onItemChangedCallBack.Invoke();
+        }
+    }
 }
