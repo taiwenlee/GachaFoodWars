@@ -1475,8 +1475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 385789619}
   - component: {fileID: 385789618}
-  - component: {fileID: 385789621}
-  - component: {fileID: 385789620}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1512,35 +1510,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &385789620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385789617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e996e3a82c2c748b767d553ea3d173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  space: 30
-  items: []
---- !u!114 &385789621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385789617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ef53d9b99d5cf418db8d15c18b9cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentEquipment: []
-  equipmentSelected: {fileID: 0}
-  wc: {fileID: 1229067316}
 --- !u!1 &420903228
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,6 +5385,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1879624361470341009, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879624361470341010, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
       propertyPath: m_RootOrder
@@ -5480,21 +5454,9 @@ PrefabInstance:
         type: 3}
       propertyPath: em
       value: 
-      objectReference: {fileID: 385789621}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f3cc82794448b41a369f7734c8ca18, type: 3}
---- !u!114 &1229067316 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7800503833669666998, guid: 52f3cc82794448b41a369f7734c8ca18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1229067315}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4e8856310d92d34486308d080a0b1c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1248022867
 GameObject:
   m_ObjectHideFlags: 0
