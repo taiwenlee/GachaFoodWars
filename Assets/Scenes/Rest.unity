@@ -326,7 +326,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772965794}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3329,7 +3329,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772965794}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3744,7 +3744,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772965794}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4939,7 +4939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f287e39cb38a1cd4ab07adb6e04f5c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationSceneName: 
+  destinationSceneName: Game
 --- !u!114 &772965791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5013,11 +5013,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1019548651}
   - {fileID: 815009518}
   - {fileID: 609878988}
   - {fileID: 517886949}
   - {fileID: 25127821}
-  - {fileID: 1019548651}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5175,7 +5175,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772965794}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6039,7 +6039,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthControl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1019548652}
     - target: {fileID: 7800503833669666998, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
       propertyPath: em
@@ -7474,7 +7474,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 772965794}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1019548652
 MonoBehaviour:
@@ -14784,21 +14784,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GachaUI: {fileID: 1765978046}
   WeaponObtainedUI: {fileID: 1263084538}
-  weapons:
-  - {fileID: 1450439191}
-  - {fileID: 2009380836}
-  - {fileID: 309672656}
-  - {fileID: 1846505648}
+  Items:
+  - {fileID: 11400000, guid: 42cec247cb2582e43b84de02f8c234ef, type: 2}
+  - {fileID: 11400000, guid: e1145ca13959d40488f0c9b39f58f1dd, type: 2}
+  - {fileID: 11400000, guid: 7cf7d5f8c105d3a49a61f8374e294189, type: 2}
+  - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
   table: f40100002c010000a000000028000000
   tableName:
   - sword
   - axe
   - bow
   - gun
-  Items:
-  - {fileID: 11400000, guid: 42cec247cb2582e43b84de02f8c234ef, type: 2}
-  - {fileID: 11400000, guid: e1145ca13959d40488f0c9b39f58f1dd, type: 2}
-  - {fileID: 11400000, guid: 7cf7d5f8c105d3a49a61f8374e294189, type: 2}
-  - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
   totalWeight: 0
   randomNumber: 0
