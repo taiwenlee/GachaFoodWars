@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd67646d1c327df41a7a66d20c3a3a2a
+guid: fccf80f19497442419f27dccd0add958
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -115,18 +115,106 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Egg_Bite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 536
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cc421f3c4092c4086ccd648ad1d428
+      internalID: -1020952267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Bite_1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 536
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b0023b4bbc1c2d4faf8a59d584b9d61
+      internalID: -1172771959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Bite_2
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 0
+        width: 536
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819e41b869dcf1f4b9111824e985c2e6
+      internalID: 970945783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Bite_3
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 536
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51310ff404d4c334d829f3bbe5799907
+      internalID: 1124746254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0dd7fd5b7e2cfca48b11801cfa544413
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Egg_Bite_3: 1124746254
+      Egg_Bite_2: 970945783
+      Egg_Bite_0: -1020952267
+      Egg_Bite_1: -1172771959
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
