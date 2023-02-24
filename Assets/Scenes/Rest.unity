@@ -3342,6 +3342,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1879624361470341013, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2567535117700251741, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
       propertyPath: m_IsActive
@@ -3352,6 +3357,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6865986266226519717, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 357922523}
+    - target: {fileID: 6865986266226519717, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 968304833}
     - target: {fileID: 6865986266226519717, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
       propertyPath: healthControl

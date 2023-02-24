@@ -25,7 +25,7 @@ public class PlayerUI : MonoBehaviour
             //restart game code here
             GameObject.FindWithTag("BackgroundMusic").GetComponent<AudioSource>().enabled = false;
             restartMenu.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             //print("Player Dead");
         }
         for(int i = 0; i < numHearts.Length; i++) {

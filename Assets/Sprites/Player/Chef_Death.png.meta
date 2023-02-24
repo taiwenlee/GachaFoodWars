@@ -1,0 +1,1003 @@
+fileFormatVersion: 2
+guid: ca026bbdf5a5cc944931f1b3f304bb48
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chef_Death_0
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 8301
+        width: 477
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d139ead5c5ecee4db860458d87b6ed5
+      internalID: -1398683395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_1
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 8301
+        width: 476
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761406f5c1042f34a934826320fcbf91
+      internalID: 694263919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_2
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 8301
+        width: 477
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5a224c6cffb0e429ea97df756ebf72
+      internalID: -1021691021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_3
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 8301
+        width: 476
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e637c380054be604c8573c1b1eac402c
+      internalID: 97938555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_4
+      rect:
+        serializedVersion: 2
+        x: 4366
+        y: 8301
+        width: 473
+        height: 858
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055086509c68f6d46aab1e0302ff742c
+      internalID: 92330087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 7279
+        width: 458
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb4513678d422d4ea7ed6e59cf2f9f5
+      internalID: -2123451458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_6
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 7279
+        width: 454
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0865e673d42d52640938b28d9a425cfe
+      internalID: -54872308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_7
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 7279
+        width: 455
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0401497f5075e2146ab69c5e13d63328
+      internalID: 23882698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_8
+      rect:
+        serializedVersion: 2
+        x: 3318
+        y: 7292
+        width: 499
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546ae144cfdc03c49b0b7ba7d78a2c44
+      internalID: -943141091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_9
+      rect:
+        serializedVersion: 2
+        x: 4340
+        y: 7292
+        width: 499
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852b85b8159a7294fae1628873ec1df0
+      internalID: 1852159941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_10
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 6266
+        width: 500
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e256db8507ded4cab131ba6d93950f
+      internalID: -1705663319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_11
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 6240
+        width: 535
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadb879a83c55d743b9c52b85ad23bb2
+      internalID: -1428205799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_12
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 6240
+        width: 540
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f57cf7949ef0c46a58eae898a64791
+      internalID: 2010282878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_13
+      rect:
+        serializedVersion: 2
+        x: 3291
+        y: 6240
+        width: 539
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24f09bee3285504fa81f31dda6c40fb
+      internalID: -1783660365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_14
+      rect:
+        serializedVersion: 2
+        x: 4393
+        y: 6248
+        width: 527
+        height: 644
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8bd87c9e3549d4099f95e06cdbe432
+      internalID: -1766364665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_15
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 5222
+        width: 526
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6f9dc0f264feb429932e5ea7edfeae
+      internalID: 267002690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_16
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 5222
+        width: 526
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5687539c5b72946903cff534230677
+      internalID: -1050325548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_17
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 5204
+        width: 666
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6307ac24787c6ea4b9f6e0b43d323b88
+      internalID: -490409163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_18
+      rect:
+        serializedVersion: 2
+        x: 3282
+        y: 5204
+        width: 670
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6e4ad877365a64ebe6b241863c9e1e
+      internalID: -811422686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_19
+      rect:
+        serializedVersion: 2
+        x: 4308
+        y: 5204
+        width: 666
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b625e8b61cb515c4ca813b3f7a3c19cb
+      internalID: -1944356587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_20
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 4183
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2fe8e3caea17b4eb76668560c944ec
+      internalID: -690216072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_21
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 4183
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2eeacb253a899f47b8d81627e18ae5b
+      internalID: -346167619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_22
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 4183
+        width: 609
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0101636c21add240beafb5cefb2c369
+      internalID: 565621237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_23
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 4183
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe497d6687ec5b0499f458fe996b90ef
+      internalID: -1015436329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_24
+      rect:
+        serializedVersion: 2
+        x: 4366
+        y: 4183
+        width: 608
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13362dbe20ee60e44b25316000262811
+      internalID: 579655579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_25
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 3157
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1b1908f0d3ce8489dbcf688579f774
+      internalID: 2063447215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_26
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 3157
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b559991e4e02ac4b80c964f40e2e89d
+      internalID: -652525701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_27
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 3157
+        width: 609
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d173809c7c87794990273992f5c4955
+      internalID: 1115486773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_28
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 3157
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00aa57239d499414798ee45105dd1775
+      internalID: -543091526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_29
+      rect:
+        serializedVersion: 2
+        x: 4366
+        y: 3157
+        width: 608
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73eed4b2b6e46904f9863eba6d2c4825
+      internalID: 59167077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_30
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 2135
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923e878db77416848ba64232897952d6
+      internalID: -2084043186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_31
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 2135
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233d055d72191c44bb64917ba82ee04f
+      internalID: -808586048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_32
+      rect:
+        serializedVersion: 2
+        x: 2319
+        y: 2135
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578ba6d07f7f81d44b477cea2b772605
+      internalID: -1462118016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_33
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 2135
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb47391cae85fd242a5c50837299a535
+      internalID: 395955265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_34
+      rect:
+        serializedVersion: 2
+        x: 4366
+        y: 2135
+        width: 608
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d630a2ae6130846a0707671efa6dd5
+      internalID: -81560687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_35
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1109
+        width: 607
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755979a1f394aa944bdc4b466103fe08
+      internalID: -1228495706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_36
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1110
+        width: 607
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0adcbab31c167c4089f2a7fef90000b
+      internalID: 396044974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_37
+      rect:
+        serializedVersion: 2
+        x: 2319
+        y: 1110
+        width: 607
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415680ac0d6b6ff44a4bd6d35c2ee7a3
+      internalID: -1796981723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_38
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 1110
+        width: 607
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07020fd6b6e5a884da2f66eb991b1330
+      internalID: -1209625581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chef_Death_39
+      rect:
+        serializedVersion: 2
+        x: 4368
+        y: 1110
+        width: 601
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a130c5e22038a274e8d21e93a9b07bd9
+      internalID: 1417440668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 41268f58828a3e04ca7d35554e7414a1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Chef_Death_15: 267002690
+      Chef_Death_13: -1783660365
+      Chef_Death_27: 1115486773
+      Chef_Death_3: 97938555
+      Chef_Death_9: 1852159941
+      Chef_Death_30: -2084043186
+      Chef_Death_12: 2010282878
+      Chef_Death_16: -1050325548
+      Chef_Death_28: -543091526
+      Chef_Death_24: 579655579
+      Chef_Death_7: 23882698
+      Chef_Death_36: 396044974
+      Chef_Death_4: 92330087
+      Chef_Death_25: 2063447215
+      Chef_Death_34: -81560687
+      Chef_Death_14: -1766364665
+      Chef_Death_35: -1228495706
+      Chef_Death_5: -2123451458
+      Chef_Death_2: -1021691021
+      Chef_Death_17: -490409163
+      Chef_Death_23: -1015436329
+      Chef_Death_21: -346167619
+      Chef_Death_8: -943141091
+      Chef_Death_26: -652525701
+      Chef_Death_33: 395955265
+      Chef_Death_10: -1705663319
+      Chef_Death_1: 694263919
+      Chef_Death_39: 1417440668
+      Chef_Death_32: -1462118016
+      Chef_Death_29: 59167077
+      Chef_Death_11: -1428205799
+      Chef_Death_20: -690216072
+      Chef_Death_0: -1398683395
+      Chef_Death_18: -811422686
+      Chef_Death_38: -1209625581
+      Chef_Death_37: -1796981723
+      Chef_Death_31: -808586048
+      Chef_Death_22: 565621237
+      Chef_Death_6: -54872308
+      Chef_Death_19: -1944356587
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
