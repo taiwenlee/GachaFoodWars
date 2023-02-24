@@ -243,7 +243,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 931a3b36503d7574582c616d5fe45b20, type: 3}
   health: 100
   speed: 3
-  damage: 1
+  damage: 2
   dropValue: 1
   attackRate: 1
   attackRange: 1
