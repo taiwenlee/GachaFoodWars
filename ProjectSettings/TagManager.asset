@@ -11,6 +11,7 @@ TagManager:
   - HealthController
   - Ground
   - BackgroundMusic
+  - Sword
   layers:
   - Default
   - TransparentFX

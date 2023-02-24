@@ -10,6 +10,17 @@ public class WeaponController : MonoBehaviour
     public float AttackCooldown = 1.0f;
     public bool isAttacking = false;
     public bool isSelected = false;
+
+    [Header("Weapon Sounds")]
+    public AudioSource audioSource;
+    public AudioClip swordSound;
+    public AudioClip spearSound;
+
+     void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -18,6 +29,7 @@ public class WeaponController : MonoBehaviour
             if (CanAttack && em.equipmentSelected)
             {
                 //Debug.Log(weapon);
+                audioSource.PlayOneShot(audioSource.clip);
                 SwordAttack();
             }
         }
@@ -37,12 +49,14 @@ public class WeaponController : MonoBehaviour
                     //Debug.Log("Sword");
                     SetWeapon("Sword");
                     DisableChild(this.transform.Find("Sword").gameObject);
+                    audioSource.clip = swordSound;
                     //isSelected = true;
                     break;
                 case WeaponType.Spear:
                     //Debug.Log("Spear");
                     SetWeapon("Spear");
                     DisableChild(this.transform.Find("Spear").gameObject);
+                    audioSource.clip = spearSound;
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
