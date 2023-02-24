@@ -113,3 +113,4 @@ MonoBehaviour:
   entryPoint: {fileID: 11400000, guid: 483ab23df43b77d4dac9c6e1fb2ed579, type: 2}
   terminal: {x: 0, y: 1, z: 0, w: 0}
   triggered: 0
+  boxCollider: {fileID: 0}

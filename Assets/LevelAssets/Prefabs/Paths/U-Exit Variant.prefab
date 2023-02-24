@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df8ef6a2331d8d04281fc988f8b7714a, type: 2}
+  - {fileID: 2100000, guid: fb2f8c64617924f0f98119ae802dbab8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   entryPoint: {fileID: 11400000, guid: 483ab23df43b77d4dac9c6e1fb2ed579, type: 2}
   terminal: {x: 1, y: 0, z: 0, w: 0}
   triggered: 0
+  boxCollider: {fileID: 0}
 --- !u!1 &3330901071166413308
 GameObject:
   m_ObjectHideFlags: 0
