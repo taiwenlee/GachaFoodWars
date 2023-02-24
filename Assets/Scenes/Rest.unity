@@ -3274,6 +3274,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1879624361470341001, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
+      propertyPath: GameObj
+      value: 
+      objectReference: {fileID: 968304833}
+    - target: {fileID: 1879624361470341001, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
       propertyPath: GrassFootSteps
       value: 
       objectReference: {fileID: 357922541}
@@ -8071,6 +8076,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1543116902}
   removeButton: {fileID: 1483390128}
+--- !u!1 &968304833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6865986266726425941, guid: 52f3cc82794448b41a369f7734c8ca18,
+    type: 3}
+  m_PrefabInstance: {fileID: 422009133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &982011097
 PrefabInstance:
   m_ObjectHideFlags: 0

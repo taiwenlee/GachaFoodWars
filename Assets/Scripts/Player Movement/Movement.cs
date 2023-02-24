@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     [Header("Animation")]
     public Animations playerAnimation;
     private bool movingBackwards;
+    public GameObject GameObj;
 
     [SerializeField] private bool isController;
 
@@ -104,11 +105,11 @@ public class Movement : MonoBehaviour
         }else 
             GrassFootSteps.enabled = false;
         //flips sprite if moving either left or right
-        // if(!playerAnimation.spriteRenderer.flipX && move.x < 0) {
-        //      playerAnimation.spriteRenderer.flipX = true;
-        // }else if(playerAnimation.spriteRenderer.flipX && move.x > 0){
-        //     playerAnimation.spriteRenderer.flipX = false;
-        // }
+        if(!GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x > 0) {
+             GameObj.GetComponent<Animations>().spriteRenderer.flipX = true;
+        }else if(GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x < 0){
+            GameObj.GetComponent<Animations>().spriteRenderer.flipX = false;
+        }
         //determines if moving backwards or not and switches animations through a bool
         // if(!movingBackwards && movement.y > 0){
         //     movingBackwards = true;
@@ -118,7 +119,7 @@ public class Movement : MonoBehaviour
         //      movingBackwards = true;
         // }
         //plays animations
-        //playerAnimation.animation.SetFloat("WalkSpeed",  1);
+        GameObj.GetComponent<Animations>().animation.SetFloat("WalkSpeed", movement.magnitude);
         //playerAnimation.animation.SetBool("moveBackwards", movingBackwards);
     }
     void HandleRotation()
