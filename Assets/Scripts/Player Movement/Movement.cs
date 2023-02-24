@@ -174,10 +174,10 @@ public class Movement : MonoBehaviour
         transform.LookAt(heightCorrectPoint);
     }
 
-    public void OnDeviceChange(PlayerInput pi)
-    {
-        isController = pi.currentControlScheme.Equals("Controller") ? true : false;
-    }
+    // public void OnDeviceChange(PlayerInput pi)
+    // {
+    //     isController = pi.currentControlScheme.Equals("Controller") ? true : false;
+    // }
 
     // apply knockback to player using a vector3 direction and a float force
     public void Knockback(Vector2 direction, float force)
