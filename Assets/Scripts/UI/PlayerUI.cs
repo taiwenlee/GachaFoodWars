@@ -9,6 +9,7 @@ public class PlayerUI : MonoBehaviour
     public PlayerStats playerStats;
     //private bool playerDead = false;
     //private bool showDeathUI = false;
+    private float restartMenuTimer = 0.0f;
     public int health = 4;
     
     [SerializeField] private Image[] numHearts;
@@ -19,10 +20,14 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
+        restartMenuTimer += Time.deltaTime;
         health = playerStats.playerHealthData.GetPlayerHealth();
 
         if (health <= 0) {
-            restartMenu.SetActive(true);
+            if(restartMenuTimer >= 3.0f) { //delays opening restart menu by 3 second
+                restartMenu.SetActive(true);
+                restartMenuTimer = 0.0f; //resets timer
+            }  
         }else{
             restartMenu.SetActive(false);
         }
