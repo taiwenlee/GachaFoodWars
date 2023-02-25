@@ -17,13 +17,13 @@ public class RestAreaManager : MonoBehaviour
     [Space(20)]
     [Header("Player Stats")]
     [Tooltip("Reset the player's health while in Rest")]
-    [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] PlayerStats playerStats;
 
     private LevelBlueprint lc;
 
     private void Start()
     {
-        playerHealth.ResetPlayerHealth();
+        playerStats.playerHealthData.ResetPlayerHealth();
         lc = levelBuildPool[Random.Range(0, levelBuildPool.Length)];
     }
 
@@ -35,6 +35,7 @@ public class RestAreaManager : MonoBehaviour
         if (exitGate.triggered)
         {
             lc.BuildLevel();
+            levelMap.spawnerMatrix = lc.levelSpawnerData;
             levelMap.roomMatrix = lc.roomMatrix;
             levelMap.currentVertex = lc.currentVertex;
             int x = (int)levelMap.currentVertex.x;

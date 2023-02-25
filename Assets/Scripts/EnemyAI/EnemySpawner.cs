@@ -15,12 +15,20 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // placeholder to test starting the level, should be moved to another script
-        BeginLevel("3");
+        // BeginLevel("3");
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    // spawns enemies based on the data received
+    public int BeginLevel(SpawnerData data)
+    {
+        Debug.Log($"Spawning enemies for Room {data.name}");
+        spawnEnemys(data);
+        return 0;
     }
 
     // initiates the spawner given a level name

@@ -15,6 +15,10 @@ MonoBehaviour:
   currentVertex: {x: 0, y: 0}
   startingLocation: {x: 0, y: 2}
   endingLocation: {x: 2, y: 2}
+  spawnerDataList:
+  - {fileID: 11400000, guid: 931db775d1c3586439168091a88ac720, type: 2}
+  - {fileID: 11400000, guid: 09cb528cd4e12514d9b7ef6bb3aa9c2b, type: 2}
+  - {fileID: 11400000, guid: 5199558259b1bc94a875eb3895e97bac, type: 2}
   levelBoolMap:
     cols:
     - rows: 000001

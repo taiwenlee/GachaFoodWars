@@ -13,6 +13,7 @@ public class RoomManagerProto1 : MonoBehaviour
 
     private bool inTransition;
     private bool groundActivated;
+    private EnemySpawner es;
     private Ground groundScript;
     private List<Gate> gateScripts;
 
@@ -26,6 +27,7 @@ public class RoomManagerProto1 : MonoBehaviour
         inventory = GameObject.FindWithTag("Inventory");
         inventory.GetComponent<Inventory>().AddOnAwake();
         levelMap.currentRoom.HasVisited = true;
+        Vector2 roomCoords = levelMap.currentVertex;
         Vector4 layout = levelMap.currentRoomLayout;
         rc.BuildRoom(out GameObject player, roomOrigin.transform, layout);
         GameObject[] gates = GameObject.FindGameObjectsWithTag("Gate_Exit");
@@ -37,7 +39,13 @@ public class RoomManagerProto1 : MonoBehaviour
         
 
         player.GetComponent<Player>().healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
-        enemySpawner.GetComponent<EnemySpawner>().Player = player;
+
+        es = enemySpawner.GetComponent<EnemySpawner>();
+        es.Player = player;
+        es.BeginLevel(levelMap.spawnerMatrix
+            .cols[(int)roomCoords.x]
+            .rows[(int)roomCoords.y]
+        );
     }
 
     // Update is called once per frame

@@ -34,7 +34,9 @@ public class LevelBlueprint : ScriptableObject
     public Vector2 startingLocation;
     public Vector2 endingLocation;
 
+    [Space(20)]
     public Matrix<bool> levelBoolMap;
+    public Matrix<SpawnerData> levelSpawnerData;
     public Matrix<RoomBlueprint> roomMatrix;
 
     public void OnEnable()
