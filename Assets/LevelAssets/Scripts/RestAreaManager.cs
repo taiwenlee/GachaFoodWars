@@ -19,6 +19,7 @@ public class RestAreaManager : MonoBehaviour
     [Tooltip("Reset the player's health while in Rest")]
     [SerializeField] PlayerStats playerStats;
 
+
     private LevelBlueprint lc;
 
     private void Start()

@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public PlayerUI healthControl;
     public PlayerStats playerStats;
     private Animations sprite;
-    //private GameObject restartMenu;
     //public GameObject player;
 
     [Header("Stats")]
@@ -23,9 +22,10 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();    
+        //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
+        health = playerStats.playerHealthData.GetPlayerHealth();
+        healthControl.GetComponent<PlayerUI>().SetHealth(health);
         sprite = GetComponentInChildren<Animations>();
-        //restartMenu = GameObject.FindWithTag("RestartMenu");
     }
 
     public void takeDamage(int damage)
@@ -36,10 +36,10 @@ public class Player : MonoBehaviour
             playerStats.playerHealthData.ModifyPlayerHealth(-damage);
             health = playerStats.playerHealthData.GetPlayerHealth();
 
-            if (healthControl != null)
+            /*if (healthControl != null)
             {
                 healthControl.GetComponent<PlayerUI>().SetHealth(health);
-            }
+            }*/
 
             StartCoroutine(damageTimer());
         }
@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
                 sprite.animation.SetTrigger("PlayerDead");
                 //player.GetComponent<CharacterController>().enabled = false;
                 //player.GetComponent<WeaponController>().enabled = false;
-               // restartMenu.SetActive(true);
                 playerDead = true;
                 //Destroy(gameObject, 1f);
                 //Time.timeScale = 0f;

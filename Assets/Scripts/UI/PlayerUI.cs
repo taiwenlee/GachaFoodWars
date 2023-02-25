@@ -6,27 +6,24 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject restartMenu;
-    private bool playerDead = false;
-    private bool showDeathUI = false;
+    public PlayerStats playerStats;
+    //private bool playerDead = false;
+    //private bool showDeathUI = false;
     public int health = 4;
     
     [SerializeField] private Image[] numHearts;
 
     private void Start(){
-        restartMenu.SetActive(false);
         UpdateHealth();
     }
 
     private void Update()
     {
-        if(health <= 0) {
-            if(!playerDead)
-            {
-                restartMenu.SetActive(true);
-                playerDead = true;
-            }
+        health = playerStats.playerHealthData.GetPlayerHealth();
+
+        if (health <= 0) {
+            restartMenu.SetActive(true);
         }else{
-            playerDead = false;
             restartMenu.SetActive(false);
         }
         UpdateHealth();

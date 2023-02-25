@@ -2752,7 +2752,7 @@ Transform:
   - {fileID: 851472415}
   - {fileID: 992845268}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415519159
 GameObject:
@@ -2947,6 +2947,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6865986266226519717, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: healthControl
+      value: 
+      objectReference: {fileID: 1019548652}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f3cc82794448b41a369f7734c8ca18, type: 3}
 --- !u!1 &433954597
@@ -8016,7 +8021,7 @@ Transform:
   - {fileID: 309672657}
   - {fileID: 1846505649}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1014897089
 PrefabInstance:
@@ -8143,6 +8148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartMenu: {fileID: 2127211200}
+  playerStats: {fileID: 11400000, guid: 7aaa07e2f113b18459a904737ba0f3a3, type: 2}
   health: 4
   numHearts:
   - {fileID: 815009516}
@@ -16813,7 +16819,7 @@ PrefabInstance:
     - target: {fileID: 4821859230038474289, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474289, guid: 6314c822494337948930bb98403747de,
         type: 3}
@@ -16903,6 +16909,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fbbf400132a00124d8367a7182cce1b5,
         type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: restartCanvas
+      value: 
+      objectReference: {fileID: 2127211200}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: weaponObtainedUI

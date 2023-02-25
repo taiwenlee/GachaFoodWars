@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject restartMenu;
+    //public GameObject restartMenu;
     public static bool isPaused;
 
     void Start()
     {
         pauseMenu.SetActive(false);
-        restartMenu.SetActive(false);
+        //restartMenu.SetActive(false);
     }
 
     void Update()
