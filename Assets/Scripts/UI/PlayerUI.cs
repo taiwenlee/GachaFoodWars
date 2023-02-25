@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image[] numHearts;
 
     private void Start(){
+        restartMenu.SetActive(false);
         UpdateHealth();
     }
 

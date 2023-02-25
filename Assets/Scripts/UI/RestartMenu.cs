@@ -15,6 +15,7 @@ public class RestartMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Main Menu");
+        restartMenu.SetActive(false);
     }
 
     public void QuitGame()
