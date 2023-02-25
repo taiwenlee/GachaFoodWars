@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: B4
   m_EditorClassIdentifier: 
   LevelName: 
-  mobNames: []
-  spawnPoints: []
+  mobNames:
+  - Melee
+  - Melee
+  - Melee
+  - Range
+  - Tank
+  - Range
+  spawnPoints:
+  - {x: -10, y: 0, z: 8}
+  - {x: -10, y: 0, z: 0}
+  - {x: -10, y: 0, z: -8}
+  - {x: 10, y: 0, z: 5}
+  - {x: 10, y: 0, z: 0}
+  - {x: 10, y: 0, z: -5}

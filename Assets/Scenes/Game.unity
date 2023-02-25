@@ -7832,8 +7832,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836828266130545429, guid: 4043f388ce4e8b94eb7f21ac74e50601,
         type: 3}
+      propertyPath: miniBossEnemy
+      value: 
+      objectReference: {fileID: 2453059522322495660, guid: ea0930af8e2dbb54790c30ea2f3a7e26,
+        type: 3}
+    - target: {fileID: 5836828266130545429, guid: 4043f388ce4e8b94eb7f21ac74e50601,
+        type: 3}
       propertyPath: datas.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5836828266130545429, guid: 4043f388ce4e8b94eb7f21ac74e50601,
         type: 3}

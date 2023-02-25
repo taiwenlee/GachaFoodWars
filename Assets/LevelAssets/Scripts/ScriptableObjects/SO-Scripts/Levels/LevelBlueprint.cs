@@ -39,7 +39,7 @@ public class LevelBlueprint : ScriptableObject
     public Matrix<SpawnerData> levelSpawnerData;
     public Matrix<RoomBlueprint> roomMatrix;
 
-    public void OnEnable()
+    /*public void Awake()
     {
         currentVertex = Vector2.zero;
         int x = (int)startingLocation.x;
@@ -58,7 +58,7 @@ public class LevelBlueprint : ScriptableObject
             Debug.LogError($"Level Build: {name}");
             Debug.Break();
         }
-    }
+    }*/
 
     public void OnDisable()
     {

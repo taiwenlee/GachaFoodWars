@@ -7,32 +7,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbadb3eccbce2a0458ebaacfb22a3516, type: 3}
-  m_Name: c001-011-011-s02-e22
+  m_Name: Level 1
   m_EditorClassIdentifier: 
   currentVertex: {x: 0, y: 0}
-  startingLocation: {x: 0, y: 2}
-  endingLocation: {x: 2, y: 2}
+  startingLocation: {x: 0, y: 1}
+  endingLocation: {x: 3, y: 2}
   levelBoolMap:
     cols:
-    - rows: 000001
-    - rows: 000101
-    - rows: 000101
+    - rows: 0001
+    - rows: 0101
+    - rows: 0101
+    - rows: 0001
   levelSpawnerData:
     cols:
     - rows:
       - {fileID: 0}
-      - {fileID: 0}
       - {fileID: 11400000, guid: 52846c9322fef11459844daf1a53afcf, type: 2}
     - rows:
-      - {fileID: 0}
       - {fileID: 11400000, guid: ee967ac21281cd541a5ad4c225a52173, type: 2}
       - {fileID: 11400000, guid: e69306651575d974e9c8a3ecd7db0053, type: 2}
     - rows:
-      - {fileID: 0}
       - {fileID: 11400000, guid: 96fb7dd41a1d0c34b89f37d98dfb8219, type: 2}
       - {fileID: 11400000, guid: df738344536feb946a7e5fdd6a290519, type: 2}
+    - rows:
+      - {fileID: 0}
+      - {fileID: 11400000, guid: a686c981fb007fa4e80cdc2bdc60d361, type: 2}
   roomMatrix:
     cols: []
