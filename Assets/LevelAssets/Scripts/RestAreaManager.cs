@@ -10,13 +10,20 @@ public class RestAreaManager : MonoBehaviour
     [SerializeField] int numberOfRooms;
     [SerializeField] LevelBlueprint[] levelBuildPool;
 
-    private LevelBlueprint lc;
-
+    [Space(20)]
     public LevelMap levelMap;
     public PlayerLevelProgression plp;
 
+    [Space(20)]
+    [Header("Player Stats")]
+    [Tooltip("Reset the player's health while in Rest")]
+    [SerializeField] PlayerHealth playerHealth;
+
+    private LevelBlueprint lc;
+
     private void Start()
     {
+        playerHealth.ResetPlayerHealth();
         lc = levelBuildPool[Random.Range(0, levelBuildPool.Length)];
     }
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbadb3eccbce2a0458ebaacfb22a3516, type: 3}
-  m_Name: c001-011-011-s21-e02 1
+  m_Name: c001-011-011-s21-e02
   m_EditorClassIdentifier: 
   size: 3
   currentVertex: {x: 2, y: 1}

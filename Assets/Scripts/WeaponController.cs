@@ -18,6 +18,11 @@ public class WeaponController : MonoBehaviour
 
      void Start()
     {
+        if (em == null)
+        {
+            em = GameObject.FindWithTag("Inventory").GetComponent<EquipmentManager>();
+            em.wc = this;
+        }
         audioSource = GetComponent<AudioSource>();
     }
 

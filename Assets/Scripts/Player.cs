@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerUI healthControl;
+    public PlayerUI healthControl;
+    public PlayerStats playerStats;
     public GameObject sprite;
     public GameObject player;
 
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
     private bool playerDead = false;
+
 
     public void Start()
     {
@@ -24,13 +26,18 @@ public class Player : MonoBehaviour
     {
         if (delayDamage)
         {
-            health -= damage;
+            //health -= damage;
+            playerStats.playerHealthData.ModifyPlayerHealth(-damage);
+            health = playerStats.playerHealthData.GetPlayerHealth();
+
             if (healthControl != null)
             {
                 healthControl.GetComponent<PlayerUI>().SetHealth(health);
             }
+
             StartCoroutine(damageTimer());
         }
+
         if(health <= 0) {
            if(!playerDead) {
                 sprite.GetComponent<Animations>().animation.SetTrigger("PlayerDead");

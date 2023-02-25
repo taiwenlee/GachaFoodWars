@@ -11,7 +11,7 @@ public class Gate : MonoBehaviour
 
     public BoxCollider boxCollider;
 
-    private void Start()
+    private void Awake()
     {
         triggered = false;
         boxCollider = GetComponent<BoxCollider>();
