@@ -29,7 +29,7 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Inventory"))
+        if((Input.GetButtonDown("Inventory")) || (Input.GetKeyDown(KeyCode.Tab)))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             gearUI.SetActive(!gearUI.activeSelf);
