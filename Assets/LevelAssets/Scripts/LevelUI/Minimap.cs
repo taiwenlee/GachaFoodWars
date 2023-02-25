@@ -26,7 +26,7 @@ public class Minimap : MonoBehaviour
         Matrix<RoomBlueprint> rooms = levelMap.roomMatrix;
 
         // Allocate room icon matrix
-        for (int i = 0; i < rooms.cols.Count; i++)
+        for (int i = rooms.cols.Count - 1; i > -1; i--)
         {
             // Multiply scalar based on matrix x position
             position.x += xscl * i;

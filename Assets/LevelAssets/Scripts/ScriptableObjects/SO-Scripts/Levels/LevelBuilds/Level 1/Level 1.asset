@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbadb3eccbce2a0458ebaacfb22a3516, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  currentVertex: {x: 0, y: 0}
+  currentVertex: {x: 0, y: 1}
   startingLocation: {x: 0, y: 1}
-  endingLocation: {x: 3, y: 2}
+  endingLocation: {x: 3, y: 1}
   levelBoolMap:
     cols:
     - rows: 0001
