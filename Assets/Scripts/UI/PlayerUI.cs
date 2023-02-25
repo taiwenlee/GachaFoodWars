@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject restartMenu;
-
+    private bool playerDead = false;
+    private bool showDeathUI = false;
     public int health = 4;
     
     [SerializeField] private Image[] numHearts;
@@ -18,6 +19,16 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
+        if(health <= 0) {
+            if(!playerDead)
+            {
+                restartMenu.SetActive(true);
+                playerDead = true;
+            }
+        }else{
+            playerDead = false;
+            restartMenu.SetActive(false);
+        }
         UpdateHealth();
     }
 
@@ -25,9 +36,14 @@ public class PlayerUI : MonoBehaviour
         if(health <= 0) {
             //restart game code here
             GameObject.FindWithTag("BackgroundMusic").GetComponent<AudioSource>().enabled = false;
-            restartMenu.SetActive(true);
+            //restartMenu.SetActive(true);
             //Time.timeScale = 0f;
             //print("Player Dead");
+          
+                
+                //Destroy(gameObject, 1f);
+                //Time.timeScale = 0f;
+           
         }
         for(int i = 0; i < numHearts.Length; i++) {
             if(i < health) {
@@ -37,6 +53,8 @@ public class PlayerUI : MonoBehaviour
             }
         }
     }
+
+    
 
     public void SetHealth(int currentHealth)
     {
