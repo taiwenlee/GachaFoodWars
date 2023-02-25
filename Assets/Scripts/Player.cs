@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     [Header("References")]
     public PlayerUI healthControl;
     public PlayerStats playerStats;
-    public GameObject sprite;
-    public GameObject player;
+    private Animations sprite;
+    //public GameObject player;
 
     [Header("Stats")]
     public int health = 4;
@@ -16,10 +16,14 @@ public class Player : MonoBehaviour
     private bool delayDamage = true;
     private bool playerDead = false;
 
+    //[Header("Damage Visualizer")]
+    //public int numFlicker = 9; //num times player flickers
+    //public float flickerDuration = .1f;
 
     public void Start()
     {
         //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();    
+        sprite = GetComponentInChildren<Animations>();
     }
 
     public void takeDamage(int damage)
@@ -40,7 +44,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0) {
            if(!playerDead) {
-                sprite.GetComponent<Animations>().animation.SetTrigger("PlayerDead");
+                sprite.animation.SetTrigger("PlayerDead");
                 //player.GetComponent<CharacterController>().enabled = false;
                 //player.GetComponent<WeaponController>().enabled = false;
                 playerDead = true;
@@ -52,7 +56,10 @@ public class Player : MonoBehaviour
     private IEnumerator damageTimer()
     { //wait x seconds until player can take damage again
         delayDamage = false;
+        //player transparent when taking damage
+        sprite.spriteRenderer.color = new Color(1f,1f,1f,.5f);
         yield return new WaitForSeconds(damageTimeout);
+        sprite.spriteRenderer.color = Color.white;
         delayDamage = true;
     }
 
