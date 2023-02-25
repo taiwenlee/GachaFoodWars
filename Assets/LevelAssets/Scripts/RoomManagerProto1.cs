@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomManagerProto1 : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject inventory;
     [SerializeField] GameObject roomOrigin;
     [SerializeField] GameObject enemySpawner;
     [SerializeField] LevelMap levelMap;
@@ -22,7 +23,8 @@ public class RoomManagerProto1 : MonoBehaviour
         gateScripts = new();
 
         player = GameObject.FindWithTag("Player");
-        player.GetComponent<Inventory>().AddOnAwake();
+        inventory = GameObject.FindWithTag("Inventory");
+        inventory.GetComponent<Inventory>().AddOnAwake();
         levelMap.currentRoom.HasVisited = true;
         Vector4 layout = levelMap.currentRoomLayout;
         rc.BuildRoom(ref player, roomOrigin.transform, layout);

@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - BackgroundMusic
   - Sword
+  - Inventory
   layers:
   - Default
   - TransparentFX

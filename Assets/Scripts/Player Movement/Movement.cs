@@ -37,6 +37,8 @@ public class Movement : MonoBehaviour
 
     private PlayerControls playerControls;
     private PlayerInput playerInput;
+    
+    private Player player;
 
     [Header("Sounds")]
     public AudioSource GrassFootSteps;
@@ -47,6 +49,7 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
+        player = GetComponent<Player>();
     }
 
     private void OnEnable()
@@ -80,7 +83,7 @@ public class Movement : MonoBehaviour
         {
             move = move * (1 - knockback.magnitude / knockbackInitM);
         }
-        controller.Move(move * Time.deltaTime * speed);
+        
 
         //sets gravity
         playerVelocity.y += gravity * Time.deltaTime;
@@ -98,29 +101,28 @@ public class Movement : MonoBehaviour
             knockback = Vector2.Lerp(knockback, Vector2.zero, knockbackDecay);
         }
         
+        //Disables player movement,sounds, and animation after death
+        if(player.health > 0){
         //determines if player is moving and plays walking sound
-        if(movement.magnitude > 0) {
-            GrassFootSteps.pitch = 1.6f;
-            GrassFootSteps.enabled = true;
-        }else 
+            controller.Move(move * Time.deltaTime * speed);
+            if(movement.magnitude > 0) {
+                GrassFootSteps.pitch = 1.6f;
+                GrassFootSteps.enabled = true;
+            }else 
+                GrassFootSteps.enabled = false;
+
+            //flips sprite if moving either left or right
+            if(!GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x > 0) {
+                GameObj.GetComponent<Animations>().spriteRenderer.flipX = true;
+            }else if(GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x < 0){
+                GameObj.GetComponent<Animations>().spriteRenderer.flipX = false;
+            }
+
+            //plays animations
+            GameObj.GetComponent<Animations>().animation.SetFloat("WalkSpeed", movement.magnitude);
+        }else {
             GrassFootSteps.enabled = false;
-        //flips sprite if moving either left or right
-        if(!GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x > 0) {
-             GameObj.GetComponent<Animations>().spriteRenderer.flipX = true;
-        }else if(GameObj.GetComponent<Animations>().spriteRenderer.flipX && move.x < 0){
-            GameObj.GetComponent<Animations>().spriteRenderer.flipX = false;
         }
-        //determines if moving backwards or not and switches animations through a bool
-        // if(!movingBackwards && movement.y > 0){
-        //     movingBackwards = true;
-        // }else if(movingBackwards && movement.y < 0) {
-        //     movingBackwards = false;
-        // }else if(movingBackwards && movement.y == 0)   {
-        //      movingBackwards = true;
-        // }
-        //plays animations
-        GameObj.GetComponent<Animations>().animation.SetFloat("WalkSpeed", movement.magnitude);
-        //playerAnimation.animation.SetBool("moveBackwards", movingBackwards);
     }
     void HandleRotation()
     {

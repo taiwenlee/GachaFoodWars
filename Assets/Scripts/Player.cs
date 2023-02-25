@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         if(health <= 0) {
            if(!playerDead) {
                 sprite.GetComponent<Animations>().animation.SetTrigger("PlayerDead");
-                player.GetComponent<CharacterController>().enabled = false;
+                //player.GetComponent<CharacterController>().enabled = false;
                 //player.GetComponent<WeaponController>().enabled = false;
                 playerDead = true;
                 //Destroy(gameObject, 1f);
