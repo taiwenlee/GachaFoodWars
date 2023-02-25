@@ -56,22 +56,13 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateGearUI() {
         // Checks our array for items to add in the UI
-        //Debug.Log("We are in UpdateGearUI");
-        for (int i = 0; i < equipments.currentEquipment.Length; i++)
+        if (equipments.currentEquipment[0] == null && gSlots[0] != null)
         {
-            Debug.Log("Loop: " + i);
-            Debug.Log("(equipments.currentEquipment[" + i + "]: " + (equipments.currentEquipment[i]));
-            if (equipments.currentEquipment[i] == null && gSlots[i] != null)
-            {
-                Debug.Log("Hello");
-                gSlots[i].ClearSlot();
-            }
-            else
-            {
-                Debug.Log("Adding to GearUI");
-                gSlots[i].AddItem(equipments.currentEquipment[i]);
-                //break;
-            }
+                gSlots[0].ClearSlot();
+        }
+        else
+        {
+            gSlots[0].AddItem(equipments.currentEquipment[0]);
         }
     }
 }

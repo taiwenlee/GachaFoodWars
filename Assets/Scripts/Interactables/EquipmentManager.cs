@@ -19,42 +19,28 @@ public class EquipmentManager : MonoBehaviour
     private void Start()
     {
         inventory = Inventory.instance;
-        currentEquipment = new Equipment[2];
+        currentEquipment = new Equipment[1];
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || equipmentSelected == null)
         {
             equipmentSelected = currentEquipment[0];
             wc.isSelected = false;
             //Debug.Log("1 selected: " + equipmentSelected);
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            equipmentSelected = currentEquipment[1];
-            wc.isSelected = false;
-            //Debug.Log("2 selected: " + equipmentSelected);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha3) && equipmentSelected != null)
-            Debug.Log("Current Equipement: " + equipmentSelected.name + ", " + equipmentSelected.gSlots);
     }
     public void Equip (Equipment newItem)
     {
-        for (int i = 0; i < 2; i++)
+        if (currentEquipment[0] == null)
         {
-            Debug.Log("Checking for available slot");
-            if(currentEquipment[i] == null)
-            {
-                Debug.Log("Theres a slot");
-                currentEquipment[i] = newItem;
-                newItem.RemoveFromInventory();
-                break;
-            }
-            else
-            {
-                Debug.Log("Gearslot is full");
-            }
+            currentEquipment[0] = newItem;
+            newItem.RemoveFromInventory();
+        }
+        else
+        {
+            Debug.Log("Gearslot is full");
         }
         if (onEquipmentChangedCallBack != null)
         {
@@ -70,13 +56,12 @@ public class EquipmentManager : MonoBehaviour
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
             currentEquipment[slotIndex] = null;
+            equipmentSelected = null;
         }
 
         if (onEquipmentChangedCallBack != null)
         {
-            Debug.Log("Invoking in unequip");
             onEquipmentChangedCallBack.Invoke();
-
         }
     }
 }

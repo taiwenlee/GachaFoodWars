@@ -30,6 +30,5 @@ public class GearSlot : MonoBehaviour
     public void OnRemoveButton()
     {
         EquipmentManager.instance.Unequip(gearIndex);
-        //Inventory.instance.Remove(item);
     }
 }
