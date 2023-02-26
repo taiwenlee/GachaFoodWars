@@ -6,7 +6,7 @@ public class InventoryUI : MonoBehaviour
     public Transform gearsParent;
     public GameObject inventoryUI;
     public GameObject gearUI;
-
+    public Player player;
     Inventory inventory;
     EquipmentManager equipments;
 
@@ -16,6 +16,11 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(player == null)
+        {
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        }
+
         inventory = Inventory.instance;
         inventory.onItemChangedCallBack += UpdateInventoryUI;
 
@@ -29,11 +34,15 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetButtonDown("Inventory")) || (Input.GetKeyDown(KeyCode.Tab)))
+        if(player.playerDead == false)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-            gearUI.SetActive(!gearUI.activeSelf);
+            if ((Input.GetButtonDown("Inventory")) || (Input.GetKeyDown(KeyCode.Tab)))
+            {
+                inventoryUI.SetActive(!inventoryUI.activeSelf);
+                gearUI.SetActive(!gearUI.activeSelf);
+            }
         }
+
     }
     
     void UpdateInventoryUI()

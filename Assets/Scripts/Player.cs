@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public int health = 4;
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
-    private bool playerDead = false;
+    public bool playerDead = false;
 
     //[Header("Damage Visualizer")]
     //public int numFlicker = 9; //num times player flickers
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0) {
            if(!playerDead) {
+                Debug.Log("Player died");
                 sprite.animation.SetTrigger("PlayerDead");
                 //player.GetComponent<CharacterController>().enabled = false;
                 //player.GetComponent<WeaponController>().enabled = false;
@@ -63,10 +64,5 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(damageTimeout);
         sprite.spriteRenderer.color = Color.white;
         delayDamage = true;
-    }
-
-    void WeaponEquip(Equipment item)
-    {
-
     }
 }
