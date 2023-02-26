@@ -4235,7 +4235,7 @@ GameObject:
   - component: {fileID: 698616603}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: InventoryUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4256,6 +4256,7 @@ MonoBehaviour:
   gearsParent: {fileID: 1293766736}
   inventoryUI: {fileID: 415519159}
   gearUI: {fileID: 1313270494}
+  player: {fileID: 0}
 --- !u!114 &698616599
 MonoBehaviour:
   m_ObjectHideFlags: 0
