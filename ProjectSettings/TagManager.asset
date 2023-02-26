@@ -13,6 +13,12 @@ TagManager:
   - BackgroundMusic
   - Sword
   - Inventory
+  - InventoryUI
+  - Inventory
+  - Inventory
+  - Inventory
+  - Inventory
+  - Inventory
   layers:
   - Default
   - TransparentFX
