@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEditor.Animations;
 
 public class MeleeAI : Enemy
 {
@@ -10,7 +11,6 @@ public class MeleeAI : Enemy
     public float attackRange = 1.0f;
     public float sightRange = 10.0f;
     public float damageTimeout = 1f;
-
     // private variables
     private float attackcooldown = 0.0f;
 

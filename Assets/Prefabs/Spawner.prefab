@@ -47,6 +47,10 @@ MonoBehaviour:
   Player: {fileID: 4998193236791631848, guid: 074a60abf2f60a240861fb29c992e970, type: 3}
   meleeEnemy: {fileID: 2224969773149104718, guid: 725a4c9dcc20c3c419af868f115b7d64,
     type: 3}
+  tankEnemy: {fileID: 2224969773149104718, guid: 106d3cb9d11600344b1bc9591c3c3cb9,
+    type: 3}
   rangedEnemy: {fileID: 4979569164410100836, guid: 35305bb66725c6e4698b9ecade29017a,
     type: 3}
-  spawnRate: 0.2
+  miniBossEnemy: {fileID: 2453059522322495660, guid: ea0930af8e2dbb54790c30ea2f3a7e26,
+    type: 3}
+  datas: []

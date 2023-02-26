@@ -13,26 +13,26 @@ public class Enemy : MonoBehaviour
     public float speed = 8.0f;
     public int damage = 1;
 
-
     public int dropValue = 1;
 
     protected NavMeshAgent agent;
     protected Rigidbody rb;
+    protected Animator spriteAnimator;
+    protected SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        if (agent == null)
-        {
-            agent = GetComponent<NavMeshAgent>();
-        }
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-        }
+        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+        spriteAnimator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        Debug.Log(spriteAnimator);
+        Debug.Log(spriteRenderer);
     }
 
     // Update is called once per frame
@@ -40,6 +40,20 @@ public class Enemy : MonoBehaviour
     {
         // update agent speed
         agent.speed = speed;
+
+        // walk animation
+        if (agent.velocity.magnitude > .5 && spriteAnimator != null)
+        {
+            // start walk animation
+            spriteAnimator.SetFloat("WalkSpeed", speed);
+        }
+        else if (spriteAnimator != null)
+        {
+            // stop walk animation
+            spriteAnimator.SetFloat("WalkSpeed", 0);
+        }
+
+        // death check
         if (health <= 0)
         {
             // drop loot
@@ -56,8 +70,15 @@ public class Enemy : MonoBehaviour
                 var deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
                 AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
+            //play death animation
+            if (spriteAnimator != null)
+            {
+                spriteAnimator.SetBool("Dead", true);
+            }
             // destroy enemy
-            Destroy(gameObject);
+            agent.enabled = false;
+            Destroy(gameObject, 1.0f);
+            this.enabled = false;
         }
     }
 

@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject Player;
     public GameObject meleeEnemy;
+    public GameObject tankEnemy;
     public GameObject rangedEnemy;
     public GameObject miniBossEnemy;
     public SpawnerData[] datas;
@@ -86,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (name.ToLower() == "tank")
         {
-            var enemy = Instantiate(meleeEnemy, hit.position, Quaternion.identity);
+            var enemy = Instantiate(tankEnemy, hit.position, Quaternion.identity);
             enemy.GetComponent<MeleeAI>().player = Player;
             enemy.transform.parent = transform;
             // modify enemy stats
