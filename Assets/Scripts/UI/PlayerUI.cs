@@ -24,12 +24,13 @@ public class PlayerUI : MonoBehaviour
         health = playerStats.playerHealthData.GetPlayerHealth();
 
         if (health <= 0) {
-            if(restartMenuTimer >= 3.0f) { //delays opening restart menu by 3 second
+            if(restartMenuTimer >= 2.0f) { //delays opening restart menu by 2 second
                 restartMenu.SetActive(true);
                 restartMenuTimer = 0.0f; //resets timer
             }  
         }else{
             restartMenu.SetActive(false);
+            restartMenuTimer = 0.0f; //resets timer
         }
         UpdateHealth();
     }
@@ -41,10 +42,8 @@ public class PlayerUI : MonoBehaviour
             //restartMenu.SetActive(true);
             //Time.timeScale = 0f;
             //print("Player Dead");
-          
-                
-                //Destroy(gameObject, 1f);
-                //Time.timeScale = 0f;
+            //Destroy(gameObject, 1f);
+            //Time.timeScale = 0f;
            
         }
         for(int i = 0; i < numHearts.Length; i++) {
@@ -55,8 +54,6 @@ public class PlayerUI : MonoBehaviour
             }
         }
     }
-
-    
 
     public void SetHealth(int currentHealth)
     {
