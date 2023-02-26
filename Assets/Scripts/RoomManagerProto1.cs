@@ -6,6 +6,7 @@ public class RoomManagerProto1 : MonoBehaviour
 {
     //[SerializeField] GameObject player;
     [SerializeField] GameObject inventory;
+    [SerializeField] GameObject inventoryUI;
     [SerializeField] GameObject roomOrigin;
     [SerializeField] GameObject enemySpawner;
     [SerializeField] LevelMap levelMap;
@@ -26,6 +27,7 @@ public class RoomManagerProto1 : MonoBehaviour
         //player = GameObject.FindWithTag("Player");
         inventory = GameObject.FindWithTag("Inventory");
         inventory.GetComponent<Inventory>().AddOnAwake();
+
         levelMap.currentRoom.HasVisited = true;
         Vector2 roomCoords = levelMap.currentVertex;
         Vector4 layout = levelMap.currentRoomLayout;
@@ -36,7 +38,9 @@ public class RoomManagerProto1 : MonoBehaviour
             gateScripts.Add(go.GetComponent<Gate>());
         }
         groundScript = GameObject.FindWithTag("Ground").GetComponent<Ground>();
-        
+
+        inventoryUI = GameObject.FindWithTag("InventoryUI");
+        inventoryUI.GetComponent<InventoryUI>().player = player.GetComponent<Player>();
 
         player.GetComponent<Player>().healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
 

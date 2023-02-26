@@ -38,10 +38,6 @@ public class EquipmentManager : MonoBehaviour
             currentEquipment[0] = newItem;
             newItem.RemoveFromInventory();
         }
-        else
-        {
-            Debug.Log("Gearslot is full");
-        }
         if (onEquipmentChangedCallBack != null)
         {
             //Debug.Log("Invoking in equip");

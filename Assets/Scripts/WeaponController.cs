@@ -16,7 +16,7 @@ public class WeaponController : MonoBehaviour
     public AudioClip swordSound;
     public AudioClip spearSound;
 
-     void Start()
+    void Start()
     {
         if (em == null)
         {
@@ -29,20 +29,24 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (this.GetComponentInParent<Player>().playerDead != true)
         {
-            if (CanAttack && em.equipmentSelected)
+            if (Input.GetMouseButtonDown(0))
             {
-                //Debug.Log(weapon);
-                audioSource.PlayOneShot(audioSource.clip);
-                SwordAttack();
+                if (CanAttack && em.equipmentSelected)
+                {
+                    //Debug.Log(weapon);
+                    audioSource.PlayOneShot(audioSource.clip);
+                    SwordAttack();
+                }
+            }
+            if (em.equipmentSelected != null)
+            {
+                WeaponSelector();
             }
         }
-        if (em.equipmentSelected != null)
-        {
-            WeaponSelector();
-        }
     }
+
 
     public void WeaponSelector()
     {
@@ -72,6 +76,7 @@ public class WeaponController : MonoBehaviour
     }
     public void SwordAttack()
     {
+        
         isAttacking = true;
         CanAttack = false;
 /*        Animator anim = Weapon.GetComponent<Animator>();
