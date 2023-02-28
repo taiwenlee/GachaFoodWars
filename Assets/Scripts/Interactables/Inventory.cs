@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         //allows us to always access it
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogWarning("More than one instance of inventory found");
         }
@@ -26,15 +26,14 @@ public class Inventory : MonoBehaviour
 
     public bool Add(Item item)
     {
-        Debug.Log("Adding");
-        if(items.Count >= space)
+        if (items.Count >= space)
         {
             //Debug.Log("Not enough room");
             return false;
         }
         items.Add(item);
 
-        if(onItemChangedCallBack != null)
+        if (onItemChangedCallBack != null)
         {
             onItemChangedCallBack.Invoke();
 
@@ -44,7 +43,7 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-       // Debug.Log("Removing");
+        // Debug.Log("Removing");
         //Debug.Log("Removing " + item.itemObject);
         items.Remove(item);
         if (onItemChangedCallBack != null)

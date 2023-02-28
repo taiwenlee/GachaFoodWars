@@ -203,6 +203,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   dropValue: 1
+  invunerableTime: 0.2
   projectile: {fileID: 7733247242198862208, guid: fb4ba6f38020a5344b746a5b6813725e,
     type: 3}
   attackRate: 1

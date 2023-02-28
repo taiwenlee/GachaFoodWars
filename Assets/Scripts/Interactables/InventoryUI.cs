@@ -16,7 +16,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(player == null)
+        if (player == null)
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
@@ -34,7 +34,7 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.playerDead == false)
+        if (player.playerDead == false)
         {
             if ((Input.GetButtonDown("Inventory")) || (Input.GetKeyDown(KeyCode.Tab)))
             {
@@ -44,11 +44,11 @@ public class InventoryUI : MonoBehaviour
         }
 
     }
-    
+
     void UpdateInventoryUI()
     {
         // Checks our array for items to add in the UI
-        for(int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             if (i < inventory.items.Count)
             {
@@ -63,15 +63,21 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    void UpdateGearUI() {
+    void UpdateGearUI()
+    {
         // Checks our array for items to add in the UI
-        if (equipments.currentEquipment[0] == null && gSlots[0] != null)
+        for (int i = 0; i < equipments.currentEquipment.Length; i++)
         {
-                gSlots[0].ClearSlot();
-        }
-        else
-        {
-            gSlots[0].AddItem(equipments.currentEquipment[0]);
+            if (equipments.currentEquipment[i] != null)
+            {
+                //Debug.Log("Adding");
+                gSlots[i].AddItem(equipments.currentEquipment[i]);
+            }
+            else
+            {
+                //Debug.Log("clearing");
+                gSlots[i].ClearSlot();
+            }
         }
     }
 }

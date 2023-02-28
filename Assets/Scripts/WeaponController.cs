@@ -8,6 +8,7 @@ public class WeaponController : MonoBehaviour
     public EquipmentManager em;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
+    public float attackSpeed;
     public bool isAttacking = false;
     public bool isSelected = false;
 
@@ -15,6 +16,27 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swordSound;
     public AudioClip spearSound;
+    private float attackDuration = 0.2f;
+    public float damageMultiplier = 1;
+    public float hitboxMultiplier = 1;
+    public float attackSpeedMultiplier = 1;
+    public Element element = Element.None;
+    public float knockbackForce = 0;
+    public static WeaponController instance;
+
+    public enum Element { None, Fire, Ice, Electric };
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     void Start()
     {
@@ -24,6 +46,8 @@ public class WeaponController : MonoBehaviour
             em.wc = this;
         }
         audioSource = GetComponent<AudioSource>();
+        WeaponSelector();
+        setModifiers();
     }
 
     // Update is called once per frame
@@ -31,18 +55,14 @@ public class WeaponController : MonoBehaviour
     {
         if (this.GetComponentInParent<Player>().playerDead != true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                if (CanAttack && em.equipmentSelected)
+                if (CanAttack && em.currentEquipment[0])
                 {
                     //Debug.Log(weapon);
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
-            }
-            if (em.equipmentSelected != null)
-            {
-                WeaponSelector();
             }
         }
     }
@@ -50,69 +70,134 @@ public class WeaponController : MonoBehaviour
 
     public void WeaponSelector()
     {
-        if (isAttacking == false)
+        if (isAttacking == false && em.currentEquipment.Length > 0)
         {
-            switch (em.equipmentSelected.gSlots)
+            switch (((Equipment)em.currentEquipment[0]).gSlots)
             {
                 case WeaponType.Sword:
-                    //Debug.Log("Sword");
+                    DisableChild();
                     SetWeapon("Sword");
-                    DisableChild(this.transform.Find("Sword").gameObject);
+                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = swordSound;
+                    weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     //isSelected = true;
                     break;
                 case WeaponType.Spear:
-                    //Debug.Log("Spear");
+                    DisableChild();
                     SetWeapon("Spear");
-                    DisableChild(this.transform.Find("Spear").gameObject);
+                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = spearSound;
+                    weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
-                    //Debug.Log("range");
                     break;
+                default:
+                    DisableChild();
+                    SetWeapon("None");
+                    Debug.Log("This is not a weapon");
+                    break;
+
             }
         }
     }
     public void SwordAttack()
     {
-        
         isAttacking = true;
+        // wait .1 second then set CanAttack to false
         CanAttack = false;
-/*        Animator anim = Weapon.GetComponent<Animator>();
-        anim.SetTrigger("Attack");*/
+        /*        Animator anim = Weapon.GetComponent<Animator>();
+                anim.SetTrigger("Attack");*/
         StartCoroutine(ResetAttackCooldown());
     }
 
     IEnumerator ResetAttackCooldown()
     {
         StartCoroutine(ResetAttackBool());
-        yield return new WaitForSeconds(AttackCooldown);
+        yield return new WaitForSeconds(1 / (attackSpeed * attackSpeedMultiplier));
         CanAttack = true;
     }
 
     private IEnumerator ResetAttackBool()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(attackDuration);
         isAttacking = false;
 
     }
-    private void DisableChild(GameObject child)
+    private void DisableChild()
     {
-        if(child.activeInHierarchy)
+        for (int i = 0; i < this.transform.childCount; i++)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
-            {
-                var children = this.transform.GetChild(i).gameObject;
-                if (children != null && children != child)
-                    children.SetActive(false);
-            }
+            var children = this.transform.GetChild(i).gameObject;
+            if (children != null)
+                children.SetActive(false);
         }
+
         isSelected = true;
     }
     private void SetWeapon(string weaponSel)
     {
+        if (weaponSel == "None")
+        {
+            weapon = null;
+            return;
+        }
         this.transform.Find(weaponSel).gameObject.SetActive(true);
         weapon = this.transform.Find(weaponSel).gameObject;
+    }
+
+    private void onValidate()
+    {
+        if (weapon != null)
+        {
+            weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+        }
+    }
+
+    public void setModifiers()
+    {
+        // reset multipliers
+        damageMultiplier = 1;
+        hitboxMultiplier = 1;
+        attackSpeedMultiplier = 1;
+        element = Element.None;
+        for (int i = 1; i < em.currentEquipment.Length; i++)
+        {
+            if (em.currentEquipment[i] != null)
+            {
+                var modifier = (Modifier)em.currentEquipment[i];
+                switch (modifier.mType)
+                {
+                    case Modifier.ModifierType.Damage:
+                        damageMultiplier += .2f * ((int)modifier.grade + 1);
+                        break;
+                    case Modifier.ModifierType.Hitbox:
+                        hitboxMultiplier += .2f * ((int)modifier.grade + 1);
+                        break;
+                    case Modifier.ModifierType.AttackSpeed:
+                        attackSpeedMultiplier += .2f * ((int)modifier.grade + 1);
+                        break;
+                    case Modifier.ModifierType.Fire:
+                        element = Element.Fire;
+                        break;
+                    case Modifier.ModifierType.Ice:
+                        element = Element.Ice;
+                        break;
+                    case Modifier.ModifierType.Electric:
+                        element = Element.Electric;
+                        break;
+                    case Modifier.ModifierType.Knockback:
+                        knockbackForce = (int)modifier.grade * 10;
+                        break;
+                    case Modifier.ModifierType.MultiHit:
+                        break;
+                }
+            }
+        }
+        // update weapon hitbox
+        if (weapon != null)
+        {
+            weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+        }
     }
 }

@@ -15,15 +15,14 @@ public class CollisionDetection : MonoBehaviour
                 //other.gameObject.GetComponent<Enemy>().TakeDamage(50);
             }
         }*/
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true && isDamaged == false)
+        // check if object is an enemy and if the player is attacking
+        if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
-            Debug.Log(other.gameObject.name + "Dealing: " + wc.em.equipmentSelected.damageStat);
-            isDamaged = true;
-            other.gameObject.GetComponent<Enemy>().TakeDamage(wc.em.equipmentSelected.damageStat);
+            var weapon = (Equipment)wc.em.currentEquipment[0];
+            other.gameObject.GetComponent<Enemy>().TakeDamage((int)(weapon.damageStat * wc.damageMultiplier));
         }
-        if (wc.isAttacking == false)
-            isDamaged = false;
     }
 }

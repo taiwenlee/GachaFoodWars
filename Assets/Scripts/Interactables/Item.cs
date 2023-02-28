@@ -11,7 +11,6 @@ public class Item : ScriptableObject
 
     public virtual void Use()
     {
-        Debug.Log("Using " + name);
     }
 
     public void RemoveFromInventory()
@@ -19,3 +18,4 @@ public class Item : ScriptableObject
         Inventory.instance.Remove(this);
     }
 }
+public enum Grade { Common, Rare, Epic, Legendary };

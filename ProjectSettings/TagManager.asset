@@ -19,6 +19,7 @@ TagManager:
   - Inventory
   - Inventory
   - Inventory
+  - Weapon
   layers:
   - Default
   - TransparentFX

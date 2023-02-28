@@ -10,8 +10,7 @@ public class EquipmentManager : MonoBehaviour
         instance = this;
     }
 
-    public Equipment[] currentEquipment;
-    public Equipment equipmentSelected;
+    public Item[] currentEquipment;
     public WeaponController wc;
     Inventory inventory;
     public delegate void OnEquipmentChanged();
@@ -19,40 +18,52 @@ public class EquipmentManager : MonoBehaviour
     private void Start()
     {
         inventory = Inventory.instance;
-        currentEquipment = new Equipment[1];
+        currentEquipment = new Item[4];
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) || equipmentSelected == null)
-        {
-            equipmentSelected = currentEquipment[0];
-            wc.isSelected = false;
-            //Debug.Log("1 selected: " + equipmentSelected);
-        }
     }
-    public void Equip (Equipment newItem)
+    public void Equip(Item newItem)
     {
-        if (currentEquipment[0] == null)
+        if (newItem is Equipment && currentEquipment[0] == null)
         {
             currentEquipment[0] = newItem;
             newItem.RemoveFromInventory();
+            if (onEquipmentChangedCallBack != null)
+            {
+                onEquipmentChangedCallBack.Invoke();
+            }
         }
-        if (onEquipmentChangedCallBack != null)
+        else if (newItem is Modifier)
         {
-            //Debug.Log("Invoking in equip");
-            onEquipmentChangedCallBack.Invoke();
+            for (int i = 1; i < currentEquipment.Length; i++)
+            {
+                if (currentEquipment[i] == null)
+                {
+                    currentEquipment[i] = newItem;
+                    newItem.RemoveFromInventory();
+                    if (onEquipmentChangedCallBack != null)
+                    {
+                        //Debug.Log("Invoking in equip");
+                        onEquipmentChangedCallBack.Invoke();
 
+                    }
+                    break;
+                }
+            }
         }
     }
-    public void Unequip (int slotIndex)
+
+    public void Unequip(int slotIndex)
     {
-        if(currentEquipment[slotIndex] != null)
+        if (currentEquipment[slotIndex] != null)
         {
-            Equipment oldItem = currentEquipment[slotIndex];
+            Item oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
             currentEquipment[slotIndex] = null;
-            equipmentSelected = null;
+            wc.WeaponSelector();
+            wc.setModifiers();
         }
 
         if (onEquipmentChangedCallBack != null)

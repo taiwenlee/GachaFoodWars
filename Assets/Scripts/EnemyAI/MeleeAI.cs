@@ -26,7 +26,7 @@ public class MeleeAI : Enemy
         base.Update();
         // check if player is in line of sight, chase if true
         var rayDirection = player.transform.position - transform.position;
-        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange))
+        if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange, ~LayerMask.GetMask("Ignore Raycast")))
         {
             if (hit.collider.gameObject == player && agent.isActiveAndEnabled)
             {

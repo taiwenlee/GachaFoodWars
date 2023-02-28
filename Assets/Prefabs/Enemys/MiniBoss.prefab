@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2453059522322495661}
   m_Layer: 0
   m_Name: MiniBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   speed: 5
   damage: 3
   dropValue: 1
+  invunerableTime: 0.2
   attackRate: 0.3
   attackRange: 10
   sightRange: 20
