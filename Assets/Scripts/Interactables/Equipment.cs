@@ -7,7 +7,11 @@ public class Equipment : Item
 {
     /*    public int armorModifier;
         public int damageModifier;*/
-    public int damageStat;
+    public int damageStat; // base damage
+    public int attackSpeed; // base attack speed
+
+    public float damageMultiplier; // damage multiplier
+    public float attackSpeedMultiplier; // attack speed multiplier
     public WeaponType gSlots;
     public Grade gradeType;
     public override void Use()
@@ -16,5 +20,4 @@ public class Equipment : Item
         EquipmentManager.instance.Equip(this);
     }
 }
-public enum WeaponType { Sword, Spear, Range};
-public enum Grade { Common, Uncommon, Rare, Epic, Legendary};
+public enum WeaponType { Sword, Spear, Range };

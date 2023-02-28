@@ -11,14 +11,14 @@ public class GachaMachineController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     public void Update()
     {
-        if(isInRange)   // check if player is in range of Gacha machine
+        if (isInRange)   // check if player is in range of Gacha machine
         {
-            if(Input.GetKeyDown(interactKey))
+            if (Input.GetKeyDown(interactKey))
             {
                 interactAction.Invoke();    // start event
             }
@@ -27,19 +27,17 @@ public class GachaMachineController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player is in range.");
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Player is not in range.");
         }
     }
 }

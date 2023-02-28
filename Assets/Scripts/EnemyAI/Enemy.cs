@@ -6,14 +6,16 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public GameObject drop;
+
     public GameObject player;
     public AudioClip[] deathSounds;
     [Header("Stats")]
     public float health = 100.0f;
     public float speed = 8.0f;
     public int damage = 1;
-
     public int dropValue = 1;
+    public float invunerableTime = .5f;
+    private float invunerableTimer = 0.0f;
 
     protected NavMeshAgent agent;
     protected Rigidbody rb;
@@ -30,9 +32,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         spriteAnimator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        Debug.Log(spriteAnimator);
-        Debug.Log(spriteRenderer);
     }
 
     // Update is called once per frame
@@ -40,6 +39,16 @@ public class Enemy : MonoBehaviour
     {
         // update agent speed
         agent.speed = speed;
+
+        // update invunerable timer
+        if (invunerableTimer > 0.0f)
+        {
+            invunerableTimer -= Time.deltaTime;
+            if (invunerableTimer <= 0.0f)
+            {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
 
         // walk animation
         if (agent.velocity.magnitude > .5 && spriteAnimator != null)
@@ -66,7 +75,6 @@ public class Enemy : MonoBehaviour
             // play random death sound
             if (deathSounds.Length > 0)
             {
-                Debug.Log("Playing death sound");
                 var deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
                 AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
@@ -84,6 +92,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (invunerableTimer <= 0.0f)
+        {
+            invunerableTimer = invunerableTime;
+            health -= damage;
+            spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
+        }
     }
 }

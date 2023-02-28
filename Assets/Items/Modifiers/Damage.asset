@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
-  m_Name: Test weapon
+  m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
+  m_Name: Damage
   m_EditorClassIdentifier: 
-  name: New Sword
-  Icon: {fileID: 0}
+  name: Damage
+  Icon: {fileID: 21300000, guid: 148ee26e42ca30844856c34c275836f7, type: 3}
   isDefaultItem: 0
-  damageStat: 5
-  gSlots: 0
-  gradeType: 0
+  mType: 0
+  grade: 3

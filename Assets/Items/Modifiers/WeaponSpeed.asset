@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
-  m_Name: New Equipment
+  m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
+  m_Name: WeaponSpeed
   m_EditorClassIdentifier: 
   name: New Item
-  Icon: {fileID: 0}
+  Icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   isDefaultItem: 0
-  itemObject: {fileID: 0}
-  armorModifier: 0
-  damageModifier: 0
+  mType: 2
+  grade: 3
