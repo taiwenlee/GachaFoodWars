@@ -65,7 +65,7 @@ public class Gacha : MonoBehaviour
                     WeaponObtainedUI.text = "Legendary" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.red;
                 }
-                Debug.Log("Award: " + table[i] + tableName[i]);
+                Debug.Log("Award: " + table[i] + Items[i].name);
                 return;
             }else
             {
@@ -74,5 +74,4 @@ public class Gacha : MonoBehaviour
             }
         }
     }
-
 }
