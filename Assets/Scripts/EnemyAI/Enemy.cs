@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Enemy : MonoBehaviour
     public int dropValue = 1;
     public float invunerableTime = .5f;
     private float invunerableTimer = 0.0f;
+    public float maxHealth = 100.0f;
+
+    [Header("Health Bar")]
+    public Slider slider;
+    public GameObject enemyType;
 
     protected NavMeshAgent agent;
     protected Rigidbody rb;
@@ -30,6 +36,8 @@ public class Enemy : MonoBehaviour
         }
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        slider.value = healthBarUpdate();
+        health = maxHealth;
         spriteAnimator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
@@ -39,6 +47,14 @@ public class Enemy : MonoBehaviour
     {
         // update agent speed
         agent.speed = speed;
+
+        //updates slider value
+        slider.value = healthBarUpdate();
+        //updates healthbar ui
+        if(health < maxHealth) 
+        {
+            enemyType.SetActive(true);
+        }
 
         // update invunerable timer
         if (invunerableTimer > 0.0f)
@@ -88,6 +104,11 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, 1.0f);
             this.enabled = false;
         }
+    }
+    
+    //updates healthbar based on health/maxhealth
+    float healthBarUpdate() {
+        return health/maxHealth;
     }
 
     public void TakeDamage(int damage)
