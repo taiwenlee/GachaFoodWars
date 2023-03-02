@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Lord sword
   Icon: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
   isDefaultItem: 0
-  damageStat: 10
+  damageStat: 20
   attackSpeed: 1
   damageMultiplier: 0
   attackSpeedMultiplier: 0

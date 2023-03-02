@@ -15,7 +15,6 @@ public class RangeAttack : MonoBehaviour
             hasFired = true;
             // Mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.Log("Shooting");
             Vector3 dir;
             if (Physics.Raycast(ray, out RaycastHit hit, 100, ~LayerMask.GetMask("Ignore Raycast")))
             {
@@ -25,7 +24,8 @@ public class RangeAttack : MonoBehaviour
                 projectileInstance.GetComponent<Projectile>().direction.x = dir.x;
                 projectileInstance.GetComponent<Projectile>().direction.z = dir.z;
                 projectileInstance.GetComponent<Projectile>().damage = ((Equipment)wc.em.currentEquipment[0]).damageStat;
-                projectileInstance.GetComponent<Projectile>().speed = 5;
+                Debug.Log(projectileInstance.GetComponent<Projectile>().damage);
+                projectileInstance.GetComponent<Projectile>().speed = 15;
                 projectileInstance.GetComponent<Projectile>().ignoreTags = new string[] { "Player", "Projectile" };
             }
         }

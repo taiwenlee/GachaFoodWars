@@ -33,8 +33,6 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Borgor");
-
         // ignore collisions if tag is in ignore list
         foreach (string tag in ignoreTags)
         {
@@ -50,7 +48,7 @@ public class Projectile : MonoBehaviour
             collision.gameObject.GetComponent<Player>().takeDamage(damage);
         }
         else if (collision.gameObject.tag == "Enemy")
-        {
+        {    
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
         Destroy(gameObject);
