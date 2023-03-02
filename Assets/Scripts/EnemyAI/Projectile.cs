@@ -33,6 +33,8 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Borgor");
+
         // ignore collisions if tag is in ignore list
         foreach (string tag in ignoreTags)
         {

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3386139546756686549}
+  - component: {fileID: 1381395681951742844}
   m_Layer: 2
   m_Name: Range
   m_TagString: Weapon
@@ -24,13 +25,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407992467962058371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.017, y: 0.196, z: 1.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4315001940372744204}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1381395681951742844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407992467962058371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ce8963ddcf15c4e87e73cc86b523cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wc: {fileID: 7800503833669666998}
+  projectile: {fileID: 7451679331412737469, guid: 3a259c66239dd264cb70bad0f813291a,
+    type: 3}
 --- !u!1 &1879624360449382412
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,11 +672,17 @@ MonoBehaviour:
   em: {fileID: 0}
   CanAttack: 1
   AttackCooldown: 1
+  attackSpeed: 0
   isAttacking: 0
   isSelected: 0
   audioSource: {fileID: 7506652057914269392}
   swordSound: {fileID: 8300000, guid: 8ac61ff547f6c9f46a699ce9cad583ae, type: 3}
   spearSound: {fileID: 8300000, guid: 32784f8b527067a4395ef82627970daf, type: 3}
+  damageMultiplier: 1
+  hitboxMultiplier: 1
+  attackSpeedMultiplier: 1
+  element: 0
+  knockbackForce: 0
 --- !u!82 &1046406064
 AudioSource:
   m_ObjectHideFlags: 0
