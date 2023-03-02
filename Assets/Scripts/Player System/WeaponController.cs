@@ -70,7 +70,7 @@ public class WeaponController : MonoBehaviour
 
     public void WeaponSelector()
     {
-        if (isAttacking == false && em.currentEquipment.Length > 0)
+        if (isAttacking == false && em.currentEquipment.Length > 0 && em.currentEquipment[0] != null)
         {
             switch (((Equipment)em.currentEquipment[0]).gSlots)
             {
@@ -91,6 +91,10 @@ public class WeaponController : MonoBehaviour
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
+                    DisableChild();
+                    SetWeapon("Range");
+                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
+                    //weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     break;
                 default:
                     DisableChild();
