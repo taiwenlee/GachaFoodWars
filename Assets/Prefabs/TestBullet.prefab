@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8555048756368895355}
   - component: {fileID: 8241006110292013032}
   m_Layer: 2
-  m_Name: Sphere
+  m_Name: a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,8 +92,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660990071337422248}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8597270807868626619}
-  - component: {fileID: -6561746169709947328}
   - component: {fileID: 3012584227702439782}
   - component: {fileID: -392786328508967198}
   m_Layer: 2
@@ -132,22 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &-6561746169709947328
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451679331412737469}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.5
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!135 &3012584227702439782
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -156,7 +139,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7451679331412737469}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -178,3 +161,5 @@ MonoBehaviour:
   lifeTime: 1000
   ignoreTags: []
   direction: {x: 0, y: 0, z: 0}
+  element: 0
+  elementLevel: 0

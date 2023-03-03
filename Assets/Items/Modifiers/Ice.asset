@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
-  m_Name: Spear
+  m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
+  m_Name: Ice
   m_EditorClassIdentifier: 
-  name: Spear
-  Icon: {fileID: 21300000, guid: e4199a55589fc974d853289aa5161832, type: 3}
+  name: Ice
+  Icon: {fileID: 21300000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
   isDefaultItem: 0
-  damageStat: 30
-  attackSpeed: 1
-  damageMultiplier: 0
-  attackSpeedMultiplier: 0
-  gSlots: 1
-  gradeType: 0
+  mType: 4
+  grade: 3

@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf049a45f742d6a40bc7c0b3ae491e6a, type: 3}
-  m_Name: Spear
+  m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
+  m_Name: Fire
   m_EditorClassIdentifier: 
-  name: Spear
-  Icon: {fileID: 21300000, guid: e4199a55589fc974d853289aa5161832, type: 3}
+  name: Fire
+  Icon: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
   isDefaultItem: 0
-  damageStat: 30
-  attackSpeed: 1
-  damageMultiplier: 0
-  attackSpeedMultiplier: 0
-  gSlots: 1
-  gradeType: 0
+  mType: 3
+  grade: 3
