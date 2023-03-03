@@ -47,7 +47,7 @@ public class RoomConstructor : ScriptableObject
 
     public void BuildRoom(
         //out GameObject thisPlayer,
-        ref GameObject thisPlayer,
+        out GameObject thisPlayer,
         Transform origin, // origin point to build around
         Vector4 pathCoords // indicates which side of the room is either an entry or exit (N, E, S, W format like a clock) 
         )
@@ -79,8 +79,8 @@ public class RoomConstructor : ScriptableObject
         BundleEntryExitGates(out Tuple<GameObject, GameObject>[] gates);
         InstantiateGates(out EntryGate entryObject, gates, coords, origin);
         InstantiateBoundaries(cardinals);
-        //thisPlayer = Instantiate(player, entryObject.position, Quaternion.identity);
-        thisPlayer.transform.position = entryObject.position;
+        thisPlayer = Instantiate(player, entryObject.position, Quaternion.identity);
+        //thisPlayer.transform.position = entryObject.position;
     }
    
     private void InstantiateTreeStack(Transform origin, out GameObject[] stack)

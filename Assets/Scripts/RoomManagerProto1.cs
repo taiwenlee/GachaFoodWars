@@ -17,7 +17,6 @@ public class RoomManagerProto1 : MonoBehaviour
     private Ground groundScript;
     private List<Gate> gateScripts;
 
-    public GameObject player;
 
     private void Awake()
     {
@@ -25,18 +24,18 @@ public class RoomManagerProto1 : MonoBehaviour
         groundActivated = false;
         gateScripts = new();
 
-        player = GameObject.FindWithTag("Player");
+        /*player = GameObject.FindWithTag("Player");
         if (player == null )
         {
             Debug.LogError("FIND WITH TAG UNSUCCESSFUL: 'player'");
-        }
+        }*/
         inventory = GameObject.FindWithTag("Inventory");
         inventory.GetComponent<Inventory>().AddOnAwake();
 
         levelMap.currentRoom.HasVisited = true;
         Vector2 roomCoords = levelMap.currentVertex;
         Vector4 layout = levelMap.currentRoomLayout;
-        rc.BuildRoom(ref player, roomOrigin.transform, layout);
+        rc.BuildRoom(out GameObject player, roomOrigin.transform, layout);
         GameObject[] gates = GameObject.FindGameObjectsWithTag("Gate_Exit");
         foreach (GameObject go in gates)
         {
