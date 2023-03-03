@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class GachaMachineController : MonoBehaviour
+public class GachaAnimator : MonoBehaviour
 {
-    public bool isInRange;
+    private bool isInRange;
     public KeyCode interactKey;
-    public UnityEvent interactAction;
+    //public UnityEvent interactAction;
+
+    //private float Cooldown = 1f;
+    Animator animator;
 
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     public void Update()
@@ -20,7 +24,14 @@ public class GachaMachineController : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
-                interactAction.Invoke();    // start event
+                animator.SetTrigger("Gacha");
+                //wait for animation to finish  //
+                // for (int i = 0; i < Cooldown; i++)
+                // {
+                //     Time.timeScale = 0f;
+                // }
+                // Time.timeScale = 1f;
+                //interactAction.Invoke();    // start event
             }
         }
     }
