@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 1
-  lifeTime: 1000
+  lifeTime: 10
   ignoreTags: []
   direction: {x: 0, y: 0, z: 0}
   element: 0
