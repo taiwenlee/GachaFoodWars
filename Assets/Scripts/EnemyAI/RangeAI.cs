@@ -5,19 +5,12 @@ using UnityEngine.AI;
 
 public class RangeAI : Enemy
 {
-    [Header("References")]
+    [Header("Range AI References")]
     public GameObject projectile;
 
-    [Header("Stats")]
-    public float attackRate = 1.0f; // how often the AI shoots per second
-    public float sightRange = 20.0f;
+    [Header("Range AI Settings")]
     public float projectileSpeed = 10.0f;
-
-    public float targetDistance = 9.0f; // distance from player to stop at
-    public float targetRange = 1.0f; // the range in the target distance where AI wont move
-
-    // private variables
-    private float attackcooldown = 0.0f;
+    public float targetRange = 1.0f; // the range between the attack distance that the enemy wont try to move
 
     // Start is called before the first frame update
     protected override void Start()
@@ -32,16 +25,16 @@ public class RangeAI : Enemy
         base.Update();
         // check if player is in line of sight, move to 9 units away from player if true
         var rayDirection = player.transform.position - transform.position;
-        bool inRange = rayDirection.magnitude > targetDistance - targetRange && rayDirection.magnitude < targetDistance + targetRange;
+        bool inRange = rayDirection.magnitude > attackRange - targetRange && rayDirection.magnitude < attackRange + targetRange;
         if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange, ~LayerMask.GetMask("Ignore Raycast")))
         {
             if (hit.collider.gameObject == player)
             {
                 if (!inRange && agent.isActiveAndEnabled)
                 {
-                    agent.SetDestination(player.transform.position - rayDirection.normalized * targetDistance);
+                    agent.SetDestination(player.transform.position - rayDirection.normalized * attackRange);
                 }
-                else if (attackcooldown <= 0.0f)
+                else if (attackcooldown <= 0.0f && element != Element.Electric)
                 {
                     // spawns a projectile that moves towards the player
                     var projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -65,8 +58,8 @@ public class RangeAI : Enemy
     void OnDrawGizmosSelected()
     {
         // draw wireframe for target range
-        Gizmos.DrawWireSphere(transform.position, targetDistance - targetRange);
-        Gizmos.DrawWireSphere(transform.position, targetDistance + targetRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange - targetRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange + targetRange);
 
         // draw wireframe for sight range
         Gizmos.color = Color.blue;

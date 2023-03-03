@@ -5,13 +5,6 @@ using UnityEngine.AI;
 
 public class MeleeAI : Enemy
 {
-    [Header("Stats")]
-    public float attackRate = 1.0f;
-    public float attackRange = 1.0f;
-    public float sightRange = 10.0f;
-    public float damageTimeout = 1f;
-    // private variables
-    private float attackcooldown = 0.0f;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -35,7 +28,7 @@ public class MeleeAI : Enemy
         }
 
         // check if player is in attack range, attack if true
-        if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
+        if (Vector3.Distance(transform.position, player.transform.position) < attackRange && element != Element.Electric)
         {
             // attack player
             if (attackcooldown <= 0.0f)

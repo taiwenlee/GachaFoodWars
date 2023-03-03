@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class MiniBossAI : Enemy
 {
-    [Header("Stats")]
-    public float attackRate = 1.0f; // attacks per second
-    public float attackRange = 10.0f; // distance from player to attack
-    public float sightRange = 20.0f; // distance from player to spot player
+    [Header("MiniBoss AI Settings")]
     public float chargeForce = 100.0f; // force to charge at player
     public float knockbackForce = 10.0f; // force to knockback player
+    // damage timeout insures that the player cant be hit multiple times in a single attack
     public float damageTimeout = 1f; // time between damage ticks
-    private float attackcooldown = 0.0f;
     private float damageCooldown = 0.0f;
     // Start is called before the first frame update
     protected override void Start()
@@ -31,7 +28,8 @@ public class MiniBossAI : Enemy
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f)
+                // check if player is in attack range, attack if true
+                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && element != Element.Electric)
                 {
                     agent.ResetPath();
                     rb.AddForce(rayDirection.normalized * chargeForce, ForceMode.Impulse);
@@ -42,8 +40,6 @@ public class MiniBossAI : Enemy
                     // chase player if too far away
                     agent.SetDestination(player.transform.position - rayDirection.normalized * attackRange * .9f);
                 }
-
-
             }
         }
 
