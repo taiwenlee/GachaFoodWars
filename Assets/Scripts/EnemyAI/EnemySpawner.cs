@@ -84,6 +84,9 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<MeleeAI>().player = Player;
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
+            enemy.GetComponent<MeleeAI>().maxHealth = 100;
+            enemy.GetComponent<MeleeAI>().damage = 2;
+            enemy.GetComponent<MeleeAI>().baseSpeed = 3f;
         }
         else if (name.ToLower() == "tank")
         {
@@ -92,9 +95,9 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.parent = transform;
             // modify enemy stats
             //Todo: make stat modifier a function rather than hardcoding
-            enemy.GetComponent<MeleeAI>().health = 200;
-            enemy.GetComponent<MeleeAI>().damage = 2;
-            enemy.GetComponent<MeleeAI>().speed = 1.5f;
+            enemy.GetComponent<MeleeAI>().maxHealth = 200;
+            enemy.GetComponent<MeleeAI>().damage = 3;
+            enemy.GetComponent<MeleeAI>().baseSpeed = 1.5f;
         }
         else if (name.ToLower() == "range")
         {
@@ -102,6 +105,9 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<RangeAI>().player = Player;
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
+            enemy.GetComponent<RangeAI>().maxHealth = 100;
+            enemy.GetComponent<RangeAI>().damage = 1;
+            enemy.GetComponent<RangeAI>().baseSpeed = 3f;
         }
         else if (name.ToLower() == "miniboss")
         {
