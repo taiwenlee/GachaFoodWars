@@ -46,6 +46,7 @@ public class RoomConstructor : ScriptableObject
     public GameObject[] boundaries;
 
     public void BuildRoom(
+        //out GameObject thisPlayer,
         out GameObject thisPlayer,
         Transform origin, // origin point to build around
         Vector4 pathCoords // indicates which side of the room is either an entry or exit (N, E, S, W format like a clock) 

@@ -9,21 +9,20 @@ public class Projectile : MonoBehaviour
     public float lifeTime = 5.0f;
     public string[] ignoreTags = { };
     public Vector3 direction;
-    private Rigidbody rb;
     private Collider col;
-
+    public WeaponController.Element element = WeaponController.Element.None;
+    public int elementLevel = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = direction.normalized * speed;
+        transform.position += direction.normalized * speed * Time.deltaTime;
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0.0f)
         {
@@ -31,25 +30,26 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // ignore collisions if tag is in ignore list
         foreach (string tag in ignoreTags)
         {
-            if (collision.gameObject.tag == tag)
+            if (other.gameObject.tag == tag)
             {
                 return;
             }
         }
 
         // if not part of ignore list
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().takeDamage(damage);
+            other.gameObject.GetComponent<Player>().takeDamage(damage);
         }
-        else if (collision.gameObject.tag == "Enemy")
-        {    
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        else if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage, element, elementLevel);
+
         }
         Destroy(gameObject);
     }

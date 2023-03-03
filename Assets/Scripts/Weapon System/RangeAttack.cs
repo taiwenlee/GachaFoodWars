@@ -13,21 +13,15 @@ public class RangeAttack : MonoBehaviour
         if (wc.isAttacking == true && hasFired == false)
         {
             hasFired = true;
-            // Mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 dir;
-            if (Physics.Raycast(ray, out RaycastHit hit, 100, ~LayerMask.GetMask("Ignore Raycast")))
-            {
-                // Creates the projectile
-                dir = hit.point - transform.position;
-                var projectileInstance = Instantiate(projectile, transform.position, transform.rotation);
-                projectileInstance.GetComponent<Projectile>().direction.x = dir.x;
-                projectileInstance.GetComponent<Projectile>().direction.z = dir.z;
-                projectileInstance.GetComponent<Projectile>().damage = ((Equipment)wc.em.currentEquipment[0]).damageStat;
-                Debug.Log(projectileInstance.GetComponent<Projectile>().damage);
-                projectileInstance.GetComponent<Projectile>().speed = 15;
-                projectileInstance.GetComponent<Projectile>().ignoreTags = new string[] { "Player", "Projectile" };
-            }
+            var projectileInstance = Instantiate(projectile, transform.position, transform.rotation);
+            projectileInstance.GetComponent<Projectile>().element = wc.element;
+            projectileInstance.GetComponent<Projectile>().elementLevel = wc.elementLevel;
+            projectileInstance.GetComponent<Projectile>().direction = transform.rotation * Vector3.forward;
+            projectileInstance.GetComponent<Projectile>().damage = ((Equipment)wc.em.currentEquipment[0]).damageStat * (int)wc.damageMultiplier;
+            projectileInstance.transform.localScale *= wc.hitboxMultiplier;
+            Debug.Log(projectileInstance.GetComponent<Projectile>().damage);
+            projectileInstance.GetComponent<Projectile>().speed = 15;
+            projectileInstance.GetComponent<Projectile>().ignoreTags = new string[] { "Player", "Projectile" };
         }
         if(wc.isAttacking == false)
         {

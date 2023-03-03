@@ -29,7 +29,7 @@ public class MiniBossAI : Enemy
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 // check if player is in attack range, attack if true
-                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && element != Element.Electric)
+                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && element != WeaponController.Element.Electric)
                 {
                     agent.ResetPath();
                     rb.AddForce(rayDirection.normalized * chargeForce, ForceMode.Impulse);
