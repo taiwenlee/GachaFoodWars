@@ -238,17 +238,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de07d5085f0c6704e9030a55a0b8a98c, type: 3}
   - {fileID: 8300000, guid: 45b0f50851947fe40b951776771de0bc, type: 3}
   - {fileID: 8300000, guid: 931a3b36503d7574582c616d5fe45b20, type: 3}
-  health: 100
-  speed: 5
-  damage: 3
-  dropValue: 1
-  invunerableTime: 0.2
   maxHealth: 100
-  slider: {fileID: 5430163003485133954}
-  enemyType: {fileID: 2453059522322495660}
+  health: 100
+  baseSpeed: 8
   attackRate: 0.3
   attackRange: 10
   sightRange: 20
+  damage: 3
+  dropValue: 1
+  invunerableTime: 0.2
+  element: 0
+  elementDuration: 3
+  stunDuration: 0.5
+  fireDamageMultiplier: 3
+  iceSlowMultiplier: 0.1
+  maxIceSlow: 0.9
+  elementLevel: 0
   chargeForce: 1500
   knockbackForce: 10
   damageTimeout: 1

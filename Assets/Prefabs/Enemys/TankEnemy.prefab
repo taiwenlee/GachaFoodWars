@@ -122,7 +122,7 @@ MonoBehaviour:
   element: 0
   elementDuration: 3
   stunDuration: 0.5
-  fireDamageMultiplier: 1
+  fireDamageMultiplier: 3
   iceSlowMultiplier: 0.1
   maxIceSlow: 0.9
   elementLevel: 0
