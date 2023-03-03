@@ -18,7 +18,7 @@ public class WeaponController : MonoBehaviour
     public AudioClip spearSound;
 
     //[Header("Animations")]
-    private Animations sprite;
+    private WeaponAnimation sprite;
     private bool swordSwing = false;
     private bool spearSwing = false;
 
@@ -54,7 +54,7 @@ public class WeaponController : MonoBehaviour
             em.wc = this;
         }
         audioSource = GetComponent<AudioSource>();
-        sprite = GetComponentInChildren<Animations>();
+        sprite = GetComponentInChildren<WeaponAnimation>();
         WeaponSelector();
         setModifiers();
     }
@@ -62,7 +62,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sprite = GetComponentInChildren<Animations>();
+        sprite = GetComponentInChildren<WeaponAnimation>();
         if (this.GetComponentInParent<Player>().playerDead != true)
         {
             if (Input.GetMouseButton(0))
