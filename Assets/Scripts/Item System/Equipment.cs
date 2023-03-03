@@ -8,7 +8,7 @@ public class Equipment : Item
     /*    public int armorModifier;
         public int damageModifier;*/
     public int damageStat; // base damage
-    public int attackSpeed; // base attack speed
+    public float attackSpeed; // base attack speed
 
     public float damageMultiplier; // damage multiplier
     public float attackSpeedMultiplier; // attack speed multiplier

@@ -70,13 +70,15 @@ public class WeaponController : MonoBehaviour
                 if (CanAttack && em.currentEquipment[0])
                 {
                     //Debug.Log(weapon);
-                    if(swordSwing) {
+                    if (swordSwing)
+                    {
                         sprite.animation.SetTrigger("swordSlash");
-                        
+
                     }
-                    if(spearSwing) {
+                    if (spearSwing)
+                    {
                         sprite.animation.SetTrigger("spearSlash");
-                        
+
                     }
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
