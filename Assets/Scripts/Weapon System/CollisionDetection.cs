@@ -22,7 +22,7 @@ public class CollisionDetection : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
             var weapon = (Equipment)wc.em.currentEquipment[0];
-            other.gameObject.GetComponent<Enemy>().TakeDamage((int)(weapon.damageStat * wc.damageMultiplier));
+            other.gameObject.GetComponent<Enemy>().TakeDamage((int)(weapon.damageStat * wc.damageMultiplier), wc.element, wc.elementLevel);
         }
     }
 }

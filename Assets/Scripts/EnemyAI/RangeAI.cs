@@ -34,7 +34,7 @@ public class RangeAI : Enemy
                 {
                     agent.SetDestination(player.transform.position - rayDirection.normalized * attackRange);
                 }
-                else if (attackcooldown <= 0.0f && element != Element.Electric)
+                else if (attackcooldown <= 0.0f && element != WeaponController.Element.Electric)
                 {
                     // spawns a projectile that moves towards the player
                     var projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);

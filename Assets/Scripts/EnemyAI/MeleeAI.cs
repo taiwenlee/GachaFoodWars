@@ -28,7 +28,7 @@ public class MeleeAI : Enemy
         }
 
         // check if player is in attack range, attack if true
-        if (Vector3.Distance(transform.position, player.transform.position) < attackRange && element != Element.Electric)
+        if (Vector3.Distance(transform.position, player.transform.position) < attackRange && element != WeaponController.Element.Electric)
         {
             // attack player
             if (attackcooldown <= 0.0f)

@@ -21,6 +21,7 @@ public class WeaponController : MonoBehaviour
     public float hitboxMultiplier = 1;
     public float attackSpeedMultiplier = 1;
     public Element element = Element.None;
+    public int elementLevel = 0;
     public float knockbackForce = 0;
     public static WeaponController instance;
 
@@ -160,11 +161,13 @@ public class WeaponController : MonoBehaviour
 
     public void setModifiers()
     {
+
         // reset multipliers
         damageMultiplier = 1;
         hitboxMultiplier = 1;
         attackSpeedMultiplier = 1;
         element = Element.None;
+        elementLevel = 0;
         for (int i = 1; i < em.currentEquipment.Length; i++)
         {
             if (em.currentEquipment[i] != null)
@@ -182,16 +185,19 @@ public class WeaponController : MonoBehaviour
                         attackSpeedMultiplier += .2f * ((int)modifier.grade + 1);
                         break;
                     case Modifier.ModifierType.Fire:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Fire;
                         break;
                     case Modifier.ModifierType.Ice:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Ice;
                         break;
                     case Modifier.ModifierType.Electric:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Electric;
                         break;
                     case Modifier.ModifierType.Knockback:
-                        knockbackForce = (int)modifier.grade * 10;
+                        knockbackForce += (int)modifier.grade * 10;
                         break;
                     case Modifier.ModifierType.MultiHit:
                         break;
