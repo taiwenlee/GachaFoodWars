@@ -18742,6 +18742,16 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
+      propertyPath: restScene
+      value: Rest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: combatScene
+      value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 11400000, guid: 7aaa07e2f113b18459a904737ba0f3a3,

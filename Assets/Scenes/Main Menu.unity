@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1ea04431022d4bb4e10703ba5402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainingScene: Instruction Room
+  restScene: Rest
+  pprog: {fileID: 11400000, guid: 408a15cd0fc8e6e41b0420ac248e72f7, type: 2}
 --- !u!1 &118831488
 GameObject:
   m_ObjectHideFlags: 0
