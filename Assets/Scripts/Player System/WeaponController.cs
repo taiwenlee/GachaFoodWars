@@ -20,6 +20,7 @@ public class WeaponController : MonoBehaviour
     //[Header("Animations")]
     private Animations sprite;
     private bool swordSwing = false;
+    private bool spearSwing = false;
 
     [Header("Stats")]
     private float attackDuration = 0.2f;
@@ -68,8 +69,14 @@ public class WeaponController : MonoBehaviour
                 if (CanAttack && em.currentEquipment[0])
                 {
                     //Debug.Log(weapon);
-                    sprite.animation.SetTrigger("swordSlash");
-                    sprite.animation.SetTrigger("spearSlash");
+                    if(swordSwing) {
+                        sprite.animation.SetTrigger("swordSlash");
+                        
+                    }
+                    if(spearSwing) {
+                        sprite.animation.SetTrigger("spearSlash");
+                        
+                    }
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
@@ -90,6 +97,8 @@ public class WeaponController : MonoBehaviour
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = swordSound;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    swordSwing = true;
+                    spearSwing = false;
                     //isSelected = true;
                     break;
                 case WeaponType.Spear:
@@ -98,6 +107,8 @@ public class WeaponController : MonoBehaviour
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = spearSound;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    spearSwing = true;
+                    swordSwing = false;
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
