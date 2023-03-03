@@ -16,6 +16,12 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swordSound;
     public AudioClip spearSound;
+
+    //[Header("Animations")]
+    private Animations sprite;
+    private bool swordSwing = false;
+
+    [Header("Stats")]
     private float attackDuration = 0.2f;
     public float damageMultiplier = 1;
     public float hitboxMultiplier = 1;
@@ -46,6 +52,7 @@ public class WeaponController : MonoBehaviour
             em.wc = this;
         }
         audioSource = GetComponent<AudioSource>();
+        sprite = GetComponentInChildren<Animations>();
         WeaponSelector();
         setModifiers();
     }
@@ -53,6 +60,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sprite = GetComponentInChildren<Animations>();
         if (this.GetComponentInParent<Player>().playerDead != true)
         {
             if (Input.GetMouseButton(0))
@@ -60,6 +68,8 @@ public class WeaponController : MonoBehaviour
                 if (CanAttack && em.currentEquipment[0])
                 {
                     //Debug.Log(weapon);
+                    sprite.animation.SetTrigger("swordSlash");
+                    sprite.animation.SetTrigger("spearSlash");
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
