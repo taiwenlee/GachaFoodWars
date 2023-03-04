@@ -16,6 +16,8 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventoryUI.SetActive(false);
+        gearUI.SetActive(false);
         if (player == null)
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -42,7 +44,6 @@ public class InventoryUI : MonoBehaviour
                 gearUI.SetActive(!gearUI.activeSelf);
             }
         }
-
     }
 
     void UpdateInventoryUI()
