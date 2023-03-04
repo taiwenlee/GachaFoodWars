@@ -1,2 +1,2 @@
 # GachaFoodWars
-webgl build: https://github.com/taiwenlee/GachaFoodWars/deployments/activity_log?environment=github-pages
+webgl build: https://taiwenlee.github.io/GachaFoodWars/
