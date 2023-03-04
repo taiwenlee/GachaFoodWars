@@ -80,6 +80,7 @@ public class WeaponController : MonoBehaviour
                         sprite.animation.SetTrigger("spearSlash");
 
                     }
+                    
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
@@ -119,6 +120,8 @@ public class WeaponController : MonoBehaviour
                     SetWeapon("Range");
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     //weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    spearSwing = false;
+                    swordSwing = false;
                     break;
                 default:
                     DisableChild();

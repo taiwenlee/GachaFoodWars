@@ -14,6 +14,11 @@ public class RestartMenu : MonoBehaviour
 
     public void Restart()
     {
+        GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
+        }
         SceneManager.LoadScene("Main Menu");
         restartMenu.SetActive(false);
     }
