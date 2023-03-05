@@ -6,49 +6,43 @@ using UnityEngine.InputSystem;
 
 public class GachaAnimator : MonoBehaviour
 {
-    private bool isInRange;
+    private GachaMachineController controller;
+    private Gacha gachaUI;
     public KeyCode interactKey;
-    //public UnityEvent interactAction;
 
-    //private float Cooldown = 1f;
-    Animator animator;
+    public Animator animator;
+    public bool animationPlaying = false;
 
     void Start()
     {
+        GameObject CircleCollider = GameObject.Find("InteractableCircle");
+        controller = CircleCollider.GetComponent<GachaMachineController>();
+
+        GameObject gacha = GameObject.Find("Gacha");
+        gachaUI = gacha.GetComponent<Gacha>();
+
         animator = GetComponent<Animator>();
     }
 
     public void Update()
     {
-        if (isInRange)   // check if player is in range of Gacha machine
+        if (controller.canGacha == true && controller.isInRange)   // check if player is in range of Gacha machine
         {
             if (Input.GetKeyDown(interactKey))
             {
-                animator.SetTrigger("Gacha");
-                //wait for animation to finish  //
-                // for (int i = 0; i < Cooldown; i++)
-                // {
-                //     Time.timeScale = 0f;
-                // }
-                // Time.timeScale = 1f;
-                //interactAction.Invoke();    // start event
+                StartCoroutine(WaitCoroutine());
             }
         }
     }
-
-    private void OnTriggerEnter(Collider collision)
+    
+    IEnumerator WaitCoroutine()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = false;
-        }
+        animator.SetTrigger("StartGacha");
+        animationPlaying = true;
+        Debug.Log("animation");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Waited for 1 second!");
+        animationPlaying = false;
+        gachaUI.GachaUI.SetActive(true);
     }
 }

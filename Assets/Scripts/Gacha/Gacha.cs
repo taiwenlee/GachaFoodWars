@@ -44,7 +44,6 @@ public class Gacha : MonoBehaviour
             {
                 //weapons[i].SetActive(true);
                 Inventory.instance.Add(Items[i]);
-                GachaUI.SetActive(true);
                 if (table[i] == 500)
                 {
                     WeaponObtainedUI.text = "Common" + " " + Items[i].name;
