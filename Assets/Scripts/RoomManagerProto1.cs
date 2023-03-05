@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RoomManagerProto1 : MonoBehaviour
 {
-    //[SerializeField] GameObject player;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject inventoryUI;
     [SerializeField] GameObject roomOrigin;
@@ -18,13 +17,18 @@ public class RoomManagerProto1 : MonoBehaviour
     private Ground groundScript;
     private List<Gate> gateScripts;
 
+
     private void Awake()
     {
         inTransition = false;
         groundActivated = false;
         gateScripts = new();
 
-        //player = GameObject.FindWithTag("Player");
+        /*player = GameObject.FindWithTag("Player");
+        if (player == null )
+        {
+            Debug.LogError("FIND WITH TAG UNSUCCESSFUL: 'player'");
+        }*/
         inventory = GameObject.FindWithTag("Inventory");
         inventory.GetComponent<Inventory>().AddOnAwake();
 

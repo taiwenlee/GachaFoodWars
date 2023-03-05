@@ -84,9 +84,10 @@ public class EnemySpawner : MonoBehaviour
             enemy.GetComponent<MeleeAI>().player = Player;
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
-            enemy.GetComponent<MeleeAI>().maxHealth = 100;
+            enemy.GetComponent<MeleeAI>().maxHealth = 90;
             enemy.GetComponent<MeleeAI>().damage = 2;
-            enemy.GetComponent<MeleeAI>().baseSpeed = 3f;
+            enemy.GetComponent<MeleeAI>().baseSpeed = 7f;
+            enemy.GetComponent<MeleeAI>().attackRate = 1f;
         }
         else if (name.ToLower() == "tank")
         {
@@ -95,9 +96,10 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.parent = transform;
             // modify enemy stats
             //Todo: make stat modifier a function rather than hardcoding
-            enemy.GetComponent<MeleeAI>().maxHealth = 200;
+            enemy.GetComponent<MeleeAI>().maxHealth = 150;
             enemy.GetComponent<MeleeAI>().damage = 3;
-            enemy.GetComponent<MeleeAI>().baseSpeed = 1.5f;
+            enemy.GetComponent<MeleeAI>().baseSpeed = 5f;
+            enemy.GetComponent<MeleeAI>().attackRate = 1f;
         }
         else if (name.ToLower() == "range")
         {
@@ -107,13 +109,17 @@ public class EnemySpawner : MonoBehaviour
             //Todo: make stat modifier a function rather than hardcoding
             enemy.GetComponent<RangeAI>().maxHealth = 100;
             enemy.GetComponent<RangeAI>().damage = 1;
-            enemy.GetComponent<RangeAI>().baseSpeed = 3f;
+            enemy.GetComponent<RangeAI>().baseSpeed = 7f;
         }
         else if (name.ToLower() == "miniboss")
         {
             var enemy = Instantiate(miniBossEnemy, hit.position, Quaternion.identity);
             enemy.GetComponent<MiniBossAI>().player = Player;
             enemy.transform.parent = transform;
+            //Todo: make stat modifier a function rather than hardcoding
+            enemy.GetComponent<RangeAI>().maxHealth = 400;
+            enemy.GetComponent<RangeAI>().damage = 1;
+            enemy.GetComponent<RangeAI>().baseSpeed = 3f;
         }
         else
         {

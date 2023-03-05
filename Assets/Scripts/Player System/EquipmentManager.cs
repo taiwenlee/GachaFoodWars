@@ -15,6 +15,7 @@ public class EquipmentManager : MonoBehaviour
     Inventory inventory;
     public delegate void OnEquipmentChanged();
     public OnEquipmentChanged onEquipmentChangedCallBack;
+    private bool hasElement;
     private void Start()
     {
         inventory = Inventory.instance;
@@ -39,7 +40,7 @@ public class EquipmentManager : MonoBehaviour
         {
             for (int i = 1; i < currentEquipment.Length; i++)
             {
-                if (currentEquipment[i] == null)
+                if (currentEquipment[i] == null && !(modifierCheck((Modifier)newItem) && wc.element != WeaponController.Element.None))
                 {
                     currentEquipment[i] = newItem;
                     newItem.RemoveFromInventory();
@@ -50,9 +51,13 @@ public class EquipmentManager : MonoBehaviour
 
                     }
                     break;
+
                 }
             }
         }
+        WeaponController.instance.WeaponSelector();
+        WeaponController.instance.setModifiers();
+
     }
 
     public void Unequip(int slotIndex)
@@ -70,5 +75,14 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChangedCallBack.Invoke();
         }
+    }
+
+    private bool modifierCheck(Modifier newItem)
+    {
+        if(newItem.mType == Modifier.ModifierType.Fire || newItem.mType == Modifier.ModifierType.Ice || newItem.mType == Modifier.ModifierType.Electric)
+        {
+            return true;
+        }
+        return false;
     }
 }

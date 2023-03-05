@@ -5,38 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    protected Canvas pauseMenu;
     //public GameObject restartMenu;
     public static bool isPaused;
 
     void Start()
     {
-        pauseMenu.SetActive(false);
+
+        pauseMenu = GetComponent<Canvas>();
+        pauseMenu.enabled = false;
         //restartMenu.SetActive(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(isPaused)
+            if (isPaused)
             {
                 ResumeGame();
-            }else
+            }
+            else
             {
                 PauseGame();
             }
         }
     }
 
-    public void PauseGame(){
-        pauseMenu.SetActive(true);
+    public void PauseGame()
+    {
+        pauseMenu.enabled = true;
         Time.timeScale = 0f;
         isPaused = true;
     }
 
-    public void ResumeGame(){
-        pauseMenu.SetActive(false);
+    public void ResumeGame()
+    {
+        pauseMenu.enabled = false;
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -48,7 +53,8 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Application.Quit();
     }
 }

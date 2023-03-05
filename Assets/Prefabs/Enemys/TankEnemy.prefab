@@ -46,7 +46,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224969773149104718}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.3
@@ -110,18 +110,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de07d5085f0c6704e9030a55a0b8a98c, type: 3}
   - {fileID: 8300000, guid: 45b0f50851947fe40b951776771de0bc, type: 3}
   - {fileID: 8300000, guid: 931a3b36503d7574582c616d5fe45b20, type: 3}
-  health: 100
-  speed: 3
-  damage: 2
-  dropValue: 1
-  invunerableTime: 0.2
   maxHealth: 100
-  slider: {fileID: 1382676161740446151}
-  enemyType: {fileID: 2224969773149104718}
+  health: 100
+  baseSpeed: 8
   attackRate: 1
   attackRange: 1
   sightRange: 10
-  damageTimeout: 1
+  damage: 2
+  dropValue: 1
+  invunerableTime: 0.2
+  element: 0
+  elementDuration: 3
+  stunDuration: 0.5
+  fireDamageMultiplier: 3
+  iceSlowMultiplier: 0.1
+  maxIceSlow: 0.9
+  elementLevel: 0
 --- !u!1 &2293572424722635566
 GameObject:
   m_ObjectHideFlags: 0

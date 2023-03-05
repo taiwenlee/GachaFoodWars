@@ -12,20 +12,26 @@ public class RestAreaManager : MonoBehaviour
 
     [Space(20)]
     public LevelMap levelMap;
-    public PlayerLevelProgression plp;
+    public PlayerProgression pprog;
 
     [Space(20)]
     [Header("Player Stats")]
     [Tooltip("Reset the player's health while in Rest")]
     [SerializeField] PlayerStats playerStats;
 
+    [Space(20)]
+    [Header("Scene Transitions")]
+    [SerializeField] string combatScene;
+    [SerializeField] string restScene;
 
     private LevelBlueprint lc;
 
     private void Start()
     {
         playerStats.playerHealthData.ResetPlayerHealth();
-        lc = levelBuildPool[Random.Range(0, levelBuildPool.Length)];
+        lc = levelBuildPool.Length > 0 ? 
+            levelBuildPool[Random.Range(0, levelBuildPool.Length)] :
+            null;
     }
 
     // Update is called once per frame
@@ -35,21 +41,34 @@ public class RestAreaManager : MonoBehaviour
 
         if (exitGate.triggered)
         {
-            lc.BuildLevel();
-            levelMap.spawnerMatrix = lc.levelSpawnerData;
-            levelMap.roomMatrix = lc.roomMatrix;
-            levelMap.currentVertex = lc.currentVertex;
-            int x = (int)levelMap.currentVertex.x;
-            int y = (int)levelMap.currentVertex.y;
-            levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
-            levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRandomTerminal(true);
-            x = (int)lc.endingLocation.x;
-            y = (int)lc.endingLocation.y;
-            levelMap.endVertex = lc.endingLocation;
-            levelMap.endRoom = lc.roomMatrix.cols[x].rows[y];
-            levelMap.endRoom.roomLayout = levelMap.endRoom.GenerateRandomTerminal(false);
-            lc.roomMatrix.cols[x].rows[y] = levelMap.endRoom;
-            Initiate.Fade("Game", Color.black, 3.0f);
+            bool prepped = LevelMapPrep();
+
+            string nextScene = prepped == true ? 
+                combatScene : 
+                restScene;
+            Initiate.Fade(nextScene, Color.black, 3.0f);
         }
+    }
+
+    private bool LevelMapPrep()
+    {
+        if (lc == null)
+            return false;
+
+        lc.BuildLevel();
+        levelMap.spawnerMatrix = lc.levelSpawnerData;
+        levelMap.roomMatrix = lc.roomMatrix;
+        levelMap.currentVertex = lc.currentVertex;
+        int x = (int)levelMap.currentVertex.x;
+        int y = (int)levelMap.currentVertex.y;
+        levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
+        levelMap.currentRoomLayout = levelMap.currentRoom.GenerateRandomTerminal(true);
+        x = (int)lc.endingLocation.x;
+        y = (int)lc.endingLocation.y;
+        levelMap.endVertex = lc.endingLocation;
+        levelMap.endRoom = lc.roomMatrix.cols[x].rows[y];
+        levelMap.endRoom.roomLayout = levelMap.endRoom.GenerateRandomTerminal(false);
+        lc.roomMatrix.cols[x].rows[y] = levelMap.endRoom;
+        return true;
     }
 }

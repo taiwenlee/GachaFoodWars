@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     public float invunerableTime = .5f;
 
     [Header("Element")]
-    public Element element = Element.None;
+    public WeaponController.Element element = WeaponController.Element.None;
     public float elementDuration = 3.0f;
     public float stunDuration = .5f;
     public float fireDamageMultiplier = 1.0f;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     protected float elementTimer = 0.0f;
 
 
-    public enum Element { None, Fire, Ice, Electric };
+    //public enum Element { None, Fire, Ice, Electric };
 
     protected Slider slider;
     protected NavMeshAgent agent;
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, Element e = Element.None, int el = 0)
+    public void TakeDamage(int damage, WeaponController.Element e = WeaponController.Element.None, int el = 0)
     {
         if (invunerableTimer <= 0.0f)
         {
@@ -165,7 +165,7 @@ public class Enemy : MonoBehaviour
 
         // apply elemental damage
         // only apply if the enemy currenty has no element or the new element is the same as the current element
-        if (e != Element.None && (element == Element.None || element == e))
+        if (e != WeaponController.Element.None && (element == WeaponController.Element.None || element == e))
         {
             element = e;
             elementLevel = el;
@@ -175,10 +175,10 @@ public class Enemy : MonoBehaviour
     private void ElementalDamage()
     {
         // set element timer if theres an element
-        if (element != Element.None && elementTimer <= 0.0f)
+        if (element != WeaponController.Element.None && elementTimer <= 0.0f)
         {
             elementTimer = elementDuration;
-            if (element == Element.Electric)
+            if (element == WeaponController.Element.Electric)
             {
                 elementTimer = stunDuration * elementLevel;
             }
@@ -190,7 +190,7 @@ public class Enemy : MonoBehaviour
             elementTimer -= Time.deltaTime;
             if (elementTimer < 0.0f)
             {
-                element = Element.None;
+                element = WeaponController.Element.None;
                 elementLevel = 0;
                 speed = baseSpeed;
                 agent.enabled = true;
@@ -198,7 +198,7 @@ public class Enemy : MonoBehaviour
         }
 
         // apply elemental effect
-        if (element == Element.Fire)
+        if (element == WeaponController.Element.Fire)
         {
             // deal level damage * multiplier every second
             if (elementTimer % 1.0f < Time.deltaTime)
@@ -206,12 +206,12 @@ public class Enemy : MonoBehaviour
                 health -= elementLevel * fireDamageMultiplier;
             }
         }
-        else if (element == Element.Ice)
+        else if (element == WeaponController.Element.Ice)
         {
             // slow enemy down by iceSlowMultiplier per level (maxIceSlow)
             speed = baseSpeed * (1.0f - Mathf.Min(elementLevel * iceSlowMultiplier, maxIceSlow));
         }
-        else if (element == Element.Electric)
+        else if (element == WeaponController.Element.Electric)
         {
             // stun enemy
             agent.enabled = false;
@@ -219,17 +219,17 @@ public class Enemy : MonoBehaviour
 
         // apply elemental effect
         // temp sprite color change
-        if (element == Element.Fire)
+        if (element == WeaponController.Element.Fire)
         {
             // redish orange tint
             spriteRenderer.color = new Color(1f, 0.5f, 0f, 1f);
         }
-        else if (element == Element.Ice)
+        else if (element == WeaponController.Element.Ice)
         {
             // cold blue tint
             spriteRenderer.color = new Color(0f, 0.5f, 1f, 1f);
         }
-        else if (element == Element.Electric)
+        else if (element == WeaponController.Element.Electric)
         {
             // lightning yellow tint
             spriteRenderer.color = new Color(1f, 1f, 0f, 1f);

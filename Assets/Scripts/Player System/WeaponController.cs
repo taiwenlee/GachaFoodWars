@@ -16,11 +16,19 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swordSound;
     public AudioClip spearSound;
+
+    //[Header("Animations")]
+    private WeaponAnimation sprite;
+    private bool swordSwing = false;
+    private bool spearSwing = false;
+
+    [Header("Stats")]
     private float attackDuration = 0.2f;
     public float damageMultiplier = 1;
     public float hitboxMultiplier = 1;
     public float attackSpeedMultiplier = 1;
     public Element element = Element.None;
+    public int elementLevel = 0;
     public float knockbackForce = 0;
     public static WeaponController instance;
 
@@ -46,6 +54,7 @@ public class WeaponController : MonoBehaviour
             em.wc = this;
         }
         audioSource = GetComponent<AudioSource>();
+        sprite = GetComponentInChildren<WeaponAnimation>();
         WeaponSelector();
         setModifiers();
     }
@@ -53,6 +62,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sprite = GetComponentInChildren<WeaponAnimation>();
         if (this.GetComponentInParent<Player>().playerDead != true)
         {
             if (Input.GetMouseButton(0))
@@ -60,6 +70,17 @@ public class WeaponController : MonoBehaviour
                 if (CanAttack && em.currentEquipment[0])
                 {
                     //Debug.Log(weapon);
+                    if (swordSwing)
+                    {
+                        sprite.animation.SetTrigger("swordSlash");
+
+                    }
+                    if (spearSwing)
+                    {
+                        sprite.animation.SetTrigger("spearSlash");
+
+                    }
+                    
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
@@ -80,6 +101,8 @@ public class WeaponController : MonoBehaviour
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = swordSound;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    swordSwing = true;
+                    spearSwing = false;
                     //isSelected = true;
                     break;
                 case WeaponType.Spear:
@@ -88,6 +111,8 @@ public class WeaponController : MonoBehaviour
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = spearSound;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    spearSwing = true;
+                    swordSwing = false;
                     //isSelected = true;
                     break;
                 case WeaponType.Range:
@@ -95,6 +120,8 @@ public class WeaponController : MonoBehaviour
                     SetWeapon("Range");
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     //weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+                    spearSwing = false;
+                    swordSwing = false;
                     break;
                 default:
                     DisableChild();
@@ -160,11 +187,13 @@ public class WeaponController : MonoBehaviour
 
     public void setModifiers()
     {
+
         // reset multipliers
         damageMultiplier = 1;
         hitboxMultiplier = 1;
         attackSpeedMultiplier = 1;
         element = Element.None;
+        elementLevel = 0;
         for (int i = 1; i < em.currentEquipment.Length; i++)
         {
             if (em.currentEquipment[i] != null)
@@ -182,16 +211,19 @@ public class WeaponController : MonoBehaviour
                         attackSpeedMultiplier += .2f * ((int)modifier.grade + 1);
                         break;
                     case Modifier.ModifierType.Fire:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Fire;
                         break;
                     case Modifier.ModifierType.Ice:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Ice;
                         break;
                     case Modifier.ModifierType.Electric:
+                        elementLevel += (int)modifier.grade;
                         element = Element.Electric;
                         break;
                     case Modifier.ModifierType.Knockback:
-                        knockbackForce = (int)modifier.grade * 10;
+                        knockbackForce += (int)modifier.grade * 10;
                         break;
                     case Modifier.ModifierType.MultiHit:
                         break;

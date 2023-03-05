@@ -16,8 +16,6 @@ public class GearSlot : MonoBehaviour
         icon.sprite = item.Icon;
         icon.enabled = true;
         removeButton.interactable = true;
-        WeaponController.instance.setModifiers();
-        WeaponController.instance.WeaponSelector();
     }
 
     public void ClearSlot()

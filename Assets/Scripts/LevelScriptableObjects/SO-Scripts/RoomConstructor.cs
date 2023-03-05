@@ -46,6 +46,7 @@ public class RoomConstructor : ScriptableObject
     public GameObject[] boundaries;
 
     public void BuildRoom(
+        //out GameObject thisPlayer,
         out GameObject thisPlayer,
         Transform origin, // origin point to build around
         Vector4 pathCoords // indicates which side of the room is either an entry or exit (N, E, S, W format like a clock) 
@@ -162,28 +163,33 @@ public class RoomConstructor : ScriptableObject
         bs[0].transform.GetChild(4).gameObject.SetActive(north);
 
         // East
-        for(int i = 2; i < 4; i++)
+        /*for(int i = 2; i < 4; i++)
         {
             ts[1].transform.GetChild(i).gameObject.SetActive(east);
-        }
-        for(int j = 4; j < 7; j++)
+        }*/
+        /*for(int j = 4; j < 7; j++)
         {
             bs[1].transform.GetChild(j).gameObject.SetActive(east);
-        }
+        }*/
+        ts[1].transform.GetChild(3).gameObject.SetActive(east);
+        bs[1].transform.GetChild(5).gameObject.SetActive(east);
+
 
         // South
         ts[2].transform.GetChild(4).gameObject.SetActive(south);
         bs[2].transform.GetChild(4).gameObject.SetActive(south);
 
         // West
-        for (int i = 2; i < 4; i++)
+        /*for (int i = 2; i < 4; i++)
         {
             ts[3].transform.GetChild(i).gameObject.SetActive(west);
         }
         for (int j = 4; j < 7; j++)
         {
             bs[3].transform.GetChild(j).gameObject.SetActive(west);
-        }
+        }*/
+        ts[3].transform.GetChild(3).gameObject.SetActive(west);
+        bs[3].transform.GetChild(5).gameObject.SetActive(west);
     }
 
     private void BundleEntryExitGates(out Tuple<GameObject, GameObject>[] bundle)
