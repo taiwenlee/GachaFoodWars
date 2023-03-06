@@ -23,7 +23,7 @@ public class PlayerUI : MonoBehaviour
         }
 
         for(int i = 0; i < maxHearts; i++) {
-            if(i  + 1 <= hearts) {
+            if(i  <= hearts) {
                 heart = Instantiate(heartPrefab, transform.position, Quaternion.identity); //spawn hearts
                 heart.transform.SetParent(transform);
             }else {
