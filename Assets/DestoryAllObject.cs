@@ -7,6 +7,7 @@ public class DestoryAllObject : MonoBehaviour
     public Gate gate;
     public GameObject Player;
     public GameObject Manager;
+    public GameObject HealthSystem;
     private bool isTriggered = false;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class DestoryAllObject : MonoBehaviour
             isTriggered = true;
             Destroy(Player);
             Destroy(Manager);
+            Destroy(HealthSystem);
             Debug.Log("Destroying all objects");
         }
 
