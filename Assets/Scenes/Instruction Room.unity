@@ -2266,7 +2266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &333216438
 Transform:
   m_ObjectHideFlags: 0
@@ -4955,6 +4955,7 @@ MonoBehaviour:
   gate: {fileID: 4065669062417104970}
   Player: {fileID: 1983047694}
   Manager: {fileID: 1116054533}
+  HealthSystem: {fileID: 349017501}
 --- !u!4 &700936003
 Transform:
   m_ObjectHideFlags: 0
