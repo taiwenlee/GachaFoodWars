@@ -542,7 +542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthControl: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 7aaa07e2f113b18459a904737ba0f3a3, type: 2}
+  heartSystem: {fileID: 0}
   health: 4
+  maxHeart: 4
   damageTimeout: 1
   playerDead: 0
 --- !u!82 &357922541
