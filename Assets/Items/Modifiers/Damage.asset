@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   name: Damage
-  Icon: {fileID: 21300000, guid: 464d1ec2f20759d4bbe7a381d5fe2b08, type: 3}
+  Icon: {fileID: 21300000, guid: 148ee26e42ca30844856c34c275836f7, type: 3}
   isDefaultItem: 0
   mType: 0
   grade: 3
