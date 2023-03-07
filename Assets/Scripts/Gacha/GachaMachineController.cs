@@ -17,19 +17,22 @@ public class GachaMachineController : MonoBehaviour
 
     void Start()
     {
-        GameObject animObject = GameObject.Find("GachaSprite");
-        GAnimator = animObject.GetComponentInParent<GachaAnimator>();
+        // GameObject animObject = GameObject.Find("GachaSprite");
+        // GAnimator = animObject.GetComponentInParent<GachaAnimator>();
+        GAnimator = GameObject.Find("GachaSprite").GetComponent<GachaAnimator>();
 
-        GameObject gacha = GameObject.Find("Gacha");
-        gachaUI = gacha.GetComponent<Gacha>();
+        // GameObject gacha = GameObject.Find("Gacha");
+        // gachaUI = gacha.GetComponent<Gacha>();
+        gachaUI = GameObject.Find("Gacha").GetComponent<Gacha>();
     }
 
     public void Update()
     {
-        if (gachaUI.GachaUI.activeSelf || (GAnimator.animationPlaying == true))
+        if ((gachaUI.GachaUI.activeSelf) || (GAnimator.animationPlaying == true))
         {
             canGacha = false;
-        }else
+        }
+        else
         {
             canGacha = true;
         }

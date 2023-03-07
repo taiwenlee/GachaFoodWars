@@ -3946,7 +3946,7 @@ GameObject:
   - component: {fileID: 546788082}
   - component: {fileID: 546788083}
   m_Layer: 0
-  m_Name: GatchaSprite
+  m_Name: GachaSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4053,6 +4053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactKey: 32
+  animator: {fileID: 0}
+  animationPlaying: 0
 --- !u!1001 &574032248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18970,11 +18972,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7cf7d5f8c105d3a49a61f8374e294189, type: 2}
   - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
   table: f40100002c010000a000000028000000
-  tableName:
-  - sword
-  - axe
-  - bow
-  - gun
   totalWeight: 0
   randomNumber: 0
 --- !u!135 &6362783396080532347

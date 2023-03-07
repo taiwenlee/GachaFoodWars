@@ -16,7 +16,7 @@ public class Gacha : MonoBehaviour
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
-    public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
+    //public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
 
     public int totalWeight;
     public int randomNumber;
