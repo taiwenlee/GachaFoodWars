@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   name: Fire
-  Icon: {fileID: 21300000, guid: 6bc26b6e109d591488ea61e7fc0c1f8c, type: 3}
+  Icon: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
   isDefaultItem: 0
   mType: 3
   grade: 3

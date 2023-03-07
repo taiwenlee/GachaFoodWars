@@ -5,15 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("References")]
-    //public PlayerUI healthControl;
+    public PlayerUI healthControl;
     public PlayerStats playerStats;
     private Animations sprite;
-    public PlayerUI heartSystem;
     //public GameObject player;
 
     [Header("Stats")]
     public int health = 4;
-    public int maxHeart = 4;
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
     public bool playerDead = false;
@@ -24,12 +22,9 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        
         //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
         health = playerStats.playerHealthData.GetPlayerHealth();
-        maxHeart = playerStats.playerHealthData.GetDefaultHealth();
-        heartSystem.DrawHearts(health,maxHeart);
-        heartSystem.GetComponent<PlayerUI>().SetHealth(health);
+        healthControl.GetComponent<PlayerUI>().SetHealth(health);
         sprite = GetComponentInChildren<Animations>();
     }
 
@@ -40,7 +35,6 @@ public class Player : MonoBehaviour
             //health -= damage;
             playerStats.playerHealthData.ModifyPlayerHealth(-damage);
             health = playerStats.playerHealthData.GetPlayerHealth();
-            heartSystem.DrawHearts(health,maxHeart);
 
             /*if (healthControl != null)
             {
