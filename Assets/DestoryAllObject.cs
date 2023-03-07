@@ -7,6 +7,7 @@ public class DestoryAllObject : MonoBehaviour
     public Gate gate;
     public GameObject Player;
     public GameObject Manager;
+    public GameObject Canvas;
     public GameObject HealthSystem;
     private bool isTriggered = false;
 
@@ -22,9 +23,12 @@ public class DestoryAllObject : MonoBehaviour
         if(gate.triggered && isTriggered == false)
         {
             isTriggered = true;
+            
             Destroy(Player);
             Destroy(Manager);
             Destroy(HealthSystem);
+            Canvas.SetActive(false);
+            Destroy(Canvas);
             Debug.Log("Destroying all objects");
         }
 
