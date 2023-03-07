@@ -25,6 +25,11 @@ public class PlayerHealth : ScriptableObject
         playerHealth = 0;
     }
 
+    public int GetDefaultHealth()
+    {
+        return defaultHealth;
+    }
+
     // Returns the current health of the player
     public int GetPlayerHealth()
     {

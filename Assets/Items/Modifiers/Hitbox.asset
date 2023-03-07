@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hitbox
   m_EditorClassIdentifier: 
   name: New Item
-  Icon: {fileID: 21300000, guid: 120bf54dff785a0429b068b814e9c12a, type: 3}
+  Icon: {fileID: 21300000, guid: 77d26dcc41820b844acbbdf75366918b, type: 3}
   isDefaultItem: 0
   mType: 1
   grade: 3
