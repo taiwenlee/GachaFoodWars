@@ -27,6 +27,14 @@ public class MainMenu : MonoBehaviour
         //GameObject.FindWithTag("BackgroundMusic").GetComponent<AudioSource>().enabled = true;
     }
 
+    public void OptionsButton(){
+        SceneManager.LoadScene("OptionsScene");
+    }
+
+    public void TutorialRoom(){
+        SceneManager.LoadScene("Instruction Room");
+    }
+
     public void QuitGame(){
         Application.Quit();
     }
