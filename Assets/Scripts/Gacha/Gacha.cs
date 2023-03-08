@@ -68,6 +68,7 @@ public class Gacha : MonoBehaviour
                     WeaponObtainedUI.color = Color.red;
                 }
                 Debug.Log("Award: " + table[i] + Items[i].name);
+                GachaUI.SetActive(true);
                 return;
             }else
             {

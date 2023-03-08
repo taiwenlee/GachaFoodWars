@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 public class GachaMachineController : MonoBehaviour
 {
     public bool isInRange = false;
-    public KeyCode interactKey;
-    public UnityEvent interactAction;
 
     private GachaAnimator GAnimator;
     private Gacha gachaUI;
@@ -17,12 +15,7 @@ public class GachaMachineController : MonoBehaviour
 
     void Start()
     {
-        // GameObject animObject = GameObject.Find("GachaSprite");
-        // GAnimator = animObject.GetComponentInParent<GachaAnimator>();
         GAnimator = GameObject.Find("GachaSprite").GetComponent<GachaAnimator>();
-
-        // GameObject gacha = GameObject.Find("Gacha");
-        // gachaUI = gacha.GetComponent<Gacha>();
         gachaUI = GameObject.Find("Gacha").GetComponent<Gacha>();
     }
 
@@ -35,16 +28,6 @@ public class GachaMachineController : MonoBehaviour
         else
         {
             canGacha = true;
-        }
-
-        if (isInRange)   // check if player is in range of Gacha machine
-        {
-            if (canGacha == true && Input.GetKeyDown(interactKey))
-            {
-                Debug.Log("interact key was pressed");
-                interactAction.Invoke();    // start event
-                //StartCoroutine(CooldownCoroutine());
-            }
         }
     }
 

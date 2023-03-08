@@ -9,6 +9,7 @@ public class GachaAnimator : MonoBehaviour
     private GachaMachineController controller;
     private Gacha gachaUI;
     public KeyCode interactKey;
+    public UnityEvent interactAction;
 
     public Animator animator;
     public bool animationPlaying = false;
@@ -30,19 +31,19 @@ public class GachaAnimator : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
-                StartCoroutine(WaitCoroutine());
+                StartCoroutine(WaitandGachaCoroutine());
             }
         }
     }
     
-    IEnumerator WaitCoroutine()
+    IEnumerator WaitandGachaCoroutine()    // wait for animation to finish before starting gacha event
     {
         animator.SetTrigger("StartGacha");
         animationPlaying = true;
-        Debug.Log("animation");
+        Debug.Log("animation played");
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Waited for 1 second!");
         animationPlaying = false;
-        gachaUI.GachaUI.SetActive(true);
+        interactAction.Invoke();    // start gacha event
     }
 }
