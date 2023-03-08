@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     public int damage = 1;
     public int dropValue = 1;
     public float invunerableTime = .5f;
+    public float deathDelay = 1.0f;
 
     [Header("Element")]
     public WeaponController.Element element = WeaponController.Element.None;
@@ -129,13 +130,6 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            // drop loot
-            if (dropValue > 0)
-            {
-                var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
-                dropInstance.GetComponent<Drop>().value = dropValue;
-                dropInstance.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1f, 1f), 2, Random.Range(-1f, 1f));
-            }
             // play random death sound
             if (deathSounds.Length > 0)
             {
@@ -147,10 +141,23 @@ public class Enemy : MonoBehaviour
             {
                 spriteAnimator.SetBool("Dead", true);
             }
-            // destroy enemy
+            StartCoroutine(dropLoot(transform.position, drop, dropValue, deathDelay));
             agent.enabled = false;
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject, deathDelay + .01f);
             this.enabled = false;
+        }
+    }
+
+    static IEnumerator dropLoot(Vector3 position, GameObject drop, int dropValue, float deathDelay)
+    {
+        yield return new WaitForSeconds(deathDelay);
+        Debug.Log("Dropping loot");
+        if (drop != null && dropValue > 0)
+        {
+            var loot = Instantiate(drop, position, Quaternion.identity);
+            loot.GetComponent<Drop>().value = dropValue;
+
+
         }
     }
 
