@@ -25,9 +25,8 @@ public class Drop : MonoBehaviour
             // check if player is in range
             if (Vector3.Distance(transform.position, PlayerPos) < range)
             {
-                // add value to player
-                // *add code here*
-                // destroy drop
+                // add value to inventory currency
+                Inventory.instance.AddCurrency(value);
                 Destroy(gameObject);
             }
         }

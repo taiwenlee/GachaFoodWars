@@ -21,6 +21,7 @@ TagManager:
   - Inventory
   - Weapon
   - SwordSlash
+  - OnlyGround
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - OnlyGround
   - 
   - 
   - 

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5286559149658694722}
   - component: {fileID: 1619584245346356670}
   - component: {fileID: 8018092512560597110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: drop
-  m_TagString: Untagged
+  m_TagString: OnlyGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7250795859969632216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}

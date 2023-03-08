@@ -7,9 +7,12 @@ public class Inventory : MonoBehaviour
     // Allows us to update the ui when knowing when inventory is changed
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
+    public delegate void OnCurrencyChanged();
+    public OnCurrencyChanged onCurrencyChangedCallBack;
 
     public int space = 30;
     public static Inventory instance;
+    public int currency = 0;
 
     // singleton
     private void Awake()
@@ -56,6 +59,37 @@ public class Inventory : MonoBehaviour
         if (onItemChangedCallBack != null)
         {
             onItemChangedCallBack.Invoke();
+        }
+        if (onCurrencyChangedCallBack != null)
+        {
+            onCurrencyChangedCallBack.Invoke();
+        }
+    }
+
+    public void AddCurrency(int value)
+    {
+        currency += value;
+        if (onCurrencyChangedCallBack != null)
+        {
+            onCurrencyChangedCallBack.Invoke();
+        }
+    }
+
+    // returns true if currency was removed
+    public bool RemoveCurrency(int value)
+    {
+        if (currency >= value)
+        {
+            currency -= value;
+            if (onCurrencyChangedCallBack != null)
+            {
+                onCurrencyChangedCallBack.Invoke();
+            }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
