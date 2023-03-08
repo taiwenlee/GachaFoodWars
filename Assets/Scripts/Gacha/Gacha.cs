@@ -16,7 +16,7 @@ public class Gacha : MonoBehaviour
 
     [SerializeField]
     public int[] table = {500, 300, 160, 40};       // total weight of each rarity
-    public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
+    //public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
 
     public int totalWeight;
     public int randomNumber;
@@ -33,7 +33,7 @@ public class Gacha : MonoBehaviour
 
     public void StartGacha()
     {
-        print("interact key was pressed");
+        print("Started Gacha");
         // generate random number
         randomNumber = Random.Range(0, totalWeight);
         // compare random number to loot table weight
@@ -44,21 +44,23 @@ public class Gacha : MonoBehaviour
             {
                 //weapons[i].SetActive(true);
                 Inventory.instance.Add(Items[i]);
-                GachaUI.SetActive(true);
                 if (table[i] == 500)
                 {
                     WeaponObtainedUI.text = "Common" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.white;
+                    Debug.Log("ObtainCommon");
                 }
                 if (table[i] == 300)
                 {
                     WeaponObtainedUI.text = "Rare" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.blue;
+                    Debug.Log("ObtainRare");
                 }
                 if (table[i] == 160)
                 {
                     WeaponObtainedUI.text = "Epic" + " " + Items[i].name;
                     WeaponObtainedUI.color = Color.magenta;
+                    Debug.Log("ObtainEpic");
                 }
                 if (table[i] == 40)
                 {
