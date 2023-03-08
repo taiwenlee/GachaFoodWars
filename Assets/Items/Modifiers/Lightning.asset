@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   name: Electric
-  Icon: {fileID: 21300000, guid: 1f1642bfceeedf240b5be02068921f29, type: 3}
+  Icon: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
   isDefaultItem: 0
   mType: 5
   grade: 3

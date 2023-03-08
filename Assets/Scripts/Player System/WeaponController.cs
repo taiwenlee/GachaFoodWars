@@ -72,20 +72,15 @@ public class WeaponController : MonoBehaviour
                     //Debug.Log(weapon);
                     if (swordSwing)
                     {
-                        if(Input.mousePosition.x < Screen.width / 2f) { // if mouse on left side of player
-                            sprite.spriteRenderer.flipX = false; //flip sprite towards x axis
-                        }else {
-                            sprite.spriteRenderer.flipX = true;
-                        }
                         sprite.animation.SetTrigger("swordSlash");
+
                     }
                     if (spearSwing)
                     {
                         sprite.animation.SetTrigger("spearSlash");
 
                     }
-
-                   
+                    
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }

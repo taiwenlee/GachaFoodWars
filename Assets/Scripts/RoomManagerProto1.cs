@@ -46,7 +46,7 @@ public class RoomManagerProto1 : MonoBehaviour
         inventoryUI = GameObject.FindWithTag("InventoryUI");
         inventoryUI.GetComponent<InventoryUI>().player = player.GetComponent<Player>();
 
-        player.GetComponent<Player>().heartSystem = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
+        player.GetComponent<Player>().healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
 
         es = enemySpawner.GetComponent<EnemySpawner>();
         es.Player = player;
