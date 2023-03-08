@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3080,6 +3080,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1571664578587892177, guid: 52f3cc82794448b41a369f7734c8ca18,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1879624361470341009, guid: 52f3cc82794448b41a369f7734c8ca18,
         type: 3}
       propertyPath: m_Name
@@ -7894,7 +7899,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d2720d0981e01943908ef966bcd832b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9477,6 +9482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   space: 30
+  currency: 0
   items: []
 --- !u!114 &1116054535
 MonoBehaviour:
@@ -18061,24 +18067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dc9b6ab0e18ca429f3c0aec205fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 32
-  interactAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6362783396080532346}
-        m_TargetAssemblyTypeName: Gacha, Assembly-CSharp
-        m_MethodName: StartGacha
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  InstructionUI: {fileID: 1570792588}
 --- !u!1 &1934006954
 GameObject:
   m_ObjectHideFlags: 0
@@ -20628,21 +20616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb52b5f0b8c7474091302186ca2470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GachaUI: {fileID: 1765978046}
-  WeaponObtainedUI: {fileID: 1263084538}
-  Items:
-  - {fileID: 11400000, guid: 42cec247cb2582e43b84de02f8c234ef, type: 2}
-  - {fileID: 11400000, guid: e1145ca13959d40488f0c9b39f58f1dd, type: 2}
-  - {fileID: 11400000, guid: 7cf7d5f8c105d3a49a61f8374e294189, type: 2}
-  - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
-  table: f40100002c010000a000000028000000
-  tableName:
-  - sword
-  - axe
-  - bow
-  - gun
-  totalWeight: 0
-  randomNumber: 0
 --- !u!135 &6362783396080532347
 SphereCollider:
   m_ObjectHideFlags: 0
