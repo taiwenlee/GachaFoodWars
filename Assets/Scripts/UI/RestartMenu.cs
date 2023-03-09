@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class RestartMenu : MonoBehaviour
 {
     public GameObject restartMenu;
+   
+
 
     private void Start()
     {
+        
         restartMenu.SetActive(false);
     }
 
     public void Restart()
     {
+        
         GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
         for (int i = 0; i < GameObjects.Length; i++)
         {
@@ -25,6 +29,7 @@ public class RestartMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        
         Application.Quit();
     }
 }

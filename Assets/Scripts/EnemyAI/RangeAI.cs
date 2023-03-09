@@ -12,6 +12,9 @@ public class RangeAI : Enemy
     public float projectileSpeed = 10.0f;
     public float targetRange = 1.0f; // the range between the attack distance that the enemy wont try to move
 
+    [Header("Range Audio Settings")]
+    public AudioSource rangeAttackSFX;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -37,6 +40,7 @@ public class RangeAI : Enemy
                 else if (attackcooldown <= 0.0f && element != WeaponController.Element.Electric)
                 {
                     // spawns a projectile that moves towards the player
+                    rangeAttackSFX.Play();
                     var projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
                     projectileInstance.GetComponent<Projectile>().direction = rayDirection;
                     projectileInstance.GetComponent<Projectile>().damage = damage;
