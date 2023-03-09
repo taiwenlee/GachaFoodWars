@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponSpeed
   m_EditorClassIdentifier: 
   name: Attack Speed Up
-  Icon: {fileID: 21300000, guid: 9ddd931e3ab73e842b7fa9c676121742, type: 3}
+  Icon: {fileID: 21300000, guid: 4fb613905c1de1c47a7cb6e4c72d0cff, type: 3}
   isDefaultItem: 0
   grade: 3
   mType: 2
