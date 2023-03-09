@@ -30,6 +30,7 @@ public class RoomManagerProto1 : MonoBehaviour
             Debug.LogError("FIND WITH TAG UNSUCCESSFUL: 'player'");
         }*/
         inventory = GameObject.FindWithTag("Inventory");
+        inventory.GetComponent<Inventory>().AddOnAwake();
 
         levelMap.currentRoom.HasVisited = true;
         Vector2 roomCoords = levelMap.currentVertex;

@@ -30,12 +30,11 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-
+        
         //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
         health = playerStats.playerHealthData.GetPlayerHealth();
         maxHeart = playerStats.playerHealthData.GetDefaultHealth();
-        heartSystem = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
-        heartSystem.DrawHearts(health, maxHeart);
+        heartSystem.DrawHearts(health,maxHeart);
         heartSystem.GetComponent<PlayerUI>().SetHealth(health);
         sprite = GetComponentInChildren<Animations>();
     }
@@ -48,11 +47,11 @@ public class Player : MonoBehaviour
         }
         if (delayDamage)
         {
-
+           
             //health -= damage;
             playerStats.playerHealthData.ModifyPlayerHealth(-damage);
             health = playerStats.playerHealthData.GetPlayerHealth();
-            heartSystem.DrawHearts(health, maxHeart);
+            heartSystem.DrawHearts(health,maxHeart);
 
             /*if (healthControl != null)
             {
@@ -62,10 +61,8 @@ public class Player : MonoBehaviour
             StartCoroutine(damageTimer());
         }
 
-        if (health <= 0)
-        {
-            if (!playerDead)
-            {
+        if(health <= 0) {
+           if(!playerDead) {
                 dyingSFX.Play();
                 Debug.Log("Player died");
                 sprite.animation.SetTrigger("PlayerDead");
@@ -75,14 +72,14 @@ public class Player : MonoBehaviour
                 playerDead = true;
                 //Destroy(gameObject, 1f);
                 //Time.timeScale = 0f;
-            }
+           }
         }
     }
     private IEnumerator damageTimer()
     { //wait x seconds until player can take damage again
         delayDamage = false;
         //player transparent when taking damage
-        sprite.spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
+        sprite.spriteRenderer.color = new Color(1f,1f,1f,.5f);
         yield return new WaitForSeconds(damageTimeout);
         sprite.spriteRenderer.color = Color.white;
         delayDamage = true;

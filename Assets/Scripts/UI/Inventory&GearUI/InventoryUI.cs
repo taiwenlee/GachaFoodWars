@@ -23,22 +23,14 @@ public class InventoryUI : MonoBehaviour
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
 
-        // set inventory to the instance of the inventory
-        if (Inventory.instance != null)
-        {
-            inventory = Inventory.instance;
-            inventory.onItemChangedCallBack += UpdateInventoryUI;
-        }
+        inventory = Inventory.instance;
+        inventory.onItemChangedCallBack += UpdateInventoryUI;
 
         equipments = EquipmentManager.instance;
         equipments.onEquipmentChangedCallBack += UpdateGearUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         gSlots = gearsParent.GetComponentsInChildren<GearSlot>();
-
-        // update the UI
-        UpdateInventoryUI();
-        UpdateGearUI();
     }
 
     // Update is called once per frame
