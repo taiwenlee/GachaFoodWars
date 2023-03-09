@@ -50,7 +50,7 @@ public class Gacha : MonoBehaviour
         }
         WeaponObtainedUI = GachaUI.GetComponentInChildren<TMP_Text>();
         // disable UI
-        GachaUI.SetActive(false);
+        GachaUI.GetComponent<Canvas>().enabled = false;
         // calculate total weight of loot table
         // foreach(var item in table)
         // {
@@ -117,7 +117,7 @@ public class Gacha : MonoBehaviour
         inventory.Add(item);
         // display item obtained
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
-        GachaUI.SetActive(true);
+        GachaUI.GetComponent<Canvas>().enabled = true;
     }
 
     private Item GetRandomItem()
