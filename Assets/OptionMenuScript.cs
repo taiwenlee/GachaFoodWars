@@ -37,9 +37,16 @@ public class OptionMenuScript : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
    }
 
-   public void SetVolume(float volume) {
-        audioMixer.SetFloat("BGMusicVolume", volume);
-        //GameObject.FindWithTag("Player").GetComponent<AudioSource>().SetFloat("BGMusicVolume", volume);
+   public void SetMasterVolume(float volume) {
+        audioMixer.SetFloat("MasterVolume", volume);
+   }
+
+   public void SetSFXVolume(float volume) {
+        audioMixer.SetFloat("SFXVolume", volume);
+   }
+
+   public void SetMusicVolume(float volume) {
+        audioMixer.SetFloat("MusicVolume", volume);
    }
 
    public void SetFullScreen(bool isFullScreen) {
