@@ -41,6 +41,12 @@ public class InventoryUI : MonoBehaviour
         UpdateGearUI();
     }
 
+    void OnDestroy()
+    {
+        inventory.onItemChangedCallBack -= UpdateInventoryUI;
+        equipments.onEquipmentChangedCallBack -= UpdateGearUI;
+    }
+
     // Update is called once per frame
     void Update()
     {
