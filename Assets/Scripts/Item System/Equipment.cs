@@ -13,7 +13,6 @@ public class Equipment : Item
     public float damageMultiplier; // damage multiplier
     public float attackSpeedMultiplier; // attack speed multiplier
     public WeaponType gSlots;
-    public Grade gradeType;
     public override void Use()
     {
         base.Use();

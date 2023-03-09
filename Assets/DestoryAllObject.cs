@@ -7,28 +7,24 @@ public class DestoryAllObject : MonoBehaviour
     public Gate gate;
     public GameObject Player;
     public GameObject Manager;
-    public GameObject Canvas;
-    public GameObject HealthSystem;
     private bool isTriggered = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.FindWithTag("Player");
+        Manager = GameObject.FindWithTag("Inventory");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gate.triggered && isTriggered == false)
+        if (gate.triggered && isTriggered == false)
         {
             isTriggered = true;
-            
+
             Destroy(Player);
             Destroy(Manager);
-            Destroy(HealthSystem);
-            Canvas.SetActive(false);
-            Destroy(Canvas);
             Debug.Log("Destroying all objects");
         }
 

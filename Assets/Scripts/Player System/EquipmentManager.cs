@@ -38,6 +38,7 @@ public class EquipmentManager : MonoBehaviour
         }
         else if (newItem is Modifier)
         {
+            Debug.Log(newItem.grade);
             for (int i = 1; i < currentEquipment.Length; i++)
             {
                 if (currentEquipment[i] == null && !(modifierCheck((Modifier)newItem) && wc.element != WeaponController.Element.None))

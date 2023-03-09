@@ -9,74 +9,127 @@ public class Gacha : MonoBehaviour
 {
     public GameObject GachaUI;
     public TMP_Text WeaponObtainedUI;
+    public AudioSource GachaSFX;
+    public Inventory inventory;
+    public KeyCode interactKey;
+
+    public Animator animator;
+    public bool animationPlaying = false;
+
+    public float cooldownTime = 1.0f;
+    public int gachaCost = 2;
+
+    public bool isInRange = false;
     
+    [SerializeField]
+    // list of items in the gacha
+    public List<Item> Items;
 
     [SerializeField]
-    //public List<GameObject> weapons;                // list of all weapons
-    public List<Equipment> Items;
-
-    [SerializeField]
-    public int[] table = {500, 300, 160, 40};       // total weight of each rarity
-    //public string[] tableName = {"Sword", "Axe", "Bow", "Gun"};     // weapon name of the according rarity above
-
-    public int totalWeight;
-    public int randomNumber;
+    // probability by rarity (Common, Rare, Epic, Legendary)
+    public float[] table = {.5f, .3f, .15f, .05f};
 
     private void Start()
     {
+        // find objects
+        if(inventory == null)
+        {
+            inventory = Inventory.instance;
+        }
+        if(GachaUI == null)
+        {
+            GachaUI = GameObject.FindGameObjectWithTag("GachaUI");
+        }
+        if(animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+        if(GachaSFX == null)
+        {
+            GachaSFX = GetComponent<AudioSource>();
+        }
+        WeaponObtainedUI = GachaUI.GetComponentInChildren<TMP_Text>();
+        // disable UI
         GachaUI.SetActive(false);
         // calculate total weight of loot table
-        foreach(var item in table)
-        {
-            totalWeight += item;
-        }
+        // foreach(var item in table)
+        // {
+        //     totalWeight += item;
+        // }
     }
 
-    public void StartGacha()
+    private void Update()
     {
-        
-        print("Started Gacha");
-        // generate random number
-        randomNumber = Random.Range(0, totalWeight);
-        // compare random number to loot table weight
-        for(int i = 0; i < table.Length; i++)
+        if (Input.GetKeyDown(interactKey) && isInRange)   // check if player is in range of Gacha machine
         {
-            // compare random number to the [i] weight in loot table, if smaller give [i] item
-            if(randomNumber <= table[i])
+            if (canGacha())
             {
-                //weapons[i].SetActive(true);
-                Inventory.instance.Add(Items[i]);
-                if (table[i] == 500)
-                {
-                    WeaponObtainedUI.text = "Common" + " " + Items[i].name;
-                    WeaponObtainedUI.color = Color.white;
-                    Debug.Log("ObtainCommon");
-                }
-                if (table[i] == 300)
-                {
-                    WeaponObtainedUI.text = "Rare" + " " + Items[i].name;
-                    WeaponObtainedUI.color = Color.blue;
-                    Debug.Log("ObtainRare");
-                }
-                if (table[i] == 160)
-                {
-                    WeaponObtainedUI.text = "Epic" + " " + Items[i].name;
-                    WeaponObtainedUI.color = Color.magenta;
-                    Debug.Log("ObtainEpic");
-                }
-                if (table[i] == 40)
-                {
-                    WeaponObtainedUI.text = "Legendary" + " " + Items[i].name;
-                    WeaponObtainedUI.color = Color.red;
-                }
-                Debug.Log("Award: " + table[i] + Items[i].name);
-                GachaUI.SetActive(true);
-                return;
-            }else
-            {
-                // if random number is bigger than previous weight, subtract it with weight and compare the product to next weight in table
-                randomNumber -= table[i];
+                GachaSFX.Play();
+                StartCoroutine(WaitandGachaCoroutine());
             }
         }
     }
+    
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = false;
+        }
+    }
+
+    private bool canGacha() {
+        if (inventory.RemoveCurrency(gachaCost) && animationPlaying == false) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    IEnumerator WaitandGachaCoroutine()    // wait for animation to finish before starting gacha event
+    {
+        animator.SetTrigger("StartGacha");
+        animationPlaying = true;
+        Debug.Log("animation played");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Waited for 1 second!");
+        animationPlaying = false;
+        startGacha();
+    }
+
+    private void startGacha() {
+        // get random item from loot table
+        Item item = GetRandomItem();
+        // add item to inventory
+        inventory.Add(item);
+        // display item obtained
+        WeaponObtainedUI.text = "You obtained " + item.grade + " " + item.name;
+        GachaUI.SetActive(true);
+    }
+
+    private Item GetRandomItem() {
+        // get random item from list of items
+        Item item = Items[Random.Range(0, Items.Count)];
+        // get rarity of item
+        float rarity = 0;
+        float randomRarity = Random.value;
+        for (int i = 0; i < table.Length; i++) {
+            rarity += table[i];
+            if (randomRarity <= rarity) {
+                item.grade = (Item.Grade)i;
+                break;
+            }
+        }
+        return item;
+    }
+
 }

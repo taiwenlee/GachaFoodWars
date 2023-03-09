@@ -12,7 +12,8 @@ public class Inventory : MonoBehaviour
 
     public int space = 30;
     public static Inventory instance;
-    public int currency = 0;
+    public int currency = 3;
+
 
     // singleton
     private void Awake()
@@ -90,6 +91,15 @@ public class Inventory : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    //call currency UI update when currency is changed
+    public void OnValidate()
+    {
+        if (onCurrencyChangedCallBack != null)
+        {
+            onCurrencyChangedCallBack.Invoke();
         }
     }
 }
