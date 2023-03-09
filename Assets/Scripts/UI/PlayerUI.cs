@@ -62,7 +62,7 @@ public class PlayerUI : MonoBehaviour
             //print("Player Dead");
             //Destroy(gameObject, 1f);
             //Time.timeScale = 0f;
-           
+
         }
         // for(int i = 0; i < numHearts.Length; i++) {
         //     if(i < health) {
