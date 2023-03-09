@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public float iceSlowMultiplier = .1f;
     public float maxIceSlow = .9f;
     public int elementLevel = 0;
+    public float elementCooldown = 5.0f;
 
     [Header("Sound")]
     public AudioSource DeathSound;
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
     protected float attackcooldown = 0.0f;
     protected float invunerableTimer = 0.0f;
     protected float elementTimer = 0.0f;
+    protected float elementCooldownTimer = 0.0f;
 
 
     //public enum Element { None, Fire, Ice, Electric };
@@ -172,10 +174,11 @@ public class Enemy : MonoBehaviour
 
         // apply elemental damage
         // only apply if the enemy currenty has no element or the new element is the same as the current element
-        if (e != WeaponController.Element.None && (element == WeaponController.Element.None || element == e))
+        if (e != WeaponController.Element.None && elementCooldownTimer <= 0.0f)
         {
             element = e;
             elementLevel = el;
+            elementCooldownTimer = elementCooldown;
         }
     }
 
@@ -202,6 +205,12 @@ public class Enemy : MonoBehaviour
                 speed = baseSpeed;
                 agent.enabled = true;
             }
+        }
+
+        // update element cooldown timer
+        if (elementCooldownTimer > 0.0f)
+        {
+            elementCooldownTimer -= Time.deltaTime;
         }
 
         // apply elemental effect
