@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     //public GameObject restartMenu;
     public static bool isPaused;
     public AudioSource pauseMenuSFX;
+    public AudioMixer audioMixer;
 
     void Start()
     {
@@ -56,7 +58,19 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         SceneManager.LoadScene("Main Menu");
+        GameObject.FindWithTag("BackgroundMusic").GetComponent<AudioSource>().enabled = false;
     }
+
+    public void SetSFXVolume(float volume) {
+        audioMixer.SetFloat("SFXVolume", volume);
+   }
+
+   public void SetMusicVolume(float volume) {
+        audioMixer.SetFloat("MusicVolume", volume);
+   }
+   public void SetMasterVolume(float volume) {
+        audioMixer.SetFloat("MasterVolume", volume);
+   }
 
     public void QuitGame()
     {
