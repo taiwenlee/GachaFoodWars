@@ -5,11 +5,11 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-public class Gacha : MonoBehaviour
+public class ModifierGacha : MonoBehaviour
 {
     public GameObject GachaUI;
     public TMP_Text WeaponObtainedUI;
-    
+    public Inventory inventory;
 
     [SerializeField]
     //public List<GameObject> weapons;                // list of all weapons
@@ -36,6 +36,7 @@ public class Gacha : MonoBehaviour
     {
         
         print("Started Gacha");
+        inventory.currency -= 1;
         // generate random number
         randomNumber = Random.Range(0, totalWeight);
         // compare random number to loot table weight

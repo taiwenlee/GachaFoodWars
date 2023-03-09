@@ -6,12 +6,11 @@ using UnityEngine.InputSystem;
 
 public class GachaMachineController : MonoBehaviour
 {
-    public bool isInRange = false;
-
     private GachaAnimator GAnimator;
     private Gacha gachaUI;
     public bool canGacha = true;
     public float cooldownTime = 1.0f;
+    public Inventory inventory;
 
     void Start()
     {
@@ -28,24 +27,6 @@ public class GachaMachineController : MonoBehaviour
         else
         {
             canGacha = true;
-        }
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = true;
-            Debug.Log("Player is in range");
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = false;
-            Debug.Log("Player is out of range");
         }
     }
 

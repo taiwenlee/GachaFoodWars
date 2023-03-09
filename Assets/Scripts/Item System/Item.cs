@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     new public string name = "New Item";
     public Sprite Icon = null;
     public bool isDefaultItem = false;
+    public Grade grade;
 
     public virtual void Use()
     {
@@ -17,5 +18,5 @@ public class Item : ScriptableObject
     {
         Inventory.instance.Remove(this);
     }
+    public enum Grade { Common, Rare, Epic, Legendary };
 }
-public enum Grade { Common, Rare, Epic, Legendary };
