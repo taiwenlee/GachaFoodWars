@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  name: Fire
+  name: Flame Imbue
   Icon: {fileID: 21300000, guid: 6bc26b6e109d591488ea61e7fc0c1f8c, type: 3}
   isDefaultItem: 0
-  mType: 3
   grade: 3
+  mType: 3

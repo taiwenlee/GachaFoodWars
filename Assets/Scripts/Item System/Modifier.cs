@@ -11,5 +11,18 @@ public class Modifier : Item
         base.Use();
         EquipmentManager.instance.Equip(this);
     }
+
+    public override Item Clone()
+    {
+        Modifier newModifier = ScriptableObject.CreateInstance<Modifier>();
+        //item properties
+        newModifier.name = this.name;
+        newModifier.Icon = this.Icon;
+        newModifier.isDefaultItem = this.isDefaultItem;
+        newModifier.grade = this.grade;
+        //modifier properties
+        newModifier.mType = this.mType;
+        return newModifier;
+    }
     public enum ModifierType { Damage, Hitbox, AttackSpeed, Fire, Ice, Electric, Knockback, MultiHit }
 }

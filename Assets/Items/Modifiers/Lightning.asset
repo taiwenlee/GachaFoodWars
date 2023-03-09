@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  name: Electric
+  name: Electricy Imbue
   Icon: {fileID: 21300000, guid: 1f1642bfceeedf240b5be02068921f29, type: 3}
   isDefaultItem: 0
-  mType: 5
   grade: 3
+  mType: 5
