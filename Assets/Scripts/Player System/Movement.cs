@@ -161,12 +161,29 @@ public class Movement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(aim);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayDistance;
+/*            if (Input.GetKey("up"))
+            {
+
+            }
+            if (Input.GetKey("left"))
+            {
+
+            }
+            if (Input.GetKey("right"))
+            {
+
+            }
+            if (Input.GetKey("down"))
+            {
+
+            }*/
 
             if (groundPlane.Raycast(ray, out rayDistance))
             {
                 Vector3 point = ray.GetPoint(rayDistance);
                 LookAt(point);
             }
+
         }
     }
 

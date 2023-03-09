@@ -16,6 +16,7 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swordSound;
     public AudioClip spearSound;
+    public AudioClip rangeSound;
 
     //[Header("Animations")]
     private WeaponAnimation sprite;
@@ -124,6 +125,7 @@ public class WeaponController : MonoBehaviour
                     DisableChild();
                     SetWeapon("Range");
                     attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
+                    audioSource.clip = rangeSound;
                     //weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     spearSwing = false;
                     swordSwing = false;

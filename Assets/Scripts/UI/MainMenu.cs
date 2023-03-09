@@ -8,10 +8,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string trainingScene; // instruction room string name
     [SerializeField] string restScene; // rest string name 
     [SerializeField] PlayerProgression pprog;
+    public AudioSource MenuSFX;
 
     private string _nextScene;
 
     public void PlayGame(){
+        MenuSFX.Play();
         if (!pprog.TrainingComplete)
         {
             _nextScene = trainingScene;
@@ -28,14 +30,17 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OptionsButton(){
+        MenuSFX.Play();
         SceneManager.LoadScene("OptionsScene");
     }
 
     public void TutorialRoom(){
+        MenuSFX.Play();
         SceneManager.LoadScene("Instruction Room");
     }
 
     public void QuitGame(){
+        MenuSFX.Play();
         Application.Quit();
     }
 }

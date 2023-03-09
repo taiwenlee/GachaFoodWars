@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject drop;
 
     public GameObject player;
-    public AudioClip[] deathSounds;
+    
     [Header("Stats")]
     public float maxHealth = 100.0f;
     public float health = 100.0f;
@@ -42,6 +42,10 @@ public class Enemy : MonoBehaviour
     public float maxIceSlow = .9f;
     public int elementLevel = 0;
     public float elementCooldown = 5.0f;
+
+    [Header("Sound")]
+    public AudioSource DeathSound;
+  
 
     // protected variables
     protected float attackcooldown = 0.0f;
@@ -133,11 +137,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             // play random death sound
-            if (deathSounds.Length > 0)
-            {
-                var deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
-                AudioSource.PlayClipAtPoint(deathSound, transform.position);
-            }
+            DeathSound.Play();
             //play death animation
             if (spriteAnimator != null)
             {

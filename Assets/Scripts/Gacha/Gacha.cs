@@ -9,6 +9,7 @@ public class Gacha : MonoBehaviour
 {
     public GameObject GachaUI;
     public TMP_Text WeaponObtainedUI;
+    
 
     [SerializeField]
     //public List<GameObject> weapons;                // list of all weapons
@@ -33,6 +34,7 @@ public class Gacha : MonoBehaviour
 
     public void StartGacha()
     {
+        
         print("Started Gacha");
         // generate random number
         randomNumber = Random.Range(0, totalWeight);

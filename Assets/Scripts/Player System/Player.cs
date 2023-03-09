@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
     private bool delayDamage = true;
     public bool playerDead = false;
 
+
+    [Header("Audio")]
+    public AudioSource takingDamageSFX;
+    public AudioSource dyingSFX;
+    public AudioSource deathBGM;
+
     //[Header("Damage Visualizer")]
     //public int numFlicker = 9; //num times player flickers
     //public float flickerDuration = .1f;
@@ -35,8 +41,13 @@ public class Player : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        if (health != 0 & takingDamageSFX != null)
+        {
+            takingDamageSFX.Play();
+        }
         if (delayDamage)
         {
+           
             //health -= damage;
             playerStats.playerHealthData.ModifyPlayerHealth(-damage);
             health = playerStats.playerHealthData.GetPlayerHealth();
@@ -52,8 +63,10 @@ public class Player : MonoBehaviour
 
         if(health <= 0) {
            if(!playerDead) {
+                dyingSFX.Play();
                 Debug.Log("Player died");
                 sprite.animation.SetTrigger("PlayerDead");
+                deathBGM.Play();
                 //player.GetComponent<CharacterController>().enabled = false;
                 //player.GetComponent<WeaponController>().enabled = false;
                 playerDead = true;

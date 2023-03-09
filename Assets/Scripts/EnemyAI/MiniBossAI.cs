@@ -10,6 +10,7 @@ public class MiniBossAI : Enemy
     // damage timeout insures that the player cant be hit multiple times in a single attack
     public float damageTimeout = 1f; // time between damage ticks
     private float damageCooldown = 0.0f;
+    public AudioSource miniBossAttackSFX;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -31,6 +32,7 @@ public class MiniBossAI : Enemy
                 // check if player is in attack range, attack if true
                 if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && element != WeaponController.Element.Electric)
                 {
+                    miniBossAttackSFX.Play();
                     agent.ResetPath();
                     rb.AddForce(rayDirection.normalized * chargeForce, ForceMode.Impulse);
                     attackcooldown = 1 / attackRate;

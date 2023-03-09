@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class GachaAnimator : MonoBehaviour
 {
+    public AudioSource GachaSFX;
     private GachaMachineController controller;
     private Gacha gachaUI;
     public KeyCode interactKey;
@@ -16,6 +17,7 @@ public class GachaAnimator : MonoBehaviour
 
     void Start()
     {
+        
         GameObject CircleCollider = GameObject.Find("InteractableCircle");
         controller = CircleCollider.GetComponent<GachaMachineController>();
 
@@ -31,6 +33,7 @@ public class GachaAnimator : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
+                GachaSFX.Play();
                 StartCoroutine(WaitandGachaCoroutine());
             }
         }
