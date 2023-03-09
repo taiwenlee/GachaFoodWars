@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: 
-  name: Ice
+  name: Ice Imbue
   Icon: {fileID: 21300000, guid: 6b6959d33d1124b4b9e1ab3a7a1b8c78, type: 3}
   isDefaultItem: 0
-  mType: 4
   grade: 3
+  mType: 4

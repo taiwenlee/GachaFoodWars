@@ -14,6 +14,17 @@ public class Item : ScriptableObject
     {
     }
 
+    public virtual Item Clone()
+    {
+        Item newItem = ScriptableObject.CreateInstance<Item>();
+        //item properties
+        newItem.name = this.name;
+        newItem.Icon = this.Icon;
+        newItem.isDefaultItem = this.isDefaultItem;
+        newItem.grade = this.grade;
+        return newItem;
+    }
+
     public void RemoveFromInventory()
     {
         Inventory.instance.Remove(this);

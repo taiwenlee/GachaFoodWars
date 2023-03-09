@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   name: Sword
-  Icon: {fileID: 21300000, guid: 31210f1fb22ce5147ad42cde678fd66f, type: 3}
+  Icon: {fileID: 21300000, guid: cc4867c7cccaac34e9ef54256217f019, type: 3}
   isDefaultItem: 0
+  grade: 0
   damageStat: 30
   attackSpeed: 1.5
   damageMultiplier: 0
   attackSpeedMultiplier: 0
   gSlots: 0
-  gradeType: 0

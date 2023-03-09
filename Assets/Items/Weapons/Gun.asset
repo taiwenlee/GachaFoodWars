@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   name: Toaster
-  Icon: {fileID: 21300000, guid: bafa36c020f5f5a45aeaaa891025877a, type: 3}
+  Icon: {fileID: 21300000, guid: 53cce267e3a982d4e8bb2287752be0f9, type: 3}
   isDefaultItem: 0
+  grade: 0
   damageStat: 20
   attackSpeed: 1
   damageMultiplier: 0
   attackSpeedMultiplier: 0
   gSlots: 2
-  gradeType: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
   m_Name: Damage
   m_EditorClassIdentifier: 
-  name: Damage
-  Icon: {fileID: 21300000, guid: 464d1ec2f20759d4bbe7a381d5fe2b08, type: 3}
+  name: Damage Amp
+  Icon: {fileID: 21300000, guid: af4fd645a04281344bc0f2927c83904f, type: 3}
   isDefaultItem: 0
-  mType: 0
   grade: 3
+  mType: 0

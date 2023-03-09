@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bc41ccaaf970e46b8781487e326d2e, type: 3}
   m_Name: Hitbox
   m_EditorClassIdentifier: 
-  name: New Item
-  Icon: {fileID: 21300000, guid: 77d26dcc41820b844acbbdf75366918b, type: 3}
+  name: Hitbox Increase
+  Icon: {fileID: 21300000, guid: c46e59db6abc5f141a86e5615ebbc940, type: 3}
   isDefaultItem: 0
-  mType: 1
   grade: 3
+  mType: 1
