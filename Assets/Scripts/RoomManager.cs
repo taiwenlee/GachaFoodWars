@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManagerProto1 : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject inventoryUI;
@@ -14,15 +14,15 @@ public class RoomManagerProto1 : MonoBehaviour
     private bool inTransition;
     private bool groundActivated;
     private EnemySpawner es;
-    private Ground groundScript;
     private List<Gate> gateScripts;
-
+    private Vector2 roomCoords;
+    private Ground groundScript;
 
     private void Awake()
     {
         inTransition = false;
-        groundActivated = false;
         gateScripts = new();
+        groundActivated = false;
 
         /*player = GameObject.FindWithTag("Player");
         if (player == null )
@@ -32,7 +32,7 @@ public class RoomManagerProto1 : MonoBehaviour
         inventory = GameObject.FindWithTag("Inventory");
 
         levelMap.currentRoom.HasVisited = true;
-        Vector2 roomCoords = levelMap.currentVertex;
+        roomCoords = levelMap.currentVertex;
         Vector4 layout = levelMap.currentRoomLayout;
         rc.BuildRoom(out GameObject player, roomOrigin.transform, layout);
         GameObject[] gates = GameObject.FindGameObjectsWithTag("Gate_Exit");
@@ -49,17 +49,29 @@ public class RoomManagerProto1 : MonoBehaviour
 
         es = enemySpawner.GetComponent<EnemySpawner>();
         es.Player = player;
-        es.BeginLevel(levelMap.spawnerMatrix
+
+        if (!levelMap.clearedMatrix
             .cols[(int)roomCoords.x]
-            .rows[(int)roomCoords.y]
-        );
+            .rows[(int)roomCoords.y])
+        {
+            es.BeginLevel(levelMap.spawnerMatrix
+                .cols[(int)roomCoords.x]
+                .rows[(int)roomCoords.y]
+            );
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!groundActivated && groundScript.groundTriggered)
+        if (!groundActivated && 
+            groundScript.groundTriggered && 
+            es.getEnemyCount() == 0)
         {
+            levelMap.clearedMatrix
+                .cols[(int)roomCoords.x]
+                .rows[(int)roomCoords.y] = true;
+            
             foreach (Gate gate in gateScripts)
             {
                 gate.boxCollider.enabled = true;

@@ -16,8 +16,9 @@ public class LevelMap : ScriptableObject
     public RoomBlueprint currentRoom;
     public Vector4 currentRoomLayout;
 
-    public Matrix<SpawnerData> spawnerMatrix;
     public Matrix<RoomBlueprint> roomMatrix;
+    public Matrix<SpawnerData> spawnerMatrix;
+    public Matrix<bool> clearedMatrix;
 
     public void OnEnable()
     {

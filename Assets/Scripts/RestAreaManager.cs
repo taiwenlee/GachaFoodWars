@@ -59,6 +59,8 @@ public class RestAreaManager : MonoBehaviour
         levelMap.spawnerMatrix = lc.levelSpawnerData;
         levelMap.roomMatrix = lc.roomMatrix;
         levelMap.currentVertex = lc.currentVertex;
+        BoolMapToClearedDeepCopy();
+
         int x = (int)levelMap.currentVertex.x;
         int y = (int)levelMap.currentVertex.y;
         levelMap.currentRoom = lc.roomMatrix.cols[x].rows[y];
@@ -70,5 +72,22 @@ public class RestAreaManager : MonoBehaviour
         levelMap.endRoom.roomLayout = levelMap.endRoom.GenerateRandomTerminal(false);
         lc.roomMatrix.cols[x].rows[y] = levelMap.endRoom;
         return true;
+    }
+
+    private void BoolMapToClearedDeepCopy()
+    {
+        levelMap.clearedMatrix = new Matrix<bool>();
+
+        for (int c = 0; c < lc.levelBoolMap.cols.Count; c++)
+        {
+            Rows<bool> boolColumn = lc.levelBoolMap.cols[c];
+            levelMap.clearedMatrix.cols.Add(new Rows<bool>());
+            
+            for (int r = 0; r < boolColumn.rows.Count; r++)
+            {
+                levelMap.clearedMatrix.cols[c].rows.Add(new());
+                levelMap.clearedMatrix.cols[c].rows[r] = boolColumn.rows[r] ? false : true; 
+            }
+        }
     }
 }

@@ -2228,6 +2228,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4321155371650794447, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321155371650794447, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283933505329682420, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283933505329682420, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869223233573258929, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869223233573258929, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515f6e7207694544a9967951dd0bebff, type: 3}
 --- !u!1001 &574032248
@@ -2704,8 +2734,6 @@ MonoBehaviour:
   gate: {fileID: 4065669062417104970}
   Player: {fileID: 1983047694}
   Manager: {fileID: 1116054533}
-  Canvas: {fileID: 0}
-  HealthSystem: {fileID: 0}
 --- !u!4 &700936003
 Transform:
   m_ObjectHideFlags: 0
@@ -10327,7 +10355,7 @@ PrefabInstance:
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: restScene
-      value: Rest
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
@@ -10346,6 +10374,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fbbf400132a00124d8367a7182cce1b5,
         type: 2}
+    - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
+        type: 3}
+      propertyPath: mainMenuScene
+      value: Main Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: restartCanvas
