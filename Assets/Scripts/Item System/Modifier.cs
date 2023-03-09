@@ -6,7 +6,6 @@ using UnityEngine;
 public class Modifier : Item
 {
     public ModifierType mType;
-    public Grade grade;
     public override void Use()
     {
         base.Use();

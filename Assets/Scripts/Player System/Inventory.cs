@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     public int space = 30;
     public static Inventory instance;
-    public int currency = 0;
+    public int currency = 3;
 
 
     // singleton

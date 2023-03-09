@@ -29,7 +29,7 @@ public class GachaAnimator : MonoBehaviour
 
     public void Update()
     {
-        if (controller.canGacha == true && controller.isInRange)   // check if player is in range of Gacha machine
+        if (controller.canGacha == true && gachaUI.isInRange)   // check if player is in range of Gacha machine
         {
             if (Input.GetKeyDown(interactKey))
             {
