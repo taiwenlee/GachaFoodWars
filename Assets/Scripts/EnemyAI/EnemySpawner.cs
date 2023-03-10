@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
             enemy.GetComponent<MiniBossAI>().maxHealth = 400;
-            enemy.GetComponent<MiniBossAI>().damage = 1;
+            enemy.GetComponent<MiniBossAI>().damage = 3;
             enemy.GetComponent<MiniBossAI>().baseSpeed = 3f;
         }
         else
