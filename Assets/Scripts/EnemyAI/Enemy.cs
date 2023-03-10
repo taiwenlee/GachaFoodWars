@@ -157,8 +157,6 @@ public class Enemy : MonoBehaviour
         {
             var loot = Instantiate(drop, position, Quaternion.identity);
             loot.GetComponent<Drop>().value = dropValue;
-
-
         }
     }
 
