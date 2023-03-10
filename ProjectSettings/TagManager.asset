@@ -23,6 +23,7 @@ TagManager:
   - SwordSlash
   - OnlyGround
   - GachaUI
+  - Broke
   layers:
   - Default
   - TransparentFX
