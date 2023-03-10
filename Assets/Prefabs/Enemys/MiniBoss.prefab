@@ -178,8 +178,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 4
+  m_Radius: 2
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2453059522322495651
@@ -191,7 +191,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2453059522322495660}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 2453059522775473930}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.918, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 3.9999998, y: 3.9999998, z: 3.9999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2453059522322495649}
@@ -517,8 +517,9 @@ GameObject:
   - component: {fileID: 2453059524307833552}
   - component: {fileID: 2453059524307833553}
   - component: {fileID: 2453059524307833554}
+  - component: {fileID: 1801695513635988235}
   m_Layer: 0
-  m_Name: rotten_egg
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,9 +533,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2453059524307833567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 0.025, y: 0.05, z: 0.025}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2453059522322495649}
   m_RootOrder: 0
@@ -580,7 +581,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d521a1ede7f3ea64eb8f0a43ea6198a3, type: 3}
+  m_Sprite: {fileID: 219911326, guid: 7bbb217f2b2483442a97cbfcef80c5f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -603,6 +604,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea527ea5b7d6c7b48b623803c194ff7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1801695513635988235
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453059524307833567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e1087bdce791ed40b58f5325332471a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5195215493942907355
 GameObject:
   m_ObjectHideFlags: 0
