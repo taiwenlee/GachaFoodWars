@@ -21,9 +21,9 @@ public class Inventory : MonoBehaviour
         //allows us to always access it
         if (instance != null && instance != this)
         {
-            Debug.LogWarning("More than one instance of inventory found");
+            //Debug.LogWarning("More than one instance of inventory found");
             Destroy(this);
-            Debug.LogWarning("Duplicate instance of Inventory deleted");
+            //Debug.LogWarning("Duplicate instance of Inventory deleted");
         }
         else
         {

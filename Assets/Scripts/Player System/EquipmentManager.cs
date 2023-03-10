@@ -9,9 +9,9 @@ public class EquipmentManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Debug.LogWarning("More than one instance of equipment found");
+            //Debug.LogWarning("More than one instance of equipment found");
             Destroy(this);
-            Debug.LogWarning("Duplicate instance of EquipmentManager deleted");
+            //Debug.LogWarning("Duplicate instance of EquipmentManager deleted");
         }
         else
         {
