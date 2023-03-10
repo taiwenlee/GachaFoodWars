@@ -103,7 +103,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6d9749e231fa358498c4ce859c8dc9b3, type: 2}
+  m_Motion: {fileID: 7400000, guid: a304062472cd7ce4d985c7e6d703ae95, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -115,7 +115,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gacha Animator Controller
+  m_Name: WeaponGacha Animator Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: StartGacha
@@ -206,7 +206,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2dfd56c4fe70e6b4bbd316bba5ee581f, type: 2}
+  m_Motion: {fileID: 7400000, guid: a7397ebf12f2b1e4db98abcbe2958109, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

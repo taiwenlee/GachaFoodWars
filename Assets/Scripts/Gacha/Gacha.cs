@@ -8,6 +8,7 @@ using TMPro;
 public class Gacha : MonoBehaviour
 {
     public GameObject GachaUI;
+    public GameObject Broke;
     public TMP_Text WeaponObtainedUI;
     public AudioSource GachaSFX;
     public Inventory inventory;
@@ -20,6 +21,7 @@ public class Gacha : MonoBehaviour
     public int gachaCost = 2;
 
     public bool isInRange = false;
+    public bool isGachaing = false;
 
     [SerializeField]
     // list of items in the gacha
@@ -48,14 +50,14 @@ public class Gacha : MonoBehaviour
         {
             GachaSFX = GetComponent<AudioSource>();
         }
+        if (Broke == null)
+        {
+            Broke = GameObject.FindGameObjectWithTag("Broke");
+        }
         WeaponObtainedUI = GachaUI.GetComponentInChildren<TMP_Text>();
+        Broke.SetActive(false);
         // disable UI
         GachaUI.GetComponent<Canvas>().enabled = false;
-        // calculate total weight of loot table
-        // foreach(var item in table)
-        // {
-        //     totalWeight += item;
-        // }
     }
 
     private void Update()
@@ -64,8 +66,16 @@ public class Gacha : MonoBehaviour
         {
             if (canGacha())
             {
+                Broke.SetActive(false);
                 GachaSFX.Play();
+                isGachaing = true;
                 StartCoroutine(WaitandGachaCoroutine());
+                isGachaing = false;
+            }
+            if (inventory.currency < gachaCost)
+            {
+                Broke.SetActive(true);
+                //BrokeCoroutine();
             }
         }
     }
@@ -88,11 +98,16 @@ public class Gacha : MonoBehaviour
 
     private bool canGacha()
     {
-        if (inventory.RemoveCurrency(gachaCost) && animationPlaying == false)
+        if (animationPlaying == false && isGachaing == false && GachaUI.GetComponent<Canvas>().enabled == false)
         {
-            return true;
-        }
-        else
+            if (inventory.RemoveCurrency(gachaCost))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }else
         {
             return false;
         }
@@ -107,6 +122,14 @@ public class Gacha : MonoBehaviour
         startGacha();
     }
 
+    // IEnumerator BrokeCoroutine()
+    // {
+    //     Debug.Log("Broke");
+    //     Broke.SetActive(true);
+    //     yield return new WaitForSeconds(1.0f);
+    //     Broke.SetActive(false);
+    // }
+
     private void startGacha()
     {
         // get random item from loot table
@@ -117,6 +140,7 @@ public class Gacha : MonoBehaviour
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
         // temp to track item grades
         Debug.Log(item.grade + " " + item.name + " obtained.");
+        // enable UI
         GachaUI.GetComponent<Canvas>().enabled = true;
     }
 
