@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
             //Todo: make stat modifier a function rather than hardcoding
             enemy.GetComponent<RangeAI>().maxHealth = 100;
             enemy.GetComponent<RangeAI>().damage = 1;
-            enemy.GetComponent<RangeAI>().baseSpeed = 7f;
+            enemy.GetComponent<RangeAI>().baseSpeed = 5f;
         }
         else if (name.ToLower() == "miniboss")
         {
