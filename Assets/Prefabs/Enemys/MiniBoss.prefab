@@ -254,7 +254,7 @@ MonoBehaviour:
   elementCooldown: 5
   DeathSound: {fileID: -4789608382271283491}
   chargeForce: 1500
-  knockbackForce: 10
+  knockbackForce: 30
   damageTimeout: 1
   miniBossAttackSFX: {fileID: -391032688177994885}
 --- !u!82 &-4789608382271283491
