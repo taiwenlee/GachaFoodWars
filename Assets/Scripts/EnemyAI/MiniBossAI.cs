@@ -10,6 +10,8 @@ public class MiniBossAI : Enemy
     // damage timeout insures that the player cant be hit multiple times in a single attack
     public float damageTimeout = 1f; // time between damage ticks
     private float damageCooldown = 0.0f;
+
+    private bool isAttacking = false;
     public AudioSource miniBossAttackSFX;
     // Start is called before the first frame update
     protected override void Start()
@@ -30,12 +32,10 @@ public class MiniBossAI : Enemy
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 // check if player is in attack range, attack if true
-                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && element != WeaponController.Element.Electric)
+                if (rayDirection.magnitude <= attackRange && attackcooldown <= 0.0f && !isAttacking && element != WeaponController.Element.Electric)
                 {
-                    miniBossAttackSFX.Play();
-                    agent.ResetPath();
-                    rb.AddForce(rayDirection.normalized * chargeForce, ForceMode.Impulse);
-                    attackcooldown = 1 / attackRate;
+                    // wind up attack
+                    StartCoroutine(Attack());
                 }
                 else if (agent.isActiveAndEnabled && attackcooldown <= 0.0f)
                 {
@@ -43,6 +43,20 @@ public class MiniBossAI : Enemy
                     agent.SetDestination(player.transform.position - rayDirection.normalized * attackRange * .9f);
                 }
             }
+        }
+
+        IEnumerator Attack()
+        {
+            // wind up attack
+            isAttacking = true;
+            spriteAnimator.SetTrigger("Wind");
+            yield return new WaitForSeconds(1.0f);
+            spriteAnimator.SetTrigger("Charge");
+            miniBossAttackSFX.Play();
+            agent.ResetPath();
+            rb.AddForce(rayDirection.normalized * chargeForce, ForceMode.Impulse);
+            attackcooldown = 1 / attackRate;
+            isAttacking = false;
         }
 
         // decrement attack cooldown
@@ -75,7 +89,6 @@ public class MiniBossAI : Enemy
         {
             if (damageCooldown <= 0.0f)
             {
-                Debug.Log("Player hit by boss");
                 collision.gameObject.GetComponent<Player>().takeDamage(damage);
                 damageCooldown = damageTimeout;
                 // knockback the player in the direction of the collision

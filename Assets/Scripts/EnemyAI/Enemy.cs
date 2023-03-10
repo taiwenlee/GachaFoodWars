@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject drop;
 
     public GameObject player;
-    
+
     [Header("Stats")]
     public float maxHealth = 100.0f;
     public float health = 100.0f;
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Sound")]
     public AudioSource DeathSound;
-  
+
 
     // protected variables
     protected float attackcooldown = 0.0f;
@@ -153,7 +153,6 @@ public class Enemy : MonoBehaviour
     static IEnumerator dropLoot(Vector3 position, GameObject drop, int dropValue, float deathDelay)
     {
         yield return new WaitForSeconds(deathDelay);
-        Debug.Log("Dropping loot");
         if (drop != null && dropValue > 0)
         {
             var loot = Instantiate(drop, position, Quaternion.identity);

@@ -27,7 +27,6 @@ public class EnemySpawner : MonoBehaviour
     // spawns enemies based on the data received
     public int BeginLevel(SpawnerData data)
     {
-        Debug.Log($"Spawning enemies for Room {data.name}");
         spawnEnemys(data);
         return 0;
     }
@@ -41,7 +40,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if (data.LevelName == level)
             {
-                Debug.Log("Spawning enemies for level " + level);
                 spawnEnemys(data);
                 return 1;
             }
@@ -109,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
             //Todo: make stat modifier a function rather than hardcoding
             enemy.GetComponent<RangeAI>().maxHealth = 100;
             enemy.GetComponent<RangeAI>().damage = 1;
-            enemy.GetComponent<RangeAI>().baseSpeed = 7f;
+            enemy.GetComponent<RangeAI>().baseSpeed = 5f;
         }
         else if (name.ToLower() == "miniboss")
         {
@@ -118,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.parent = transform;
             //Todo: make stat modifier a function rather than hardcoding
             enemy.GetComponent<MiniBossAI>().maxHealth = 400;
-            enemy.GetComponent<MiniBossAI>().damage = 1;
+            enemy.GetComponent<MiniBossAI>().damage = 3;
             enemy.GetComponent<MiniBossAI>().baseSpeed = 3f;
         }
         else
