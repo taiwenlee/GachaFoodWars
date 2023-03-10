@@ -7,7 +7,16 @@ public class EquipmentManager : MonoBehaviour
     public static EquipmentManager instance;
     void Awake()
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Debug.LogWarning("More than one instance of equipment found");
+            Destroy(this);
+            Debug.LogWarning("Duplicate instance of EquipmentManager deleted");
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     public Item[] currentEquipment;
