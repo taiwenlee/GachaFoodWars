@@ -27,7 +27,6 @@ public class EnemySpawner : MonoBehaviour
     // spawns enemies based on the data received
     public int BeginLevel(SpawnerData data)
     {
-        Debug.Log($"Spawning enemies for Room {data.name}");
         spawnEnemys(data);
         return 0;
     }
@@ -41,7 +40,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if (data.LevelName == level)
             {
-                Debug.Log("Spawning enemies for level " + level);
                 spawnEnemys(data);
                 return 1;
             }

@@ -102,9 +102,7 @@ public class Gacha : MonoBehaviour
     {
         animator.SetTrigger("StartGacha");
         animationPlaying = true;
-        Debug.Log("animation played");
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("Waited for 1 second!");
         animationPlaying = false;
         startGacha();
     }
@@ -117,6 +115,8 @@ public class Gacha : MonoBehaviour
         inventory.Add(item);
         // display item obtained
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
+        // temp to track item grades
+        Debug.Log(item.grade + " " + item.name + " obtained.");
         GachaUI.GetComponent<Canvas>().enabled = true;
     }
 

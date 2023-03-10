@@ -75,7 +75,6 @@ public class MiniBossAI : Enemy
         {
             if (damageCooldown <= 0.0f)
             {
-                Debug.Log("Player hit by boss");
                 collision.gameObject.GetComponent<Player>().takeDamage(damage);
                 damageCooldown = damageTimeout;
                 // knockback the player in the direction of the collision
