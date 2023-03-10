@@ -8,10 +8,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject heartPrefab;
 
     public GameObject restartMenu;
+    public GameObject blackscreen;
+    public BlackCircleScript blackscreenScript;
     public PlayerStats playerStats;
     //private bool playerDead = false;
     //private bool showDeathUI = false;
     private float restartMenuTimer = 0.0f;
+    private float blackScreenTimer = 0.0f;
     public int health = 4;
     GameObject heart;
     
@@ -39,16 +42,23 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         restartMenuTimer += Time.deltaTime;
+        blackScreenTimer += Time.deltaTime;
         health = playerStats.playerHealthData.GetPlayerHealth();
-
         if (health <= 0) {
-            if(restartMenuTimer >= 2.0f) { //delays opening restart menu by 2 second
+            blackscreen.SetActive(true);
+            blackscreenScript.OpenBlackScreen();
+            if(blackScreenTimer >= 3.0f) { //dont look at this mess
+                blackscreenScript.CloseBlackScreen();
+            }
+            if(restartMenuTimer >= 3.0f) { //delays opening restart menu by 3 second
                 restartMenu.SetActive(true);
                 restartMenuTimer = 0.0f; //resets timer
             }  
         }else{
             restartMenu.SetActive(false);
+            blackscreen.SetActive(false);
             restartMenuTimer = 0.0f; //resets timer
+            blackScreenTimer = 0.0f;
         }
         UpdateHealth();
     }
@@ -78,4 +88,11 @@ public class PlayerUI : MonoBehaviour
         health = currentHealth;
         UpdateHealth();
     } 
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+ 
+     // Code to execute after the delay
+    }
 }
