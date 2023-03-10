@@ -20,6 +20,7 @@ public class Gacha : MonoBehaviour
     public int gachaCost = 2;
 
     public bool isInRange = false;
+    public bool isGachaing = false;
 
     [SerializeField]
     // list of items in the gacha
@@ -51,11 +52,6 @@ public class Gacha : MonoBehaviour
         WeaponObtainedUI = GachaUI.GetComponentInChildren<TMP_Text>();
         // disable UI
         GachaUI.GetComponent<Canvas>().enabled = false;
-        // calculate total weight of loot table
-        // foreach(var item in table)
-        // {
-        //     totalWeight += item;
-        // }
     }
 
     private void Update()
@@ -65,7 +61,9 @@ public class Gacha : MonoBehaviour
             if (canGacha())
             {
                 GachaSFX.Play();
+                isGachaing = true;
                 StartCoroutine(WaitandGachaCoroutine());
+                isGachaing = false;
             }
         }
     }
@@ -88,11 +86,16 @@ public class Gacha : MonoBehaviour
 
     private bool canGacha()
     {
-        if (inventory.RemoveCurrency(gachaCost) && animationPlaying == false)
+        if (animationPlaying == false && isGachaing == false && GachaUI.GetComponent<Canvas>().enabled == false)
         {
-            return true;
-        }
-        else
+            if (inventory.RemoveCurrency(gachaCost))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }else
         {
             return false;
         }
@@ -117,6 +120,7 @@ public class Gacha : MonoBehaviour
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
         // temp to track item grades
         Debug.Log(item.grade + " " + item.name + " obtained.");
+        // enable UI
         GachaUI.GetComponent<Canvas>().enabled = true;
     }
 
