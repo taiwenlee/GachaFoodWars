@@ -155,6 +155,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6836417377929943318, guid: fe09c90496692464bad83ad853f6b02b,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836417377929943318, guid: fe09c90496692464bad83ad853f6b02b,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1980
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836417377929943318, guid: fe09c90496692464bad83ad853f6b02b,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe09c90496692464bad83ad853f6b02b, type: 3}
 --- !u!224 &6836417376334591417 stripped
@@ -371,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.846434
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
@@ -381,27 +396,27 @@ PrefabInstance:
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.8837996
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.3342257
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817100045484367160, guid: 2c6774372bcbb56458e4f9e5e6e70854,
         type: 3}
@@ -422,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RestartCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817100045484367161, guid: 2c6774372bcbb56458e4f9e5e6e70854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6774372bcbb56458e4f9e5e6e70854, type: 3}
@@ -444,6 +464,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3218396437970186932}
     m_Modifications:
+    - target: {fileID: 548761127814098752, guid: 2fcd4f19f120ac74c84b4a3f0cdeae2d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.2
+      objectReference: {fileID: 0}
     - target: {fileID: 548761127814098753, guid: 2fcd4f19f120ac74c84b4a3f0cdeae2d,
         type: 3}
       propertyPath: blackscreen
