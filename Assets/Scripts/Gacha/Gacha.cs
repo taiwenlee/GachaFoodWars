@@ -13,6 +13,7 @@ public class Gacha : MonoBehaviour
     public AudioSource GachaSFX;
     public Inventory inventory;
     public KeyCode interactKey;
+    public GameObject GachaInstructionUI;
 
     public Animator animator;
     public bool animationPlaying = false;
@@ -54,6 +55,11 @@ public class Gacha : MonoBehaviour
         {
             Broke = GameObject.FindGameObjectWithTag("Broke");
         }
+        if (GachaInstructionUI == null)
+        {
+            GachaInstructionUI = GameObject.FindGameObjectWithTag("GachaInstructionUI");
+        }
+        GachaInstructionUI.GetComponent<Canvas>().enabled = false;
         WeaponObtainedUI = GachaUI.GetComponentInChildren<TMP_Text>();
         Broke.SetActive(false);
         // disable UI
@@ -84,7 +90,9 @@ public class Gacha : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player in range");
             isInRange = true;
+            GachaInstructionUI.GetComponent<Canvas>().enabled = true;
         }
     }
 
@@ -92,7 +100,9 @@ public class Gacha : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player exist range");
             isInRange = false;
+            GachaInstructionUI.GetComponent<Canvas>().enabled = false;
         }
     }
 

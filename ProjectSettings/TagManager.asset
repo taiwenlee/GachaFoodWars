@@ -24,6 +24,7 @@ TagManager:
   - OnlyGround
   - GachaUI
   - Broke
+  - GachaInstructionUI
   layers:
   - Default
   - TransparentFX
