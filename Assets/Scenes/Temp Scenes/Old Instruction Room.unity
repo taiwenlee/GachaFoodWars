@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3207,7 +3207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cd9666adc8dd64c9cb4b6af2950562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gate: {fileID: 0}
+  gate: {fileID: 2004958399}
   Player: {fileID: 1983047694}
   Manager: {fileID: 1116054533}
 --- !u!4 &700936003
@@ -10117,6 +10117,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2004958397}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2004958399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6778282071881781053, guid: c62f93834a2f2374cab442638b0ed57b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2004958397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4441aefc8913c24eb0cba89ef8c3eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2062076638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10770,7 +10782,7 @@ PrefabInstance:
         type: 3}
       propertyPath: exitGate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2004958399}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: levelMap

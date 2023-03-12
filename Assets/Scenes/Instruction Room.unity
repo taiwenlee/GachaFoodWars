@@ -10659,7 +10659,7 @@ PrefabInstance:
     - target: {fileID: 5615226513897825704, guid: 6f68d38567e1f4d49bfe5329c7df276e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.50006
+      value: 19.000057
       objectReference: {fileID: 0}
     - target: {fileID: 5615226513897825704, guid: 6f68d38567e1f4d49bfe5329c7df276e,
         type: 3}
@@ -10985,7 +10985,7 @@ PrefabInstance:
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: restScene
-      value: Rest
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
@@ -11023,8 +11023,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levelBuildPool.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 889f08edefea8a745833c4d54cf4f229,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4821859230038474290, guid: 6314c822494337948930bb98403747de,
         type: 3}
       propertyPath: levelBuildPool.Array.data[1]
