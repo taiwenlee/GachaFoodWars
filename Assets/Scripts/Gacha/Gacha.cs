@@ -103,11 +103,13 @@ public class Gacha : MonoBehaviour
             if (inventory.RemoveCurrency(gachaCost))
             {
                 return true;
-            }else
+            }
+            else
             {
                 return false;
             }
-        }else
+        }
+        else
         {
             return false;
         }

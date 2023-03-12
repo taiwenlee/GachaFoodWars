@@ -15,9 +15,7 @@ MonoBehaviour:
   name: Spear
   Icon: {fileID: 21300000, guid: 4bfd7561df72d9646b436d0a25b8cfa0, type: 3}
   isDefaultItem: 0
-  grade: 0
+  grade: 3
   damageStat: 30
   attackSpeed: 1
-  damageMultiplier: 0
-  attackSpeedMultiplier: 0
   gSlots: 1

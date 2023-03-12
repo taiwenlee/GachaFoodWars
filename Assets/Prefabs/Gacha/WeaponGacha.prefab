@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GachaUI: {fileID: 0}
+  Broke: {fileID: 0}
   WeaponObtainedUI: {fileID: 0}
   GachaSFX: {fileID: 0}
   inventory: {fileID: 0}
@@ -180,10 +181,11 @@ MonoBehaviour:
   cooldownTime: 1
   gachaCost: 2
   isInRange: 0
+  isGachaing: 0
   Items:
   - {fileID: 11400000, guid: 42cec247cb2582e43b84de02f8c234ef, type: 2}
   - {fileID: 11400000, guid: a45f28404d5a4914b8d412597da4c941, type: 2}
-  - {fileID: 11400000, guid: d332b7d20ff5dea42a6f70715dfe5659, type: 2}
+  - {fileID: 11400000, guid: 542de6f3589fc324f9c020e617965542, type: 2}
   table:
   - 0.5
   - 0.3

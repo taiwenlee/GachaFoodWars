@@ -17,13 +17,12 @@ public class RangeAttack : MonoBehaviour
             projectileInstance.GetComponent<Projectile>().element = wc.element;
             projectileInstance.GetComponent<Projectile>().elementLevel = wc.elementLevel;
             projectileInstance.GetComponent<Projectile>().direction = transform.rotation * Vector3.forward;
-            projectileInstance.GetComponent<Projectile>().damage = ((Equipment)wc.em.currentEquipment[0]).damageStat * (int)wc.damageMultiplier;
-            projectileInstance.transform.localScale *= wc.hitboxMultiplier;
-            Debug.Log(projectileInstance.GetComponent<Projectile>().damage);
-            projectileInstance.GetComponent<Projectile>().speed = 15;
+            projectileInstance.GetComponent<Projectile>().damage = (int)(wc.damage * wc.damageMultiplier);
+            projectileInstance.transform.localScale *= wc.hitboxMultiplier * wc.baseHitboxMultiplier;
+            projectileInstance.GetComponent<Projectile>().speed = 20;
             projectileInstance.GetComponent<Projectile>().ignoreTags = new string[] { "Player", "Projectile" };
         }
-        if(wc.isAttacking == false)
+        if (wc.isAttacking == false)
         {
             hasFired = false;
         }

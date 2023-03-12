@@ -21,8 +21,7 @@ public class CollisionDetection : MonoBehaviour
         // check if object is an enemy and if the player is attacking
         if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
         {
-            var weapon = (Equipment)wc.em.currentEquipment[0];
-            other.gameObject.GetComponent<Enemy>().TakeDamage((int)(weapon.damageStat * wc.damageMultiplier), wc.element, wc.elementLevel);
+            other.gameObject.GetComponent<Enemy>().TakeDamage((int)(wc.damage * wc.damageMultiplier), wc.element, wc.elementLevel);
         }
     }
 }

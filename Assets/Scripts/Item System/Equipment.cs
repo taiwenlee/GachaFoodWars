@@ -9,9 +9,6 @@ public class Equipment : Item
         public int damageModifier;*/
     public int damageStat; // base damage
     public float attackSpeed; // base attack speed
-
-    public float damageMultiplier; // damage multiplier
-    public float attackSpeedMultiplier; // attack speed multiplier
     public WeaponType gSlots;
     public override void Use()
     {
@@ -30,8 +27,6 @@ public class Equipment : Item
         //equipment properties
         newEquipment.damageStat = this.damageStat;
         newEquipment.attackSpeed = this.attackSpeed;
-        newEquipment.damageMultiplier = this.damageMultiplier;
-        newEquipment.attackSpeedMultiplier = this.attackSpeedMultiplier;
         newEquipment.gSlots = this.gSlots;
         return newEquipment;
     }

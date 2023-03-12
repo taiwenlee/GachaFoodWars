@@ -8,7 +8,9 @@ public class WeaponController : MonoBehaviour
     public EquipmentManager em;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
+    public int damage;
     public float attackSpeed;
+    public float baseHitboxMultiplier = 1;
     public bool isAttacking = false;
     public bool isSelected = false;
 
@@ -73,9 +75,12 @@ public class WeaponController : MonoBehaviour
                     //Debug.Log(weapon);
                     if (swordSwing)
                     {
-                        if(Input.mousePosition.x < Screen.width / 2f) { // if mouse on left side of player
+                        if (Input.mousePosition.x < Screen.width / 2f)
+                        { // if mouse on left side of player
                             sprite.spriteRenderer.flipX = false; //flip sprite towards x axis
-                        }else {
+                        }
+                        else
+                        {
                             sprite.spriteRenderer.flipX = true;
                         }
                         sprite.animation.SetTrigger("swordSlash");
@@ -86,7 +91,7 @@ public class WeaponController : MonoBehaviour
 
                     }
 
-                   
+
                     audioSource.PlayOneShot(audioSource.clip);
                     SwordAttack();
                 }
@@ -99,36 +104,49 @@ public class WeaponController : MonoBehaviour
     {
         if (isAttacking == false && em.currentEquipment.Length > 0 && em.currentEquipment[0] != null)
         {
-            switch (((Equipment)em.currentEquipment[0]).gSlots)
+            var equipment = (Equipment)em.currentEquipment[0];
+            switch (equipment.gSlots)
             {
                 case WeaponType.Sword:
                     DisableChild();
                     SetWeapon("Sword");
-                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = swordSound;
-                    weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+
                     swordSwing = true;
                     spearSwing = false;
-                    //isSelected = true;
+
+                    // set damage, attack speed, and hitbox multiplier
+                    damage = equipment.damageStat + (int)equipment.grade * 2;
+                    attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
+                    weapon.transform.localScale = new Vector3(1, 1, 1) * baseHitboxMultiplier * hitboxMultiplier;
+
                     break;
                 case WeaponType.Spear:
                     DisableChild();
                     SetWeapon("Spear");
-                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = spearSound;
-                    weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     spearSwing = true;
                     swordSwing = false;
-                    //isSelected = true;
+
+                    // set damage, attack speed, and hitbox multiplier
+                    damage = equipment.damageStat + (int)equipment.grade * 2;
+                    attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
+                    weapon.transform.localScale = new Vector3(1, 1, 1) * baseHitboxMultiplier * hitboxMultiplier;
+
                     break;
                 case WeaponType.Range:
                     DisableChild();
                     SetWeapon("Range");
-                    attackSpeed = ((Equipment)em.currentEquipment[0]).attackSpeed;
                     audioSource.clip = rangeSound;
                     //weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
                     spearSwing = false;
                     swordSwing = false;
+                    // set damage, attack speed, and hitbox multiplier
+                    damage = equipment.damageStat + (int)equipment.grade * 2;
+                    attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
                     break;
                 default:
                     DisableChild();
@@ -194,7 +212,6 @@ public class WeaponController : MonoBehaviour
 
     public void setModifiers()
     {
-
         // reset multipliers
         damageMultiplier = 1;
         hitboxMultiplier = 1;
@@ -240,7 +257,7 @@ public class WeaponController : MonoBehaviour
         // update weapon hitbox
         if (weapon != null)
         {
-            weapon.transform.localScale = new Vector3(1, 1, 1) * hitboxMultiplier;
+            weapon.transform.localScale = new Vector3(1, 1, 1) * baseHitboxMultiplier * hitboxMultiplier;
         }
     }
 }
