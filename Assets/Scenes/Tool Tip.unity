@@ -982,6 +982,11 @@ PrefabInstance:
       propertyPath: WeaponObtainedUI
       value: 
       objectReference: {fileID: 225559024}
+    - target: {fileID: 6907870027043405597, guid: 6e512159082b5164a8de904690dec0f7,
+        type: 3}
+      propertyPath: GachaInstructionUI
+      value: 
+      objectReference: {fileID: 1946304613}
     - target: {fileID: 7073625081442159628, guid: 6e512159082b5164a8de904690dec0f7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2144,6 +2149,11 @@ PrefabInstance:
       propertyPath: WeaponObtainedUI
       value: 
       objectReference: {fileID: 225559024}
+    - target: {fileID: 8179975578544504756, guid: 9e020dab6159f334c957cfd73c0a14cb,
+        type: 3}
+      propertyPath: GachaInstructionUI
+      value: 
+      objectReference: {fileID: 1946304613}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e020dab6159f334c957cfd73c0a14cb, type: 3}
 --- !u!1 &515451013
