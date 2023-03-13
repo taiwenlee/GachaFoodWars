@@ -146,12 +146,22 @@ public class Gacha : MonoBehaviour
     {
         // get random item from loot table
         Item item = GetRandomItem();
+        //Debug.Log(item.grade + " " + item.name + " obtained.");
+        if (item is Equipment)
+        {
+            var eq = (Equipment)item;
+            item.description = eq.name + "\nGrade: " + eq.grade + "\nDamage: " + (eq.damageStat + (int)eq.grade * 2) + "\nAttack Speed: " + (eq.attackSpeed + (int)item.grade * 0.1f);
+        }
+        if (item is Modifier)
+        {
+            var eq = (Modifier)item;
+            item.description = eq.name + "\nGrade: " + eq.grade + "\nType: " + eq.mType;
+        }
         // add item to inventory
         inventory.Add(item);
         // display item obtained
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
         // temp to track item grades
-        Debug.Log(item.grade + " " + item.name + " obtained.");
         // enable UI
         GachaUI.GetComponent<Canvas>().enabled = true;
     }
