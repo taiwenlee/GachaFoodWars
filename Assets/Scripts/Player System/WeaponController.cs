@@ -240,17 +240,17 @@ public class WeaponController : MonoBehaviour
                         attackSpeedMultiplier += .2f * ((int)modifier.grade + 1);
                         break;
                     case Modifier.ModifierType.Fire:
-                        elementLevel += (int)modifier.grade;
+                        elementLevel += (int)modifier.grade + 1;
                         elementDuration = 3.0f;
                         element = Element.Fire;
                         break;
                     case Modifier.ModifierType.Ice:
-                        elementLevel += (int)modifier.grade;
+                        elementLevel += (int)modifier.grade + 1;
                         elementDuration = 3.0f;
                         element = Element.Ice;
                         break;
                     case Modifier.ModifierType.Electric:
-                        elementLevel += (int)modifier.grade;
+                        elementLevel += (int)modifier.grade + 1;
                         elementDuration = .5f * ((int)modifier.grade + 1);
                         element = Element.Electric;
                         break;
