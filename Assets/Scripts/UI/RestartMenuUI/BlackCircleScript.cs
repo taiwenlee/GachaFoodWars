@@ -8,7 +8,7 @@ public class BlackCircleScript : MonoBehaviour
     private Canvas _canvas;
     public Image blackscreen;
     //public GameObject BlackScreenScript;
-    private float restartMenuTimer = 0.0f;
+    //private float restartMenuTimer = 0.0f;
     //public GameObject gameobj;
 
     private void Awake() {

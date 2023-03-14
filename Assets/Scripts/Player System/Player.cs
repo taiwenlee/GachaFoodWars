@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public PlayerStats playerStats;
     private Animations sprite;
     public PlayerUI heartSystem;
+    private CinemachineVirtualCamera cinemachineVirtualCamera;
     //public GameObject player;
 
     [Header("Stats")]
@@ -17,6 +19,7 @@ public class Player : MonoBehaviour
     public float damageTimeout = 1f; // prevent too many hits at once. set in seconds
     private bool delayDamage = true;
     public bool playerDead = false;
+    private float shakeTimer;
 
 
     [Header("Audio")]
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-
+        cinemachineVirtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         //healthControl = GameObject.FindWithTag("HealthController").GetComponent<PlayerUI>();
         health = playerStats.playerHealthData.GetPlayerHealth();
         maxHeart = playerStats.playerHealthData.GetDefaultHealth();
@@ -45,6 +48,7 @@ public class Player : MonoBehaviour
         if (health != 0 & takingDamageSFX != null)
         {
             takingDamageSFX.Play();
+            ShakeCamera(5f,.1f);
         }
         if (delayDamage)
         {
@@ -78,6 +82,23 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    public void ShakeCamera(float intensity, float time) {
+        CinemachineBasicMultiChannelPerlin c = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        c.m_AmplitudeGain = intensity;
+        shakeTimer = time;
+    }
+
+    private void Update(){ 
+        if(shakeTimer >= 0) {// duration of camera shake
+            shakeTimer -= Time.deltaTime;
+            if(shakeTimer <= 0f) {
+                CinemachineBasicMultiChannelPerlin c = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                c.m_AmplitudeGain = 0f;
+            }
+        }
+    }
+
     private IEnumerator damageTimer()
     { //wait x seconds until player can take damage again
         delayDamage = false;
