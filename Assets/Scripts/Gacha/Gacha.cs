@@ -146,12 +146,51 @@ public class Gacha : MonoBehaviour
     {
         // get random item from loot table
         Item item = GetRandomItem();
+        //Debug.Log(item.grade + " " + item.name + " obtained.");
+        if (item is Equipment)
+        {
+            var eq = (Equipment)item;
+            item.description = eq.name + "\nGrade: " + eq.grade + "\nDamage: " + (eq.damageStat + (int)eq.grade * 2) + "\nAttack Speed: " + (eq.attackSpeed + (int)item.grade * 0.1f);
+        }
+        if (item is Modifier)
+        {
+            var eq = (Modifier)item;
+            item.description = eq.name + "\nGrade: " + eq.grade + "\nType: " + eq.mType;
+
+            switch (eq.mType)
+            {
+                case Modifier.ModifierType.Damage:
+                    item.description += "\nDamage Increase: " + (1 + .2f * ((int)eq.grade + 1)) + "x";
+                    break;
+                case Modifier.ModifierType.Hitbox:
+                    item.description += "\nHitbox Increase: " + (1 + .2f * ((int)eq.grade + 1)) + "x";
+
+                    break;
+                case Modifier.ModifierType.AttackSpeed:
+                    item.description += "\nATK Speed Increase: " + (1 + .2f * ((int)eq.grade + 1)) + "x";
+
+                    break;
+                case Modifier.ModifierType.Fire:
+                    item.description += "\nFire Modifier: Damage over time on hit";
+
+                    break;
+                case Modifier.ModifierType.Ice:
+                    item.description += "\nIce Modifier: Slows enemy on hit";
+
+                    break;
+                case Modifier.ModifierType.Electric:
+                    item.description += "\n Stuns enemy on hit; ";
+
+                    break;
+                case Modifier.ModifierType.Knockback:
+                    break;
+            }
+        }
         // add item to inventory
         inventory.Add(item);
         // display item obtained
         WeaponObtainedUI.text = "You obtained: " + item.grade + " " + item.name + ".";
         // temp to track item grades
-        Debug.Log(item.grade + " " + item.name + " obtained.");
         // enable UI
         GachaUI.GetComponent<Canvas>().enabled = true;
     }

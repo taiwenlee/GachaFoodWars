@@ -9,7 +9,6 @@ public class InventoryUI : MonoBehaviour
     public Player player;
     Inventory inventory;
     EquipmentManager equipments;
-
     InventorySlot[] slots;
     GearSlot[] gSlots;
 
@@ -35,7 +34,6 @@ public class InventoryUI : MonoBehaviour
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         gSlots = gearsParent.GetComponentsInChildren<GearSlot>();
-
         // update the UI
         UpdateInventoryUI();
         UpdateGearUI();

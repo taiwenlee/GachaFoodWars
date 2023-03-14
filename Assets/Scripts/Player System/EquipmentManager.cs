@@ -24,7 +24,6 @@ public class EquipmentManager : MonoBehaviour
     Inventory inventory;
     public delegate void OnEquipmentChanged();
     public OnEquipmentChanged onEquipmentChangedCallBack;
-    private bool hasElement;
     private void Start()
     {
         inventory = Inventory.instance;
