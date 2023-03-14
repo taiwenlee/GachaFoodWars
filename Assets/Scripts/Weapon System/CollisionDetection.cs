@@ -5,16 +5,6 @@ using UnityEngine;
 public class CollisionDetection : MonoBehaviour
 {
     public WeaponController wc;
-    private bool isDamaged = false;
-    /*    private void OnTriggerEnter(Collider other)
-        {
-            Debug.Log("hello");
-            if (other.gameObject.CompareTag("Enemy") && wc.isAttacking == true)
-            {
-                Debug.Log(other.gameObject.name);
-                //other.gameObject.GetComponent<Enemy>().TakeDamage(50);
-            }
-        }*/
 
     private void OnTriggerStay(Collider other)
     {

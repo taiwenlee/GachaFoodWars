@@ -24,6 +24,8 @@ public class MeleeAI : Enemy
             if (hit.collider.gameObject == player && agent.isActiveAndEnabled)
             {
                 agent.SetDestination(player.transform.position);
+                //flip sprite if player is on the left
+                spriteRenderer.flipX = player.transform.position.x < transform.position.x;
             }
         }
 
@@ -33,7 +35,8 @@ public class MeleeAI : Enemy
             // attack player
             if (attackcooldown <= 0.0f)
             {
-                meleeAttackSFX.Play();  
+                meleeAttackSFX.Play();
+                spriteAnimator.SetTrigger("Attack");
                 // subject to change based on how we implement player health
                 player.GetComponent<Player>().takeDamage(damage);
                 attackcooldown = 1 / attackRate;

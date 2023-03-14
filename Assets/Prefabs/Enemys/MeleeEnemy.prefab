@@ -144,7 +144,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!195 &4014786615672216622
 NavMeshAgent:
@@ -193,7 +193,6 @@ MonoBehaviour:
   invunerableTime: 0.2
   deathDelay: 1
   element: 0
-  elementDuration: 3
   stunDuration: 0.5
   fireDamageMultiplier: 10
   iceSlowMultiplier: 0.2
@@ -804,7 +803,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1091242625, guid: 2fb24f38ccc8ef04aa7803c496751723, type: 3}
+  m_Sprite: {fileID: 1174470775, guid: 60e07fad9166d65439b5ebbdcdc03153, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
