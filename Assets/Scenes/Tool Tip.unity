@@ -1651,25 +1651,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &390546944 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1745750254, guid: 515f6e7207694544a9967951dd0bebff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1673421528}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &390546948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390546944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b770ac715a5fc82498862ab862875252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipToShow: Testing
 --- !u!1001 &417931112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5645,7 +5626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5686275}
+  m_Color: {r: 0.14070842, g: 0.3207547, b: 0.18257967, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6319,7 +6300,7 @@ GameObject:
   - component: {fileID: 1486399453}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: TipWindowUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7453,6 +7434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717945808988979538, guid: 515f6e7207694544a9967951dd0bebff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.06006
       objectReference: {fileID: 0}
     - target: {fileID: 6283933505329682420, guid: 515f6e7207694544a9967951dd0bebff,
         type: 3}
@@ -9036,7 +9022,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
+  m_fontSize: 12
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
