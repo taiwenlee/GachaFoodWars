@@ -14,6 +14,8 @@ public class Gacha : MonoBehaviour
     public Inventory inventory;
     public KeyCode interactKey;
     public GameObject GachaInstructionUI;
+    public GameObject inventoryUI;
+    public GameObject gearUI;
 
     public Animator animator;
     public bool animationPlaying = false;
@@ -38,6 +40,14 @@ public class Gacha : MonoBehaviour
         if (inventory == null)
         {
             inventory = Inventory.instance;
+        }
+        if (inventoryUI == null)
+        {
+            inventoryUI = GameObject.Find("Inventory");
+        }
+        if (gearUI == null)
+        {
+            gearUI = GameObject.Find("Gear");
         }
         if (GachaUI == null)
         {
@@ -84,6 +94,10 @@ public class Gacha : MonoBehaviour
                 //BrokeCoroutine();
             }
         }
+        if (inventoryUI.activeSelf == true || gearUI.activeSelf == true)
+        {
+            GachaInstructionUI.GetComponent<Canvas>().enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -92,7 +106,10 @@ public class Gacha : MonoBehaviour
         {
             Debug.Log("Player in range");
             isInRange = true;
-            GachaInstructionUI.GetComponent<Canvas>().enabled = true;
+            if (inventoryUI.activeSelf == false && gearUI.activeSelf == false)
+            {
+                GachaInstructionUI.GetComponent<Canvas>().enabled = true;
+            }
         }
     }
 

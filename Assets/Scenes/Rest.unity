@@ -1006,9 +1006,19 @@ PrefabInstance:
       objectReference: {fileID: 515451013}
     - target: {fileID: 6907870027043405597, guid: 6e512159082b5164a8de904690dec0f7,
         type: 3}
+      propertyPath: gearUI
+      value: 
+      objectReference: {fileID: 678548294}
+    - target: {fileID: 6907870027043405597, guid: 6e512159082b5164a8de904690dec0f7,
+        type: 3}
       propertyPath: GachaUI
       value: 
       objectReference: {fileID: 1946304613}
+    - target: {fileID: 6907870027043405597, guid: 6e512159082b5164a8de904690dec0f7,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1726261508}
     - target: {fileID: 6907870027043405597, guid: 6e512159082b5164a8de904690dec0f7,
         type: 3}
       propertyPath: WeaponObtainedUI
@@ -2358,9 +2368,19 @@ PrefabInstance:
       objectReference: {fileID: 515451013}
     - target: {fileID: 8179975578544504756, guid: 9e020dab6159f334c957cfd73c0a14cb,
         type: 3}
+      propertyPath: gearUI
+      value: 
+      objectReference: {fileID: 678548294}
+    - target: {fileID: 8179975578544504756, guid: 9e020dab6159f334c957cfd73c0a14cb,
+        type: 3}
       propertyPath: GachaUI
       value: 
       objectReference: {fileID: 1946304613}
+    - target: {fileID: 8179975578544504756, guid: 9e020dab6159f334c957cfd73c0a14cb,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1726261508}
     - target: {fileID: 8179975578544504756, guid: 9e020dab6159f334c957cfd73c0a14cb,
         type: 3}
       propertyPath: WeaponObtainedUI
@@ -3091,6 +3111,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7267503747078253667, guid: bca1d090f2bd0d74d9c3f0950b3ee7bc,
     type: 3}
   m_PrefabInstance: {fileID: 649779929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &678548294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1313270494, guid: 515f6e7207694544a9967951dd0bebff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673421528}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &693473058 stripped
 Transform:
@@ -8128,6 +8154,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2517306062512654960, guid: 3fbd775a0c080d44cb70edbdeb636676,
     type: 3}
   m_PrefabInstance: {fileID: 1707094443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1726261508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 415519159, guid: 515f6e7207694544a9967951dd0bebff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673421528}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1736595373
 PrefabInstance:
