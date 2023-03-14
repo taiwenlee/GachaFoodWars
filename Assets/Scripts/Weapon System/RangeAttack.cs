@@ -16,6 +16,7 @@ public class RangeAttack : MonoBehaviour
             var projectileInstance = Instantiate(projectile, transform.position, transform.rotation);
             projectileInstance.GetComponent<Projectile>().element = wc.element;
             projectileInstance.GetComponent<Projectile>().elementLevel = wc.elementLevel;
+            projectileInstance.GetComponent<Projectile>().elementDuration = wc.elementDuration * wc.elementDurationMultiplier;
             projectileInstance.GetComponent<Projectile>().direction = transform.rotation * Vector3.forward;
             projectileInstance.GetComponent<Projectile>().damage = (int)(wc.damage * wc.damageMultiplier);
             projectileInstance.transform.localScale *= wc.hitboxMultiplier * wc.baseHitboxMultiplier;

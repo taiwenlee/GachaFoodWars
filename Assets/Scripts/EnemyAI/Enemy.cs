@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Element")]
     public WeaponController.Element element = WeaponController.Element.None;
-    public float elementDuration = 3.0f;
+    const float defaultElDuration = 3.0f;
     public float stunDuration = .5f;
     public float fireDamageMultiplier = 1.0f;
     public float iceSlowMultiplier = .1f;
@@ -160,7 +160,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, WeaponController.Element e = WeaponController.Element.None, int el = 0)
+    public void TakeDamage(int damage, WeaponController.Element e = WeaponController.Element.None, int el = 0, float elementDuration = defaultElDuration)
     {
         if (invunerableTimer <= 0.0f)
         {
@@ -175,22 +175,13 @@ public class Enemy : MonoBehaviour
         {
             element = e;
             elementLevel = el;
+            elementTimer = elementDuration;
             elementCooldownTimer = elementCooldown;
         }
     }
 
     private void ElementalDamage()
     {
-        // set element timer if theres an element
-        if (element != WeaponController.Element.None && elementTimer <= 0.0f)
-        {
-            elementTimer = elementDuration;
-            if (element == WeaponController.Element.Electric)
-            {
-                elementTimer = stunDuration * elementLevel;
-            }
-        }
-
         // update element timer
         if (elementTimer > 0.0f)
         {

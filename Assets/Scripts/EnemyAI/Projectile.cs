@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private Collider col;
     public WeaponController.Element element = WeaponController.Element.None;
     public int elementLevel = 0;
+    public float elementDuration = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage, element, elementLevel);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage, element, elementLevel, elementDuration);
 
         }
         Destroy(gameObject);
