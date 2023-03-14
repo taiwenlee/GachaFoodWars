@@ -10,6 +10,8 @@ public class WeaponController : MonoBehaviour
     public float AttackCooldown = 1.0f;
     public int damage;
     public float attackSpeed;
+    public float elementDuration = 3f;
+    public float elementDurationMultiplier = 1f;
     public float baseHitboxMultiplier = 1;
     public bool isAttacking = false;
     public bool isSelected = false;
@@ -118,6 +120,7 @@ public class WeaponController : MonoBehaviour
                     // set damage, attack speed, and hitbox multiplier
                     damage = equipment.damageStat + (int)equipment.grade * 2;
                     attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    elementDurationMultiplier = 1 + (int)equipment.grade * 0.2f;
                     baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * baseHitboxMultiplier * hitboxMultiplier;
 
@@ -132,6 +135,7 @@ public class WeaponController : MonoBehaviour
                     // set damage, attack speed, and hitbox multiplier
                     damage = equipment.damageStat + (int)equipment.grade * 2;
                     attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    elementDurationMultiplier = 1 + (int)equipment.grade * 0.2f;
                     baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
                     weapon.transform.localScale = new Vector3(1, 1, 1) * baseHitboxMultiplier * hitboxMultiplier;
 
@@ -146,6 +150,7 @@ public class WeaponController : MonoBehaviour
                     // set damage, attack speed, and hitbox multiplier
                     damage = equipment.damageStat + (int)equipment.grade * 2;
                     attackSpeed = equipment.attackSpeed + (int)equipment.grade * 0.1f;
+                    elementDurationMultiplier = 1 + (int)equipment.grade * 0.2f;
                     baseHitboxMultiplier = 1 + (int)equipment.grade * 0.1f;
                     break;
                 default:
@@ -236,14 +241,17 @@ public class WeaponController : MonoBehaviour
                         break;
                     case Modifier.ModifierType.Fire:
                         elementLevel += (int)modifier.grade;
+                        elementDuration = 3.0f;
                         element = Element.Fire;
                         break;
                     case Modifier.ModifierType.Ice:
                         elementLevel += (int)modifier.grade;
+                        elementDuration = 3.0f;
                         element = Element.Ice;
                         break;
                     case Modifier.ModifierType.Electric:
                         elementLevel += (int)modifier.grade;
+                        elementDuration = .5f * ((int)modifier.grade + 1);
                         element = Element.Electric;
                         break;
                     case Modifier.ModifierType.Knockback:
