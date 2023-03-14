@@ -22,7 +22,6 @@ public class Modifier : Item
         newModifier.grade = this.grade;
         //modifier properties
         newModifier.mType = this.mType;
-        //newModifier.description = this.name + "\nGrade: " + this.grade + "\nDamage: " + this.damageStat + "\nAttack Speed: " + this.attackSpeed;
         return newModifier;
     }
     public enum ModifierType { Damage, Hitbox, AttackSpeed, Fire, Ice, Electric, Knockback, MultiHit }

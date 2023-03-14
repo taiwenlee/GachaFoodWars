@@ -28,8 +28,6 @@ public class Equipment : Item
         newEquipment.damageStat = this.damageStat;
         newEquipment.attackSpeed = this.attackSpeed;
         newEquipment.gSlots = this.gSlots;
-        Debug.Log("Item hover is grade: " + newEquipment.grade);
-        newEquipment.description = newEquipment.name + "\nGrade: " + newEquipment.grade + "\nDamage: " + newEquipment.damageStat + (int)newEquipment.grade * 2 + "\nAttack Speed: " + newEquipment.attackSpeed + (int)newEquipment.grade * 0.1f;
         return newEquipment;
     }
 }

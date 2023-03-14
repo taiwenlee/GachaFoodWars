@@ -226,10 +226,10 @@ public class WeaponController : MonoBehaviour
                 switch (modifier.mType)
                 {
                     case Modifier.ModifierType.Damage:
-                        damageMultiplier += .2f * ((int)modifier.grade + 1);
                         break;
                     case Modifier.ModifierType.Hitbox:
                         hitboxMultiplier += .2f * ((int)modifier.grade + 1);
+
                         break;
                     case Modifier.ModifierType.AttackSpeed:
                         attackSpeedMultiplier += .2f * ((int)modifier.grade + 1);

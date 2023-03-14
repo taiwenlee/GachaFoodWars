@@ -40,11 +40,6 @@ public class Inventory : MonoBehaviour
             //Debug.Log("Not enough room");
             return false;
         }
-/*        if(item is Equipment)
-        {
-            var eq = (Equipment)item;
-            Debug.Log("Name: " + item.name + "Grade: " + item.grade + "Damage: " + eq.damageStat + "AtkSpd: " + eq.attackSpeed);
-        }*/
         items.Add(item);
 
         if (onItemChangedCallBack != null)

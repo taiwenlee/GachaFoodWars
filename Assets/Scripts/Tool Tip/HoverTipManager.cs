@@ -28,14 +28,22 @@ public class HoverTipManager : MonoBehaviour
     {
         HideTip();
     }
-    
+
+    private void Update()
+    {
+        if ((Input.GetButtonDown("Inventory")) || (Input.GetKeyDown(KeyCode.Tab)))
+        {
+            tipText.text = default;
+            tipWindow.gameObject.SetActive(false);
+        }
+    }
     private void ShowTip(string tip, Vector2 mousePos)
     {
         tipText.text = tip;
         tipWindow.sizeDelta = new Vector2(tipText.preferredWidth > 200 ? 200 : tipText.preferredWidth, tipText.preferredHeight);
 
         tipWindow.gameObject.SetActive(true);
-        tipWindow.transform.position = new Vector2(mousePos.x, mousePos.y);
+        tipWindow.transform.position = new Vector2(mousePos.x - 40, mousePos.y);
     }
         
     private void HideTip()
