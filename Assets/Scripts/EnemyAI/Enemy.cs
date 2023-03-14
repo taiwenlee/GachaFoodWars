@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour
             }
             StartCoroutine(dropLoot(transform.position, drop, dropValue, deathDelay));
             agent.enabled = false;
-            Destroy(gameObject, deathDelay + .01f);
+            Destroy(gameObject, deathDelay + .02f);
             this.enabled = false;
         }
     }
