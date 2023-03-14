@@ -40,6 +40,8 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(item != null)
         {
             item.Use();
+            StopAllCoroutines();
+            HoverTipManager.OnMouseLoseFocus();
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
