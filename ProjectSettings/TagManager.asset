@@ -25,6 +25,7 @@ TagManager:
   - GachaUI
   - Broke
   - GachaInstructionUI
+  - TipWindowUI
   layers:
   - Default
   - TransparentFX
