@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         if (health != 0 & takingDamageSFX != null)
         {
             takingDamageSFX.Play();
-            ShakeCamera(5f,.1f);
+
         }
         if (delayDamage)
         {
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             playerStats.playerHealthData.ModifyPlayerHealth(-damage);
             health = playerStats.playerHealthData.GetPlayerHealth();
             heartSystem.DrawHearts(health, maxHeart);
-
+            ShakeCamera(5f,.1f);
             /*if (healthControl != null)
             {
                 healthControl.GetComponent<PlayerUI>().SetHealth(health);
