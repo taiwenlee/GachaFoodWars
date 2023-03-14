@@ -21,7 +21,8 @@ public class MeleeAI : Enemy
         var rayDirection = player.transform.position - transform.position;
         if (Physics.Raycast(transform.position, rayDirection, out var hit, sightRange, ~LayerMask.GetMask("Ignore Raycast")))
         {
-            if (hit.collider.gameObject == player && agent.isActiveAndEnabled)
+            if (hit.collider.gameObject == player && agent.isActiveAndEnabled
+            & Vector3.Distance(transform.position, player.transform.position) > attackRange)
             {
                 agent.SetDestination(player.transform.position);
                 //flip sprite if player is on the left
@@ -30,8 +31,10 @@ public class MeleeAI : Enemy
         }
 
         // check if player is in attack range, attack if true
-        if (Vector3.Distance(transform.position, player.transform.position) < attackRange && element != WeaponController.Element.Electric)
+        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && element != WeaponController.Element.Electric)
         {
+            // reset agent destination
+            agent.SetDestination(transform.position);
             // attack player
             if (attackcooldown <= 0.0f)
             {

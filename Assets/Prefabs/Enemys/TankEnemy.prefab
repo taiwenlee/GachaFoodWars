@@ -110,7 +110,7 @@ MonoBehaviour:
   health: 100
   baseSpeed: 8
   attackRate: 1
-  attackRange: 1.3
+  attackRange: 1.5
   sightRange: 10
   damage: 2
   dropValue: 1
