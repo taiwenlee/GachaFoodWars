@@ -179,7 +179,7 @@ PrefabInstance:
     - target: {fileID: 6836417377929943318, guid: fe09c90496692464bad83ad853f6b02b,
         type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 1980
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6836417377929943318, guid: fe09c90496692464bad83ad853f6b02b,
         type: 3}
